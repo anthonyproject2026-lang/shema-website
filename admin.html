@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHEMA — Admin Panel</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="icon" href="images/shema-logo.png" type="image/png" />
+</head>
+<body class="admin-body">
+
+  <!-- ========== Login Screen ========== -->
+  <div class="admin-login" id="loginScreen">
+    <div class="login-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="login-card">
+      <div class="login-header">
+        <a href="index.html" class="login-logo">
+          <img src="images/shema-logo.png" alt="SHEMA Logo" />
+        </a>
+        <h1>Admin Access</h1>
+        <p>Shepparton Malayalee Association</p>
+      </div>
+      <form id="loginForm" autocomplete="off">
+        <div class="input-group">
+          <label for="adminPassword">Password</label>
+          <div class="input-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="adminPassword" placeholder="Enter admin password" required />
+            <button type="button" class="toggle-pw" id="togglePw" aria-label="Toggle password visibility">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <p class="login-error" id="loginError"></p>
+        </div>
+        <button type="submit" class="login-btn">
+          <span>Sign In</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Website
+      </a>
+    </div>
+  </div>
+
+  <!-- ========== Admin Dashboard ========== -->
+  <div class="admin-dashboard" id="dashboardScreen" style="display:none;">
+    
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <a href="index.html" class="admin-logo">
+          <img src="images/shema-logo.png" alt="SHEMA Logo" />
+          <span>SHEMA Admin</span>
+        </a>
+      </div>
+      <div class="topbar-right">
+        <a href="index.html" class="topbar-link" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          View Site
+        </a>
+        <button class="logout-btn" id="logoutBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="admin-main">
+      <div class="admin-container">
+
+        <!-- Tab Navigation -->
+        <div class="admin-tabs">
+          <button class="tab-btn active" data-tab="photos">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Photo Gallery
+          </button>
+          <button class="tab-btn" data-tab="events">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Event Announcements
+          </button>
+        </div>
+
+        <!-- ===== Photos Tab ===== -->
+        <div class="tab-content active" id="tab-photos">
+          <div class="admin-section-header">
+            <div>
+              <h2>Manage Photos</h2>
+              <p>Add photos to the website gallery. Photos appear in the Gallery section on the main site.</p>
+            </div>
+          </div>
+
+          <!-- Add Photo Form -->
+          <div class="admin-form-card">
+            <h3>Add New Photo</h3>
+            <form id="photoForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="photoUrl">Image URL</label>
+                  <input type="url" id="photoUrl" placeholder="https://example.com/photo.jpg" required />
+                </div>
+                <div class="form-group">
+                  <label for="photoCaption">Caption</label>
+                  <input type="text" id="photoCaption" placeholder="Describe this photo..." required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="photoDescription">Description (optional)</label>
+                <input type="text" id="photoDescription" placeholder="Additional details..." />
+              </div>
+
+              <!-- Live Preview -->
+              <div class="preview-area" id="photoPreview" style="display:none;">
+                <h4>Preview</h4>
+                <div class="preview-card photo-preview-card">
+                  <img id="previewImg" src="" alt="Preview" />
+                  <div class="preview-info">
+                    <strong id="previewCaption"></strong>
+                    <span id="previewDesc"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-preview" id="previewPhotoBtn">Preview</button>
+                <button type="submit" class="btn-add">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add Photo
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Photo List -->
+          <div class="admin-list" id="photoList">
+            <h3>Saved Photos <span class="count" id="photoCount">0</span></h3>
+            <div class="list-grid" id="photoGrid">
+              <p class="empty-state">No photos added yet. Use the form above to add your first photo.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Events Tab ===== -->
+        <div class="tab-content" id="tab-events">
+          <div class="admin-section-header">
+            <div>
+              <h2>Manage Events</h2>
+              <p>Create event announcements that appear on the main website.</p>
+            </div>
+          </div>
+
+          <!-- Add Event Form -->
+          <div class="admin-form-card">
+            <h3>Create New Event</h3>
+            <form id="eventForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="eventTitle">Event Title</label>
+                  <input type="text" id="eventTitle" placeholder="e.g. Onam Celebration 2025" required />
+                </div>
+                <div class="form-group">
+                  <label for="eventDate">Event Date</label>
+                  <input type="date" id="eventDate" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="eventDescription">Description</label>
+                <textarea id="eventDescription" rows="3" placeholder="Describe the event..." required></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="eventLocation">Location (optional)</label>
+                  <input type="text" id="eventLocation" placeholder="e.g. Shepparton Community Hall" />
+                </div>
+                <div class="form-group">
+                  <label for="eventImage">Image URL (optional)</label>
+                  <input type="url" id="eventImage" placeholder="https://example.com/event-image.jpg" />
+                </div>
+              </div>
+
+              <!-- Live Preview -->
+              <div class="preview-area" id="eventPreview" style="display:none;">
+                <h4>Preview</h4>
+                <div class="preview-card event-preview-card">
+                  <div class="event-prev-date">
+                    <span class="ep-month" id="epMonth">JAN</span>
+                    <span class="ep-day" id="epDay">01</span>
+                  </div>
+                  <div class="event-prev-info">
+                    <strong id="epTitle">Event Title</strong>
+                    <span id="epDesc">Description</span>
+                    <span class="ep-location" id="epLocation">📍 Location</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-preview" id="previewEventBtn">Preview</button>
+                <button type="submit" class="btn-add">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add Event
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Events List -->
+          <div class="admin-list" id="eventList">
+            <h3>Saved Events <span class="count" id="eventCount">0</span></h3>
+            <div class="list-grid" id="eventGrid">
+              <p class="empty-state">No events added yet. Use the form above to create your first event.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span id="toastMessage"></span>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
