@@ -296,11 +296,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoOverlay = document.getElementById('videoOverlay');
 
   if (videoPlayBtn && keralaVideo && videoOverlay) {
-    videoPlayBtn.addEventListener('click', () => {
-      keralaVideo.play();
+    const playVideo = () => {
+      keralaVideo.play().catch(err => {
+        console.error("Video play failed:", err);
+      });
       videoOverlay.style.opacity = '0';
       videoOverlay.style.visibility = 'hidden';
       keralaVideo.controls = true;
+    };
+
+    // Play on clicking the button or anywhere on the overlay
+    videoPlayBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playVideo();
+    });
+    
+    videoOverlay.addEventListener('click', () => {
+      playVideo();
     });
 
     keralaVideo.addEventListener('pause', () => {
@@ -311,10 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     keralaVideo.addEventListener('click', () => {
       if (keralaVideo.paused) {
-        keralaVideo.play();
-        videoOverlay.style.opacity = '0';
-        videoOverlay.style.visibility = 'hidden';
-        keralaVideo.controls = true;
+        playVideo();
       } else {
         keralaVideo.pause();
       }
