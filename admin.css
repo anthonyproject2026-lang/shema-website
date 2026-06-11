@@ -697,6 +697,45 @@
   transform: translateX(-50%) translateY(0);
 }
 
+/* Badges for Default / Added status */
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: 0.5rem;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
+.badge-default {
+  background: rgba(249, 168, 37, 0.15);
+  color: var(--clr-accent);
+  border: 1px solid rgba(249, 168, 37, 0.3);
+}
+.badge-added {
+  background: rgba(27, 94, 32, 0.2);
+  color: var(--clr-primary-light);
+  border: 1px solid rgba(27, 94, 32, 0.4);
+}
+
+/* Feature Tag Badge */
+.feature-tag-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  font-size: 0.7rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 50px;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .admin-topbar {

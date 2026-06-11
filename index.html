@@ -50,6 +50,10 @@
       <img src="images/kerala-backwaters.png" alt="Kerala Backwaters — God's Own Country" />
     </div>
     <div class="hero-overlay"></div>
+    <div class="hero-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">
@@ -99,6 +103,50 @@
         <div class="stat-item reveal">
           <div class="stat-number" data-count="500">0</div>
           <div class="stat-label">Community Members</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Kerala Quote Marquee ========== -->
+  <div class="quote-marquee">
+    <div class="marquee-track">
+      <span>"Kerala — <em>God's Own Country</em>" ✦</span>
+      <span>"A land where nature meets culture" ✦</span>
+      <span>"Backwaters • Kathakali • Ayurveda • Kalaripayattu" ✦</span>
+      <span>"Unity in Diversity — SHEMA Shepparton" ✦</span>
+      <span>"Celebrating Heritage, Building Community" ✦</span>
+      <span>"From the shores of Kerala to the heart of Victoria" ✦</span>
+      <!-- Duplicate for seamless loop -->
+      <span>"Kerala — <em>God's Own Country</em>" ✦</span>
+      <span>"A land where nature meets culture" ✦</span>
+      <span>"Backwaters • Kathakali • Ayurveda • Kalaripayattu" ✦</span>
+      <span>"Unity in Diversity — SHEMA Shepparton" ✦</span>
+      <span>"Celebrating Heritage, Building Community" ✦</span>
+      <span>"From the shores of Kerala to the heart of Victoria" ✦</span>
+    </div>
+  </div>
+
+  <!-- ========== Video Section ========== -->
+  <section class="video-section section-pad" id="video">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <span class="section-label" style="justify-content: center;">Introductory Video</span>
+        <h2 class="section-title" style="color: #fff; margin-inline: auto;">
+          Kerala — God's Own Country
+        </h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,.6); margin-inline: auto; text-align: center;">
+          A 30-second cinematic journey through Kerala's backwaters, performing arts, 
+          festivals and iconic landscapes.
+        </p>
+      </div>
+      <div class="video-wrapper reveal">
+        <video id="keralaVideo" src="videos/0601.mp4" poster="images/kerala-backwaters.png" playsinline loop style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;"></video>
+        <div class="video-overlay" id="videoOverlay" style="position: absolute; inset: 0; background: rgba(10,31,13,0.45); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; border-radius: 20px; z-index: 5;">
+          <button class="video-play-btn" id="videoPlayBtn" aria-label="Play Video" style="position: relative; z-index: 6;">
+            ▶
+          </button>
+          <span class="bg-text" style="position: absolute; bottom: 2rem; z-index: 6; color: #fff; font-family: var(--ff-heading); font-size: 1.2rem; font-weight: 500; text-align: center; width: 90%; letter-spacing: 1px;">30-Second Intro Video — Kerala's Rich Cultural Heritage</span>
         </div>
       </div>
     </div>
@@ -182,7 +230,7 @@
         </p>
       </div>
       <div class="kerala-grid">
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_1">
           <img src="images/kathakali.png" alt="Kathakali — Classical Dance-Drama of Kerala" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Performing Art</span>
@@ -190,7 +238,7 @@
             <p>The classical dance-drama of Kerala, known for its elaborate costumes, vivid face makeup, and powerful storytelling rooted in Hindu mythology.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_2">
           <img src="images/theyyam.png" alt="Theyyam — Ancient Ritual Art of North Malabar" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Ritual Art</span>
@@ -198,7 +246,7 @@
             <p>An ancient ritual art form from North Malabar, where performers are believed to become possessed by divine spirits, adorned with stunning headgear and body paint.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_3">
           <img src="images/boat-race.png" alt="Vallam Kali — Traditional Snake Boat Race" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Tradition</span>
@@ -206,7 +254,7 @@
             <p>The iconic snake boat races of Kerala, where massive chundan vallams race through the backwaters in a breathtaking display of teamwork and tradition.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_4">
           <img src="images/kerala-backwaters.png" alt="Kerala Backwaters and Houseboats" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Landscape</span>
@@ -214,7 +262,7 @@
             <p>Kerala's iconic network of serene lagoons, canals and lakes, best experienced on traditional kettuvallam houseboats gliding through palm-fringed waters.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_5">
           <img src="images/munnar.png" alt="Munnar Tea Gardens — Western Ghats" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Nature</span>
@@ -222,7 +270,7 @@
             <p>Rolling emerald tea plantations, misty mountain peaks, and pristine forests that make Kerala's Western Ghats a UNESCO-worthy natural treasure.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_6">
           <img src="images/onam-sadhya.png" alt="Onam Sadhya — Traditional Kerala Feast" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Cuisine</span>
@@ -230,7 +278,7 @@
             <p>The grand vegetarian feast of Kerala, served on a banana leaf with up to 26 dishes — a culinary tradition that embodies the spirit of Onam festival.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_7">
           <img src="images/kalaripayattu.png" alt="Kalaripayattu — Ancient Martial Art of Kerala" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Martial Art</span>
@@ -238,7 +286,7 @@
             <p>One of the oldest martial arts in the world, originating in Kerala. Practitioners train in traditional kalaris, mastering strikes, kicks and weaponry.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_8">
           <img src="images/temple-festival.png" alt="Kerala Temple Festival — Sacred Celebrations" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Festival</span>
@@ -246,7 +294,7 @@
             <p>Grand celebrations featuring caparisoned elephants, traditional percussion ensembles, colourful parasols, and spectacular fireworks at Kerala's sacred temples.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_9">
           <img src="images/chinese-fishing-nets.png" alt="Chinese Fishing Nets — Fort Kochi Heritage" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Heritage</span>
@@ -254,7 +302,7 @@
             <p>The iconic cantilevered fishing nets of Fort Kochi, introduced by Chinese traders centuries ago — now a symbol of Kerala's multicultural maritime history.</p>
           </div>
         </div>
-        <div class="kerala-card reveal">
+        <div class="kerala-card reveal" data-id="default_feature_10">
           <img src="images/ayurveda.png" alt="Ayurveda — Ancient Healing Science of Kerala" />
           <div class="kerala-card-overlay">
             <span class="kerala-card-tag">Wellness</span>
@@ -278,14 +326,14 @@
         </p>
       </div>
       <div class="highlights-grid">
-        <div class="highlight-card reveal">
+        <div class="highlight-card reveal" data-id="default_photo_1">
           <img src="images/event-mayor.jpg" alt="SHEMA Event with Cr Shane Sali, Mayor of Greater Shepparton" />
           <div class="highlight-card-info">
             <h3>SHEMA Cultural Evening</h3>
             <p>With Cr Shane Sali, Mayor — Greater Shepparton City Council</p>
           </div>
         </div>
-        <div class="highlight-card reveal">
+        <div class="highlight-card reveal" data-id="default_photo_2">
           <img src="images/event-lamp.jpg" alt="Traditional Lamp Lighting Ceremony at SHEMA Event" />
           <div class="highlight-card-info">
             <h3>Traditional Lamp Lighting</h3>
@@ -309,7 +357,7 @@
       </div>
       <div class="events-grid" id="eventsGrid">
         <!-- Default events -->
-        <div class="event-card reveal">
+        <div class="event-card reveal" data-id="default_event_1">
           <div class="event-date-badge">
             <span class="event-month">SEP</span>
             <span class="event-day">14</span>
@@ -322,7 +370,7 @@
             </div>
           </div>
         </div>
-        <div class="event-card reveal">
+        <div class="event-card reveal" data-id="default_event_2">
           <div class="event-date-badge">
             <span class="event-month">APR</span>
             <span class="event-day">14</span>
@@ -335,7 +383,7 @@
             </div>
           </div>
         </div>
-        <div class="event-card reveal">
+        <div class="event-card reveal" data-id="default_event_3">
           <div class="event-date-badge">
             <span class="event-month">DEC</span>
             <span class="event-day">21</span>
@@ -524,30 +572,7 @@
     </div>
   </section>
 
-  <!-- ========== Video Section ========== -->
-  <section class="video-section section-pad" id="video">
-    <div class="container">
-      <div class="reveal" style="text-align: center;">
-        <span class="section-label" style="justify-content: center;">Introductory Video</span>
-        <h2 class="section-title" style="color: #fff; margin-inline: auto;">
-          Kerala — God's Own Country
-        </h2>
-        <p class="section-subtitle" style="color: rgba(255,255,255,.6); margin-inline: auto; text-align: center;">
-          A 15-second cinematic journey through Kerala's backwaters, performing arts, 
-          festivals and iconic landscapes.
-        </p>
-      </div>
-      <div class="video-wrapper reveal">
-        <video id="keralaVideo" src="videos/0601.mp4" poster="images/kerala-backwaters.png" playsinline loop style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;"></video>
-        <div class="video-overlay" id="videoOverlay" style="position: absolute; inset: 0; background: rgba(10,31,13,0.45); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; border-radius: 20px; z-index: 5;">
-          <button class="video-play-btn" id="videoPlayBtn" aria-label="Play Video" style="position: relative; z-index: 6;">
-            ▶
-          </button>
-          <span class="bg-text" style="position: absolute; bottom: 2rem; z-index: 6; color: #fff; font-family: var(--ff-heading); font-size: 1.2rem; font-weight: 500; text-align: center; width: 90%; letter-spacing: 1px;">15-Second Intro Video — Kerala's Rich Cultural Heritage</span>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- ========== CTA Section ========== -->
   <section class="cta-section section-pad" id="contact">
@@ -625,7 +650,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Shepparton Malayalee Association (SHEMA) Inc. All rights reserved.</p>
+        <p>&copy; 2026 Shepparton Malayalee Association (SHEMA) Inc. All rights reserved.</p>
         <div class="footer-socials">
           <a href="#" aria-label="Facebook">📘</a>
           <a href="#" aria-label="Instagram">📸</a>

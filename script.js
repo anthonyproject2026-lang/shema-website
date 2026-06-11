@@ -4,8 +4,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------- Image Fade-In on Load ---------- */
+  document.querySelectorAll('img').forEach(img => {
+    if (img.complete) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('loaded'));
+      img.addEventListener('error', () => img.classList.add('loaded')); // show placeholder on error
+    }
+  });
+
   /* ---------- Load Admin Content from LocalStorage ---------- */
   function loadAdminContent() {
+    // 0. Hide deleted items (both defaults and custom)
+    try {
+      const deletedIds = JSON.parse(localStorage.getItem('shema_deleted_items') || '[]');
+      deletedIds.forEach(id => {
+        const element = document.querySelector(`[data-id="${id}"]`);
+        if (element) {
+          element.remove();
+        }
+      });
+    } catch (e) {
+      console.error('Error hiding deleted items:', e);
+    }
+
     // 1. Load Photos
     const highlightsGrid = document.querySelector('.highlights-grid');
     if (highlightsGrid) {
@@ -14,8 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         adminPhotos.forEach(photo => {
           const card = document.createElement('div');
           card.className = 'highlight-card reveal';
+          card.setAttribute('data-id', photo.id);
           card.innerHTML = `
-            <img src="${photo.url}" alt="${photo.caption}" onerror="this.src='images/shema-logo.png'" />
+            <img src="${photo.url}" alt="${photo.caption}" class="loaded" onerror="this.src='images/shema-logo.png'" />
             <div class="highlight-card-info">
               <h3>${photo.caption}</h3>
               <p>${photo.description || ''}</p>
@@ -35,8 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const adminEvents = JSON.parse(localStorage.getItem('shema_admin_events') || '[]');
         const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
         
-        // Sort events chronologically or keep order added. Let's show newest first or by date.
-        // We'll keep the order added by prepending them.
         adminEvents.forEach(event => {
           let month = 'EVT';
           let day = '00';
@@ -48,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           const card = document.createElement('div');
           card.className = 'event-card reveal';
+          card.setAttribute('data-id', event.id);
           card.innerHTML = `
             <div class="event-date-badge">
               <span class="event-month">${month}</span>
@@ -65,6 +88,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       } catch (e) {
         console.error('Error loading admin events:', e);
+      }
+    }
+
+    // 3. Load Kerala Heritage Features
+    const keralaGrid = document.querySelector('.kerala-grid');
+    if (keralaGrid) {
+      try {
+        const adminFeatures = JSON.parse(localStorage.getItem('shema_admin_features') || '[]');
+        adminFeatures.forEach(feature => {
+          const card = document.createElement('div');
+          card.className = 'kerala-card reveal';
+          card.setAttribute('data-id', feature.id);
+          card.innerHTML = `
+            <img src="${feature.image}" alt="${feature.title}" class="loaded" onerror="this.src='images/shema-logo.png'" />
+            <div class="kerala-card-overlay">
+              <span class="kerala-card-tag">${feature.tag}</span>
+              <h3>${feature.title}</h3>
+              <p>${feature.description}</p>
+            </div>
+          `;
+          keralaGrid.appendChild(card);
+        });
+      } catch (e) {
+        console.error('Error loading admin features:', e);
       }
     }
   }
@@ -136,21 +183,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- Scroll-reveal animation ---------- */
-  const revealElements = document.querySelectorAll('.reveal');
-
-  function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-    revealElements.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
-      const revealPoint = 120;
-      if (elementTop < windowHeight - revealPoint) {
-        el.classList.add('visible');
+  /* ---------- Scroll-reveal with IntersectionObserver ---------- */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target); // stop observing once revealed
       }
     });
-  }
-  window.addEventListener('scroll', revealOnScroll, { passive: true });
-  revealOnScroll(); // initial check
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   /* ---------- Counter animation ---------- */
   const counters = document.querySelectorAll('.stat-number[data-count]');
@@ -278,5 +321,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- Tilt effect on Kerala heritage cards ---------- */
+  document.querySelectorAll('.kerala-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
   console.log('🌿 SHEMA Website loaded successfully');
 });
+

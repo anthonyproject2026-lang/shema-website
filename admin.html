@@ -87,6 +87,10 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Event Announcements
           </button>
+          <button class="tab-btn" data-tab="features">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            Kerala Heritage
+          </button>
         </div>
 
         <!-- ===== Photos Tab ===== -->
@@ -217,6 +221,72 @@
             <h3>Saved Events <span class="count" id="eventCount">0</span></h3>
             <div class="list-grid" id="eventGrid">
               <p class="empty-state">No events added yet. Use the form above to create your first event.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Features Tab ===== -->
+        <div class="tab-content" id="tab-features">
+          <div class="admin-section-header">
+            <div>
+              <h2>Manage Kerala Heritage</h2>
+              <p>Add new custom heritage cards, or hide/delete existing ones from the homepage.</p>
+            </div>
+          </div>
+
+          <!-- Add Feature Form -->
+          <div class="admin-form-card">
+            <h3>Add Custom Heritage Card</h3>
+            <form id="featureForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="featureTitle">Title</label>
+                  <input type="text" id="featureTitle" placeholder="e.g. Kathakali, Backwaters..." required />
+                </div>
+                <div class="form-group">
+                  <label for="featureTag">Tag / Category</label>
+                  <input type="text" id="featureTag" placeholder="e.g. Performing Art, Tradition, Nature" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="featureDescription">Description</label>
+                <textarea id="featureDescription" rows="3" placeholder="Brief explanation of this heritage item..." required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="featureImage">Image URL</label>
+                <input type="url" id="featureImage" placeholder="https://example.com/image.jpg" required />
+              </div>
+
+              <!-- Live Preview -->
+              <div class="preview-area" id="featurePreview" style="display:none;">
+                <h4>Preview</h4>
+                <div class="preview-card feature-preview-card" style="max-width: 380px; margin: 1rem 0;">
+                  <div class="kerala-card reveal visible" style="height: 300px; position: relative; border-radius: 16px; overflow: hidden;">
+                    <img id="fpImg" src="" alt="Preview" style="width:100%; height:100%; object-fit:cover;" />
+                    <div class="kerala-card-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,31,13,0.95) 0%, rgba(10,31,13,0.6) 50%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: #fff;">
+                      <span class="kerala-card-tag" id="fpTag" style="background: var(--clr-primary); color: #fff; padding: 0.25rem 0.6rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; width: fit-content; margin-bottom: 0.5rem;">Tag</span>
+                      <h3 id="fpTitle" style="font-family: var(--ff-heading); font-size: 1.4rem; color: var(--clr-accent); margin-bottom: 0.4rem;">Title</h3>
+                      <p id="fpDesc" style="font-size: 0.82rem; opacity: 0.9; line-height: 1.4;">Description</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-preview" id="previewFeatureBtn">Preview</button>
+                <button type="submit" class="btn-add">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add Heritage Card
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Features List -->
+          <div class="admin-list" id="featureList">
+            <h3>Kerala Heritage Cards <span class="count" id="featureCount">0</span></h3>
+            <div class="list-grid" id="featureGrid">
+              <p class="empty-state">No heritage cards found.</p>
             </div>
           </div>
         </div>

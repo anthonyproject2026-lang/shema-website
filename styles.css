@@ -45,6 +45,7 @@
   --shadow-md:   0 8px 30px rgba(0,0,0,.10);
   --shadow-lg:   0 20px 60px rgba(0,0,0,.15);
   --shadow-gold: 0 8px 30px rgba(249,168,37,.25);
+  --shadow-xl:   0 25px 80px rgba(0,0,0,.2);
 }
 
 /* ---------- Reset ---------- */
@@ -58,7 +59,14 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-img { max-width: 100%; display: block; }
+img {
+  max-width: 100%; display: block;
+  opacity: 0;
+  transition: opacity .6s var(--ease-out);
+}
+img.loaded, img[src] { opacity: 1; }
+/* Ensure images show immediately when already cached */
+img[complete] { opacity: 1; }
 a { text-decoration: none; color: inherit; transition: var(--transition); }
 ul { list-style: none; }
 button { cursor: pointer; font-family: var(--ff-body); }
@@ -143,14 +151,22 @@ button { cursor: pointer; font-family: var(--ff-body); }
 .nav-logo {
   display: flex; align-items: center; gap: .7rem;
   font-family: var(--ff-heading);
-  font-size: 1.55rem; font-weight: 700;
+  font-size: 1.85rem; font-weight: 700;
   color: #fff;
+  transition: font-size 0.3s var(--ease-out);
 }
 .nav-logo .logo-img {
-  width: 46px; height: 46px;
+  width: 92px; height: 92px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,.25));
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out);
+}
+.navbar.scrolled .nav-logo {
+  font-size: 1.55rem;
+}
+.navbar.scrolled .nav-logo .logo-img {
+  width: 52px; height: 52px;
 }
 
 .nav-links { display: flex; align-items: center; gap: 2.2rem; }
@@ -261,7 +277,16 @@ button { cursor: pointer; font-family: var(--ff-body); }
 }
 .hero h1 em {
   font-style: italic;
-  color: var(--clr-accent);
+  background: linear-gradient(135deg, var(--clr-accent), #FFD54F, var(--clr-accent-warm));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50%      { background-position: 200% center; }
 }
 .hero-desc {
   font-size: 1.15rem;
@@ -323,6 +348,79 @@ button { cursor: pointer; font-family: var(--ff-body); }
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Floating Decorative Dots in Hero ---------- */
+.hero-particles {
+  position: absolute; inset: 0; z-index: 1;
+  overflow: hidden; pointer-events: none;
+}
+.hero-particles span {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: rgba(249,168,37,.25);
+  border-radius: 50%;
+  animation: float-up 12s linear infinite;
+}
+.hero-particles span:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 14s; width: 4px; height: 4px; }
+.hero-particles span:nth-child(2) { left: 25%; animation-delay: 2s; animation-duration: 11s; width: 8px; height: 8px; }
+.hero-particles span:nth-child(3) { left: 40%; animation-delay: 4s; animation-duration: 16s; }
+.hero-particles span:nth-child(4) { left: 55%; animation-delay: 1s; animation-duration: 13s; width: 5px; height: 5px; }
+.hero-particles span:nth-child(5) { left: 70%; animation-delay: 3s; animation-duration: 10s; width: 7px; height: 7px; }
+.hero-particles span:nth-child(6) { left: 85%; animation-delay: 5s; animation-duration: 15s; width: 4px; height: 4px; }
+.hero-particles span:nth-child(7) { left: 50%; animation-delay: 6s; animation-duration: 12s; width: 3px; height: 3px; }
+.hero-particles span:nth-child(8) { left: 15%; animation-delay: 7s; animation-duration: 18s; width: 5px; height: 5px; }
+
+@keyframes float-up {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: .5; }
+  100% { transform: translateY(-20vh) scale(1.2); opacity: 0; }
+}
+
+/* ---------- Kerala Quote Marquee ---------- */
+.quote-marquee {
+  background: linear-gradient(135deg, var(--clr-primary-dark), var(--clr-primary));
+  padding: 1rem 0;
+  overflow: hidden;
+  position: relative;
+}
+.quote-marquee::before,
+.quote-marquee::after {
+  content: '';
+  position: absolute; top: 0; width: 80px; height: 100%; z-index: 2;
+}
+.quote-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--clr-primary-dark), transparent);
+}
+.quote-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--clr-primary), transparent);
+}
+.marquee-track {
+  display: flex;
+  animation: marquee 40s linear infinite;
+  width: max-content;
+}
+.marquee-track span {
+  flex-shrink: 0;
+  padding: 0 3rem;
+  font-family: var(--ff-heading);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(255,255,255,.55);
+  white-space: nowrap;
+  letter-spacing: .5px;
+}
+.marquee-track span em {
+  color: var(--clr-accent);
+  font-style: normal;
+  font-weight: 600;
+}
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ---------- Stats Bar ---------- */
@@ -1066,12 +1164,12 @@ button { cursor: pointer; font-family: var(--ff-body); }
 /* ---------- Back to top ---------- */
 .back-to-top {
   position: fixed; bottom: 2rem; right: 2rem;
-  width: 48px; height: 48px;
-  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-light));
-  border: none; border-radius: 14px;
+  width: 50px; height: 50px;
+  background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-warm));
+  border: none; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 1.2rem;
-  box-shadow: var(--shadow-md);
+  color: #fff; font-size: 1.3rem; font-weight: 700;
+  box-shadow: 0 6px 25px rgba(249,168,37,.4);
   opacity: 0; visibility: hidden;
   transform: translateY(20px);
   transition: var(--transition);
@@ -1083,8 +1181,8 @@ button { cursor: pointer; font-family: var(--ff-body); }
   transform: translateY(0);
 }
 .back-to-top:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 35px rgba(249,168,37,.5);
 }
 
 /* ---------- Responsive ---------- */

@@ -10,8 +10,68 @@
   const STORAGE_KEYS = {
     photos: 'shema_admin_photos',
     events: 'shema_admin_events',
+    features: 'shema_admin_features',
+    deletedItems: 'shema_deleted_items',
     session: 'shema_admin_session'
   };
+
+  // ---- Defaults ----
+  const DEFAULT_PHOTOS = [
+    {
+      id: 'default_photo_1',
+      url: 'images/event-mayor.jpg',
+      caption: 'SHEMA Cultural Evening',
+      description: 'With Cr Shane Sali, Mayor — Greater Shepparton City Council',
+      isDefault: true
+    },
+    {
+      id: 'default_photo_2',
+      url: 'images/event-lamp.jpg',
+      caption: 'Traditional Lamp Lighting',
+      description: 'Nilavilakku ceremony — an auspicious beginning to every Kerala celebration',
+      isDefault: true
+    }
+  ];
+
+  const DEFAULT_EVENTS = [
+    {
+      id: 'default_event_1',
+      title: 'Onam Celebration 2025',
+      date: '2025-09-14',
+      description: 'Join us for the grand Onam celebration featuring traditional Sadhya feast, cultural performances, Pookalam competition and family fun activities.',
+      location: 'Shepparton Community Hall',
+      isDefault: true
+    },
+    {
+      id: 'default_event_2',
+      title: 'Vishu Celebration 2026',
+      date: '2026-04-14',
+      description: 'Welcome the Kerala New Year with Vishukkani, Sadya and traditional games. A day of new beginnings and community togetherness.',
+      location: 'Shepparton Civic Centre',
+      isDefault: true
+    },
+    {
+      id: 'default_event_3',
+      title: 'Christmas & Year-End Gathering',
+      date: '2025-12-21',
+      description: 'Celebrate the festive season with the SHEMA community. Enjoy food, music, kids\' activities and a warm community gathering to close the year.',
+      location: 'Victoria Park Lake',
+      isDefault: true
+    }
+  ];
+
+  const DEFAULT_FEATURES = [
+    { id: 'default_feature_1', tag: 'Performing Art', title: 'Kathakali', description: "The classical dance-drama of Kerala, known for its elaborate costumes, vivid face makeup, and powerful storytelling rooted in Hindu mythology.", image: 'images/kathakali.png', isDefault: true },
+    { id: 'default_feature_2', tag: 'Ritual Art', title: 'Theyyam', description: "An ancient ritual art form from North Malabar, where performers are believed to become possessed by divine spirits, adorned with stunning headgear and body paint.", image: 'images/theyyam.png', isDefault: true },
+    { id: 'default_feature_3', tag: 'Tradition', title: 'Vallam Kali', description: "The iconic snake boat races of Kerala, where massive chundan vallams race through the backwaters in a breathtaking display of teamwork and tradition.", image: 'images/boat-race.png', isDefault: true },
+    { id: 'default_feature_4', tag: 'Landscape', title: 'Backwaters & Houseboats', description: "Kerala's iconic network of serene lagoons, canals and lakes, best experienced on traditional kettuvallam houseboats gliding through palm-fringed waters.", image: 'images/kerala-backwaters.png', isDefault: true },
+    { id: 'default_feature_5', tag: 'Nature', title: 'Munnar & Western Ghats', description: "Rolling emerald tea plantations, misty mountain peaks, and pristine forests that make Kerala's Western Ghats a UNESCO-worthy natural treasure.", image: 'images/munnar.png', isDefault: true },
+    { id: 'default_feature_6', tag: 'Cuisine', title: 'Onam Sadhya', description: "The grand vegetarian feast of Kerala, served on a banana leaf with up to 26 dishes — a culinary tradition that embodies the spirit of Onam festival.", image: 'images/onam-sadhya.png', isDefault: true },
+    { id: 'default_feature_7', tag: 'Martial Art', title: 'Kalaripayattu', description: "One of the oldest martial arts in the world, originating in Kerala. Practitioners train in traditional kalaris, mastering strikes, kicks and weaponry.", image: 'images/kalaripayattu.png', isDefault: true },
+    { id: 'default_feature_8', tag: 'Festival', title: 'Temple Festivals', description: "Grand celebrations featuring caparisoned elephants, traditional percussion ensembles, colourful parasols, and spectacular fireworks at Kerala's sacred temples.", image: 'images/temple-festival.png', isDefault: true },
+    { id: 'default_feature_9', tag: 'Heritage', title: 'Chinese Fishing Nets', description: "The iconic cantilevered fishing nets of Fort Kochi, introduced by Chinese traders centuries ago — now a symbol of Kerala's multicultural maritime history.", image: 'images/chinese-fishing-nets.png', isDefault: true },
+    { id: 'default_feature_10', tag: 'Wellness', title: 'Ayurveda', description: "Kerala is the heartland of Ayurveda — the ancient Indian system of holistic medicine using herbal remedies, therapeutic oils and time-honoured healing practices.", image: 'images/ayurveda.png', isDefault: true }
+  ];
 
   // ---- DOM Elements ----
   const loginScreen = document.getElementById('loginScreen');
@@ -51,6 +111,21 @@
   const epLocation = document.getElementById('epLocation');
   const eventGrid = document.getElementById('eventGrid');
   const eventCount = document.getElementById('eventCount');
+
+  // Features (Kerala Heritage)
+  const featureForm = document.getElementById('featureForm');
+  const featureTitleInput = document.getElementById('featureTitle');
+  const featureTagInput = document.getElementById('featureTag');
+  const featureDescInput = document.getElementById('featureDescription');
+  const featureImageInput = document.getElementById('featureImage');
+  const previewFeatureBtn = document.getElementById('previewFeatureBtn');
+  const featurePreview = document.getElementById('featurePreview');
+  const fpImg = document.getElementById('fpImg');
+  const fpTag = document.getElementById('fpTag');
+  const fpTitle = document.getElementById('fpTitle');
+  const fpDesc = document.getElementById('fpDesc');
+  const featureGrid = document.getElementById('featureGrid');
+  const featureCount = document.getElementById('featureCount');
 
   // Tabs
   const tabBtns = document.querySelectorAll('.tab-btn');
@@ -106,6 +181,7 @@
     dashboardScreen.style.display = 'flex';
     renderPhotos();
     renderEvents();
+    renderFeatures();
   }
 
   function logout() {
@@ -163,19 +239,24 @@
 
   // ---- Photos CRUD ----
   function renderPhotos() {
-    const photos = getFromStorage(STORAGE_KEYS.photos);
-    photoCount.textContent = photos.length;
+    const deletedItems = getFromStorage(STORAGE_KEYS.deletedItems);
+    const customPhotos = getFromStorage(STORAGE_KEYS.photos);
+    
+    const defaultPhotosToShow = DEFAULT_PHOTOS.filter(p => !deletedItems.includes(p.id));
+    const allPhotos = [...defaultPhotosToShow, ...customPhotos];
+    
+    photoCount.textContent = allPhotos.length;
 
-    if (photos.length === 0) {
+    if (allPhotos.length === 0) {
       photoGrid.innerHTML = '<p class="empty-state">No photos added yet. Use the form above to add your first photo.</p>';
       return;
     }
 
-    photoGrid.innerHTML = photos.map(photo => `
+    photoGrid.innerHTML = allPhotos.map(photo => `
       <div class="list-item" data-id="${photo.id}">
         <img src="${photo.url}" alt="${photo.caption}" onerror="this.src='images/shema-logo.png'" />
         <div class="list-item-info">
-          <strong>${photo.caption}</strong>
+          <strong>${photo.caption} ${photo.isDefault ? '<span class="badge badge-default">Default</span>' : '<span class="badge badge-added">Added</span>'}</strong>
           <span>${photo.description || 'No description'}</span>
         </div>
         <button class="delete-btn" onclick="deletePhoto('${photo.id}')" title="Delete photo">
@@ -187,11 +268,21 @@
 
   // Make deletePhoto globally accessible
   window.deletePhoto = function(id) {
-    let photos = getFromStorage(STORAGE_KEYS.photos);
-    photos = photos.filter(p => p.id !== id);
-    saveToStorage(STORAGE_KEYS.photos, photos);
-    renderPhotos();
-    showToast('Photo deleted');
+    if (confirm('Are you sure you want to delete this photo?')) {
+      if (id.startsWith('default_')) {
+        const deleted = getFromStorage(STORAGE_KEYS.deletedItems);
+        if (!deleted.includes(id)) {
+          deleted.push(id);
+          saveToStorage(STORAGE_KEYS.deletedItems, deleted);
+        }
+      } else {
+        let photos = getFromStorage(STORAGE_KEYS.photos);
+        photos = photos.filter(p => p.id !== id);
+        saveToStorage(STORAGE_KEYS.photos, photos);
+      }
+      renderPhotos();
+      showToast('Photo deleted');
+    }
   };
 
   // Photo preview
@@ -233,15 +324,20 @@
 
   // ---- Events CRUD ----
   function renderEvents() {
-    const events = getFromStorage(STORAGE_KEYS.events);
-    eventCount.textContent = events.length;
+    const deletedItems = getFromStorage(STORAGE_KEYS.deletedItems);
+    const customEvents = getFromStorage(STORAGE_KEYS.events);
+    
+    const defaultEventsToShow = DEFAULT_EVENTS.filter(e => !deletedItems.includes(e.id));
+    const allEvents = [...defaultEventsToShow, ...customEvents];
+    
+    eventCount.textContent = allEvents.length;
 
-    if (events.length === 0) {
+    if (allEvents.length === 0) {
       eventGrid.innerHTML = '<p class="empty-state">No events added yet. Use the form above to create your first event.</p>';
       return;
     }
 
-    eventGrid.innerHTML = events.map(event => {
+    eventGrid.innerHTML = allEvents.map(event => {
       const d = formatDate(event.date);
       return `
         <div class="list-item" data-id="${event.id}">
@@ -250,7 +346,7 @@
             <span class="li-day">${d.day}</span>
           </div>
           <div class="list-item-info">
-            <strong>${event.title}</strong>
+            <strong>${event.title} ${event.isDefault ? '<span class="badge badge-default">Default</span>' : '<span class="badge badge-added">Added</span>'}</strong>
             <span>${event.description}</span>
           </div>
           <button class="delete-btn" onclick="deleteEvent('${event.id}')" title="Delete event">
@@ -262,11 +358,21 @@
   }
 
   window.deleteEvent = function(id) {
-    let events = getFromStorage(STORAGE_KEYS.events);
-    events = events.filter(e => e.id !== id);
-    saveToStorage(STORAGE_KEYS.events, events);
-    renderEvents();
-    showToast('Event deleted');
+    if (confirm('Are you sure you want to delete this event?')) {
+      if (id.startsWith('default_')) {
+        const deleted = getFromStorage(STORAGE_KEYS.deletedItems);
+        if (!deleted.includes(id)) {
+          deleted.push(id);
+          saveToStorage(STORAGE_KEYS.deletedItems, deleted);
+        }
+      } else {
+        let events = getFromStorage(STORAGE_KEYS.events);
+        events = events.filter(e => e.id !== id);
+        saveToStorage(STORAGE_KEYS.events, events);
+      }
+      renderEvents();
+      showToast('Event deleted');
+    }
   };
 
   // Event preview
@@ -315,6 +421,97 @@
     eventPreview.style.display = 'none';
     renderEvents();
     showToast('Event added successfully! 🎉');
+  });
+
+  // ---- Features (Kerala Heritage) CRUD ----
+  function renderFeatures() {
+    const deletedItems = getFromStorage(STORAGE_KEYS.deletedItems);
+    const customFeatures = getFromStorage(STORAGE_KEYS.features);
+    
+    const defaultFeaturesToShow = DEFAULT_FEATURES.filter(f => !deletedItems.includes(f.id));
+    const allFeatures = [...defaultFeaturesToShow, ...customFeatures];
+    
+    featureCount.textContent = allFeatures.length;
+
+    if (allFeatures.length === 0) {
+      featureGrid.innerHTML = '<p class="empty-state">No heritage cards found. Use the form above to add one.</p>';
+      return;
+    }
+
+    featureGrid.innerHTML = allFeatures.map(feature => `
+      <div class="list-item" data-id="${feature.id}">
+        <img src="${feature.image}" alt="${feature.title}" onerror="this.src='images/shema-logo.png'" />
+        <div class="list-item-info">
+          <strong>${feature.title} ${feature.isDefault ? '<span class="badge badge-default">Default</span>' : '<span class="badge badge-added">Added</span>'}</strong>
+          <span class="feature-tag-badge">${feature.tag}</span>
+          <span>${feature.description}</span>
+        </div>
+        <button class="delete-btn" onclick="deleteFeature('${feature.id}')" title="Delete heritage card">
+          🗑️
+        </button>
+      </div>
+    `).join('');
+  }
+
+  window.deleteFeature = function(id) {
+    if (confirm('Are you sure you want to delete this heritage card?')) {
+      if (id.startsWith('default_')) {
+        const deleted = getFromStorage(STORAGE_KEYS.deletedItems);
+        if (!deleted.includes(id)) {
+          deleted.push(id);
+          saveToStorage(STORAGE_KEYS.deletedItems, deleted);
+        }
+      } else {
+        let features = getFromStorage(STORAGE_KEYS.features);
+        features = features.filter(f => f.id !== id);
+        saveToStorage(STORAGE_KEYS.features, features);
+      }
+      renderFeatures();
+      showToast('Heritage card deleted');
+    }
+  };
+
+  // Feature preview
+  previewFeatureBtn.addEventListener('click', () => {
+    const title = featureTitleInput.value.trim();
+    const tag = featureTagInput.value.trim();
+    const desc = featureDescInput.value.trim();
+    const url = featureImageInput.value.trim();
+
+    if (!title || !tag || !desc || !url) return;
+
+    fpImg.src = url;
+    fpTag.textContent = tag;
+    fpTitle.textContent = title;
+    fpDesc.textContent = desc;
+    featurePreview.style.display = 'block';
+  });
+
+  // Add feature
+  featureForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = featureTitleInput.value.trim();
+    const tag = featureTagInput.value.trim();
+    const description = featureDescInput.value.trim();
+    const image = featureImageInput.value.trim();
+
+    if (!title || !tag || !description || !image) return;
+
+    const features = getFromStorage(STORAGE_KEYS.features);
+    features.push({
+      id: generateId(),
+      title,
+      tag,
+      description,
+      image,
+      addedAt: new Date().toISOString()
+    });
+    saveToStorage(STORAGE_KEYS.features, features);
+
+    featureForm.reset();
+    featurePreview.style.display = 'none';
+    renderFeatures();
+    showToast('Heritage card added successfully! 🎨');
   });
 
   // ---- Shake animation (for wrong password) ----
