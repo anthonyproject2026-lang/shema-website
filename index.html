@@ -141,7 +141,7 @@
         </p>
       </div>
       <div class="video-wrapper reveal">
-        <video id="keralaVideo" src="videos/0601.mp4" poster="images/kerala-backwaters.png" playsinline loop style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;"></video>
+        <video id="keralaVideo" src="videos/0601.mp4" poster="images/kerala-backwaters.png" playsinline style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;"></video>
         <div class="video-overlay" id="videoOverlay" style="position: absolute; inset: 0; background: rgba(10,31,13,0.45); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; border-radius: 20px; z-index: 5;">
           <button class="video-play-btn" id="videoPlayBtn" aria-label="Play Video" style="position: relative; z-index: 6;">
             ▶
@@ -218,7 +218,7 @@
     </div>
   </section>
 
-  <!-- ========== Kerala Heritage Section ========== -->
+  <!-- ========== Kerala Heritage Carousel ========== -->
   <section class="kerala section-pad" id="kerala">
     <div class="container">
       <div class="reveal">
@@ -229,87 +229,98 @@
           that have captivated the world for centuries.
         </p>
       </div>
-      <div class="kerala-grid">
-        <div class="kerala-card reveal" data-id="default_feature_1">
-          <img src="images/kathakali.png" alt="Kathakali — Classical Dance-Drama of Kerala" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Performing Art</span>
-            <h3>Kathakali</h3>
-            <p>The classical dance-drama of Kerala, known for its elaborate costumes, vivid face makeup, and powerful storytelling rooted in Hindu mythology.</p>
+      <div class="kerala-carousel reveal" id="keralaCarousel">
+        <button class="carousel-arrow carousel-arrow-left" id="carouselPrev" aria-label="Previous slide">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="carousel-viewport" id="carouselViewport">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="kerala-card" data-id="default_feature_1">
+              <img src="images/kathakali.png" alt="Kathakali — Classical Dance-Drama of Kerala" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Performing Art</span>
+                <h3>Kathakali</h3>
+                <p>The classical dance-drama of Kerala, known for its elaborate costumes, vivid face makeup, and powerful storytelling rooted in Hindu mythology.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_2">
+              <img src="images/theyyam.png" alt="Theyyam — Ancient Ritual Art of North Malabar" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Ritual Art</span>
+                <h3>Theyyam</h3>
+                <p>An ancient ritual art form from North Malabar, where performers are believed to become possessed by divine spirits, adorned with stunning headgear and body paint.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_3">
+              <img src="images/boat-race.png" alt="Vallam Kali — Traditional Snake Boat Race" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Tradition</span>
+                <h3>Vallam Kali</h3>
+                <p>The iconic snake boat races of Kerala, where massive chundan vallams race through the backwaters in a breathtaking display of teamwork and tradition.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_4">
+              <img src="images/kerala-backwaters.png" alt="Kerala Backwaters and Houseboats" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Landscape</span>
+                <h3>Backwaters &amp; Houseboats</h3>
+                <p>Kerala's iconic network of serene lagoons, canals and lakes, best experienced on traditional kettuvallam houseboats gliding through palm-fringed waters.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_5">
+              <img src="images/munnar.png" alt="Munnar Tea Gardens — Western Ghats" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Nature</span>
+                <h3>Munnar &amp; Western Ghats</h3>
+                <p>Rolling emerald tea plantations, misty mountain peaks, and pristine forests that make Kerala's Western Ghats a UNESCO-worthy natural treasure.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_6">
+              <img src="images/onam-sadhya.png" alt="Onam Sadhya — Traditional Kerala Feast" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Cuisine</span>
+                <h3>Onam Sadhya</h3>
+                <p>The grand vegetarian feast of Kerala, served on a banana leaf with up to 26 dishes — a culinary tradition that embodies the spirit of Onam festival.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_7">
+              <img src="images/kalaripayattu.png" alt="Kalaripayattu — Ancient Martial Art of Kerala" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Martial Art</span>
+                <h3>Kalaripayattu</h3>
+                <p>One of the oldest martial arts in the world, originating in Kerala. Practitioners train in traditional kalaris, mastering strikes, kicks and weaponry.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_8">
+              <img src="images/temple-festival.png" alt="Kerala Temple Festival — Sacred Celebrations" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Festival</span>
+                <h3>Temple Festivals</h3>
+                <p>Grand celebrations featuring caparisoned elephants, traditional percussion ensembles, colourful parasols, and spectacular fireworks at Kerala's sacred temples.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_9">
+              <img src="images/chinese-fishing-nets.png" alt="Chinese Fishing Nets — Fort Kochi Heritage" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Heritage</span>
+                <h3>Chinese Fishing Nets</h3>
+                <p>The iconic cantilevered fishing nets of Fort Kochi, introduced by Chinese traders centuries ago — now a symbol of Kerala's multicultural maritime history.</p>
+              </div>
+            </div>
+            <div class="kerala-card" data-id="default_feature_10">
+              <img src="images/ayurveda.png" alt="Ayurveda — Ancient Healing Science of Kerala" loading="lazy" />
+              <div class="kerala-card-overlay">
+                <span class="kerala-card-tag">Wellness</span>
+                <h3>Ayurveda</h3>
+                <p>Kerala is the heartland of Ayurveda — the ancient Indian system of holistic medicine using herbal remedies, therapeutic oils and time-honoured healing practices.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="kerala-card reveal" data-id="default_feature_2">
-          <img src="images/theyyam.png" alt="Theyyam — Ancient Ritual Art of North Malabar" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Ritual Art</span>
-            <h3>Theyyam</h3>
-            <p>An ancient ritual art form from North Malabar, where performers are believed to become possessed by divine spirits, adorned with stunning headgear and body paint.</p>
-          </div>
-        </div>
-        <div class="kerala-card reveal" data-id="default_feature_3">
-          <img src="images/boat-race.png" alt="Vallam Kali — Traditional Snake Boat Race" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Tradition</span>
-            <h3>Vallam Kali</h3>
-            <p>The iconic snake boat races of Kerala, where massive chundan vallams race through the backwaters in a breathtaking display of teamwork and tradition.</p>
-          </div>
-        </div>
-        <div class="kerala-card reveal" data-id="default_feature_4">
-          <img src="images/kerala-backwaters.png" alt="Kerala Backwaters and Houseboats" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Landscape</span>
-            <h3>Backwaters &amp; Houseboats</h3>
-            <p>Kerala's iconic network of serene lagoons, canals and lakes, best experienced on traditional kettuvallam houseboats gliding through palm-fringed waters.</p>
-          </div>
-        </div>
-        <div class="kerala-card reveal" data-id="default_feature_5">
-          <img src="images/munnar.png" alt="Munnar Tea Gardens — Western Ghats" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Nature</span>
-            <h3>Munnar &amp; Western Ghats</h3>
-            <p>Rolling emerald tea plantations, misty mountain peaks, and pristine forests that make Kerala's Western Ghats a UNESCO-worthy natural treasure.</p>
-          </div>
-        </div>
-        <div class="kerala-card reveal" data-id="default_feature_6">
-          <img src="images/onam-sadhya.png" alt="Onam Sadhya — Traditional Kerala Feast" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Cuisine</span>
-            <h3>Onam Sadhya</h3>
-            <p>The grand vegetarian feast of Kerala, served on a banana leaf with up to 26 dishes — a culinary tradition that embodies the spirit of Onam festival.</p>
-          </div>
-        </div>
-        <div class="kerala-card reveal" data-id="default_feature_7">
-          <img src="images/kalaripayattu.png" alt="Kalaripayattu — Ancient Martial Art of Kerala" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Martial Art</span>
-            <h3>Kalaripayattu</h3>
-            <p>One of the oldest martial arts in the world, originating in Kerala. Practitioners train in traditional kalaris, mastering strikes, kicks and weaponry.</p>
-          </div>
-        </div>
-        <div class="kerala-card reveal" data-id="default_feature_8">
-          <img src="images/temple-festival.png" alt="Kerala Temple Festival — Sacred Celebrations" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Festival</span>
-            <h3>Temple Festivals</h3>
-            <p>Grand celebrations featuring caparisoned elephants, traditional percussion ensembles, colourful parasols, and spectacular fireworks at Kerala's sacred temples.</p>
-          </div>
-        </div>
-        <div class="kerala-card reveal" data-id="default_feature_9">
-          <img src="images/chinese-fishing-nets.png" alt="Chinese Fishing Nets — Fort Kochi Heritage" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Heritage</span>
-            <h3>Chinese Fishing Nets</h3>
-            <p>The iconic cantilevered fishing nets of Fort Kochi, introduced by Chinese traders centuries ago — now a symbol of Kerala's multicultural maritime history.</p>
-          </div>
-        </div>
-        <div class="kerala-card reveal" data-id="default_feature_10">
-          <img src="images/ayurveda.png" alt="Ayurveda — Ancient Healing Science of Kerala" />
-          <div class="kerala-card-overlay">
-            <span class="kerala-card-tag">Wellness</span>
-            <h3>Ayurveda</h3>
-            <p>Kerala is the heartland of Ayurveda — the ancient Indian system of holistic medicine using herbal remedies, therapeutic oils and time-honoured healing practices.</p>
-          </div>
-        </div>
+        <button class="carousel-arrow carousel-arrow-right" id="carouselNext" aria-label="Next slide">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
     </div>
   </section>
@@ -355,44 +366,96 @@
           and important announcements.
         </p>
       </div>
-      <div class="events-grid" id="eventsGrid">
-        <!-- Default events -->
-        <div class="event-card reveal" data-id="default_event_1">
-          <div class="event-date-badge">
-            <span class="event-month">SEP</span>
-            <span class="event-day">14</span>
+
+      <!-- Previous Events -->
+      <h3 class="events-section-heading reveal">
+        <span class="events-heading-icon">📌</span> Previous Events
+      </h3>
+      <div class="events-grid events-grid-past reveal" id="eventsPastGrid">
+        <div class="event-card event-card-past" data-id="default_event_past_1">
+          <div class="event-date-badge event-date-badge-past">
+            <span class="event-month">APR</span>
+            <span class="event-day">28</span>
           </div>
           <div class="event-card-content">
-            <h3>Onam Celebration 2025</h3>
-            <p>Join us for the grand Onam celebration featuring traditional Sadhya feast, cultural performances, Pookalam competition and family fun activities.</p>
+            <h3>Voice of Vineeth Sreenivasan Live</h3>
+            <p>A spectacular live musical evening with the beloved Malayalam singer, songwriter and filmmaker Vineeth Sreenivasan.</p>
             <div class="event-meta">
-              <span class="event-location">📍 Shepparton Community Hall</span>
+              <span class="event-location">📍 Shepparton</span>
+              <span class="event-badge-past-tag">Past Event</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Events -->
+      <h3 class="events-section-heading reveal">
+        <span class="events-heading-icon">🎉</span> Upcoming Events
+      </h3>
+      <div class="events-grid" id="eventsGrid">
+        <div class="event-card reveal" data-id="default_event_1">
+          <div class="event-date-badge">
+            <span class="event-month">JUN</span>
+            <span class="event-day">13</span>
+          </div>
+          <div class="event-card-content">
+            <h3>Cirillo Builders Multicultural Talent Show 2026</h3>
+            <p>A vibrant multicultural talent showcase celebrating the diverse artistic abilities of our community members — singing, dancing, drama and more.</p>
+            <div class="event-meta">
+              <span class="event-location">📍 Shepparton</span>
             </div>
           </div>
         </div>
         <div class="event-card reveal" data-id="default_event_2">
           <div class="event-date-badge">
-            <span class="event-month">APR</span>
-            <span class="event-day">14</span>
+            <span class="event-month">JUN/JUL</span>
+            <span class="event-day">—</span>
           </div>
           <div class="event-card-content">
-            <h3>Vishu Celebration 2026</h3>
-            <p>Welcome the Kerala New Year with Vishukkani, Sadya and traditional games. A day of new beginnings and community togetherness.</p>
+            <h3>Shema Kalikkalam 2026</h3>
+            <p>SHEMA's sports and games festival — a fun-filled day of traditional and modern games, fostering teamwork and community spirit.</p>
             <div class="event-meta">
-              <span class="event-location">📍 Shepparton Civic Centre</span>
+              <span class="event-location">📍 Shepparton</span>
             </div>
           </div>
         </div>
         <div class="event-card reveal" data-id="default_event_3">
           <div class="event-date-badge">
-            <span class="event-month">DEC</span>
-            <span class="event-day">21</span>
+            <span class="event-month">AUG</span>
+            <span class="event-day">08</span>
           </div>
           <div class="event-card-content">
-            <h3>Christmas &amp; Year-End Gathering</h3>
-            <p>Celebrate the festive season with the SHEMA community. Enjoy food, music, kids' activities and a warm community gathering to close the year.</p>
+            <h3>Athletics Day 2026</h3>
+            <p>A day of athletic events and competitions for all ages. Come out and join the fun — running, relays, and field events for the whole family.</p>
             <div class="event-meta">
-              <span class="event-location">📍 Victoria Park Lake</span>
+              <span class="event-location">📍 Shepparton</span>
+              <span class="event-badge-tentative">Tentative</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-card reveal" data-id="default_event_4">
+          <div class="event-date-badge">
+            <span class="event-month">AUG</span>
+            <span class="event-day">29</span>
+          </div>
+          <div class="event-card-content">
+            <h3>Onam Celebration 2026</h3>
+            <p>Join us for the grand Onam celebration featuring traditional Sadhya feast, cultural performances, Pookalam competition and family fun activities.</p>
+            <div class="event-meta">
+              <span class="event-location">📍 Mcintosh Center, Thompson Street, Shepparton</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-card reveal" data-id="default_event_5">
+          <div class="event-date-badge">
+            <span class="event-month">DEC</span>
+            <span class="event-day">12</span>
+          </div>
+          <div class="event-card-content">
+            <h3>Annual General Meeting (AGM)</h3>
+            <p>Reflect on the year's achievements, plan ahead and grow together. All SHEMA members are encouraged to attend and participate.</p>
+            <div class="event-meta">
+              <span class="event-location">📍 Shepparton</span>
             </div>
           </div>
         </div>

@@ -91,14 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 3. Load Kerala Heritage Features
-    const keralaGrid = document.querySelector('.kerala-grid');
-    if (keralaGrid) {
+    // 3. Load Kerala Heritage Features (into carousel track)
+    const carouselTrack = document.getElementById('carouselTrack');
+    if (carouselTrack) {
       try {
         const adminFeatures = JSON.parse(localStorage.getItem('shema_admin_features') || '[]');
         adminFeatures.forEach(feature => {
           const card = document.createElement('div');
-          card.className = 'kerala-card reveal';
+          card.className = 'kerala-card';
           card.setAttribute('data-id', feature.id);
           card.innerHTML = `
             <img src="${feature.image}" alt="${feature.title}" class="loaded" onerror="this.src='images/shema-logo.png'" />
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <p>${feature.description}</p>
             </div>
           `;
-          keralaGrid.appendChild(card);
+          carouselTrack.appendChild(card);
         });
       } catch (e) {
         console.error('Error loading admin features:', e);
@@ -117,6 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   loadAdminContent();
+
+  // Re-observe any dynamically loaded admin elements for reveal animations
+  // (done later after revealObserver is created — see below)
 
   /* ---------- Preloader ---------- */
   const preloader = document.getElementById('preloader');
@@ -245,12 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* ---------- Kerala cards stagger animation ---------- */
-  const keralaCards = document.querySelectorAll('.kerala-card');
-  keralaCards.forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.1}s`;
-  });
-
   /* ---------- Culture items stagger ---------- */
   const cultureItems = document.querySelectorAll('.culture-item');
   cultureItems.forEach((item, index) => {
@@ -290,19 +287,145 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.addEventListener('scroll', highlightNavLink, { passive: true });
 
-  /* ---------- Video play button interaction ---------- */
+  /* ============================================
+     Kerala Heritage Carousel
+     ============================================ */
+  const carouselTrack = document.getElementById('carouselTrack');
+  const carouselPrev = document.getElementById('carouselPrev');
+  const carouselNext = document.getElementById('carouselNext');
+  const carouselDots = document.getElementById('carouselDots');
+
+  if (carouselTrack && carouselPrev && carouselNext && carouselDots) {
+    const cards = carouselTrack.querySelectorAll('.kerala-card');
+    const totalSlides = cards.length;
+    let currentSlide = 0;
+    let autoPlayInterval = null;
+
+    // Create dot indicators
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => { goToSlide(i); resetAutoPlay(); });
+      carouselDots.appendChild(dot);
+    }
+    const dots = carouselDots.querySelectorAll('.carousel-dot');
+
+    // Create slide counter
+    const counterEl = document.createElement('div');
+    counterEl.className = 'carousel-counter';
+    counterEl.textContent = `1 / ${totalSlides}`;
+    carouselDots.parentElement.appendChild(counterEl);
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentSlide = index;
+      carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+
+      // Update counter
+      counterEl.textContent = `${currentSlide + 1} / ${totalSlides}`;
+    }
+
+    carouselPrev.addEventListener('click', () => {
+      goToSlide(currentSlide - 1);
+      resetAutoPlay();
+    });
+
+    carouselNext.addEventListener('click', () => {
+      goToSlide(currentSlide + 1);
+      resetAutoPlay();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const carousel = document.getElementById('keralaCarousel');
+      if (!carousel) return;
+      const rect = carousel.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!isVisible) return;
+
+      if (e.key === 'ArrowLeft') {
+        goToSlide(currentSlide - 1);
+        resetAutoPlay();
+      } else if (e.key === 'ArrowRight') {
+        goToSlide(currentSlide + 1);
+        resetAutoPlay();
+      }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const carouselViewport = document.getElementById('carouselViewport');
+
+    carouselViewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carouselViewport.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          goToSlide(currentSlide + 1); // swipe left → next
+        } else {
+          goToSlide(currentSlide - 1); // swipe right → prev
+        }
+        resetAutoPlay();
+      }
+    }, { passive: true });
+
+    // Auto-play
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+        goToSlide(currentSlide + 1);
+      }, 5000);
+    }
+
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval);
+      startAutoPlay();
+    }
+
+    startAutoPlay();
+
+    // Pause auto-play on hover
+    const keralaCarousel = document.getElementById('keralaCarousel');
+    keralaCarousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+    keralaCarousel.addEventListener('mouseleave', () => startAutoPlay());
+  }
+
+  /* ============================================
+     Video — Auto-stop on end & scroll-out
+     ============================================ */
   const videoPlayBtn = document.getElementById('videoPlayBtn');
   const keralaVideo = document.getElementById('keralaVideo');
   const videoOverlay = document.getElementById('videoOverlay');
 
   if (videoPlayBtn && keralaVideo && videoOverlay) {
+    const showOverlay = () => {
+      videoOverlay.style.opacity = '1';
+      videoOverlay.style.visibility = 'visible';
+      keralaVideo.controls = false;
+    };
+
+    const hideOverlay = () => {
+      videoOverlay.style.opacity = '0';
+      videoOverlay.style.visibility = 'hidden';
+      keralaVideo.controls = true;
+    };
+
     const playVideo = () => {
       keralaVideo.play().catch(err => {
         console.error("Video play failed:", err);
       });
-      videoOverlay.style.opacity = '0';
-      videoOverlay.style.visibility = 'hidden';
-      keralaVideo.controls = true;
+      hideOverlay();
     };
 
     // Play on clicking the button or anywhere on the overlay
@@ -315,10 +438,14 @@ document.addEventListener('DOMContentLoaded', () => {
       playVideo();
     });
 
+    // When video ends, show overlay again
+    keralaVideo.addEventListener('ended', () => {
+      showOverlay();
+    });
+
+    // When video is paused (by user clicking), show overlay
     keralaVideo.addEventListener('pause', () => {
-      videoOverlay.style.opacity = '1';
-      videoOverlay.style.visibility = 'visible';
-      keralaVideo.controls = false;
+      showOverlay();
     });
 
     keralaVideo.addEventListener('click', () => {
@@ -328,6 +455,17 @@ document.addEventListener('DOMContentLoaded', () => {
         keralaVideo.pause();
       }
     });
+
+    // Auto-pause when video scrolls out of view
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting && !keralaVideo.paused) {
+          keralaVideo.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+
+    videoObserver.observe(keralaVideo);
   }
 
   /* ---------- Tilt effect on Kerala heritage cards ---------- */
@@ -336,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.02)`;
+      card.style.transform = `perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
     });
     card.addEventListener('mouseleave', () => {
       card.style.transform = '';
@@ -345,4 +483,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🌿 SHEMA Website loaded successfully');
 });
-
