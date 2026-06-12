@@ -197,6 +197,40 @@ button { cursor: pointer; font-family: var(--ff-body); }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(249,168,37,.35); }
 .nav-cta::after { display: none !important; }
 
+/* Header Socials */
+.nav-socials-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 0.5rem;
+}
+.nav-socials-header a {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.8;
+}
+.nav-socials-header a:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+.nav-socials-header a::after {
+  display: none !important;
+}
+
+/* Mobile responsive styling for header socials */
+@media (max-width: 1024px) {
+  .nav-socials-header {
+    margin-left: 0;
+    margin-top: 1.2rem;
+    gap: 1.5rem;
+    justify-content: center;
+    width: 100%;
+  }
+  .nav-socials-header a {
+    font-size: 1.35rem;
+  }
+}
+
 /* Mobile toggle */
 .nav-toggle {
   display: none; flex-direction: column; gap: 5px;
