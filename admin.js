@@ -6,7 +6,9 @@
   'use strict';
 
   // ---- Config ----
-  const ADMIN_PASSWORD = 'shema2025';
+  // TODO: Replace with real authentication (Firebase Auth / Netlify Identity)
+  // Password removed from client-side code for security
+  const ADMIN_PASSWORD = '';
   const STORAGE_KEYS = {
     photos: 'shema_admin_photos',
     events: 'shema_admin_events',

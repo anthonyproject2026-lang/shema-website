@@ -1,35 +1,26 @@
 /* ============================================
    SHEMA Website — Interactive Scripts
+   Kerala Mural & Kasavu Redesign
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Image Fade-In on Load ---------- */
-  document.querySelectorAll('img').forEach(img => {
-    if (img.complete) {
-      img.classList.add('loaded');
-    } else {
-      img.addEventListener('load', () => img.classList.add('loaded'));
-      img.addEventListener('error', () => img.classList.add('loaded')); // show placeholder on error
-    }
-  });
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Load Admin Content from LocalStorage ---------- */
   function loadAdminContent() {
-    // 0. Hide deleted items (both defaults and custom)
+    // Hide deleted items
     try {
       const deletedIds = JSON.parse(localStorage.getItem('shema_deleted_items') || '[]');
       deletedIds.forEach(id => {
         const element = document.querySelector(`[data-id="${id}"]`);
-        if (element) {
-          element.remove();
-        }
+        if (element) element.remove();
       });
     } catch (e) {
       console.error('Error hiding deleted items:', e);
     }
 
-    // 1. Load Photos
+    // Load Photos
     const highlightsGrid = document.querySelector('.highlights-grid');
     if (highlightsGrid) {
       try {
@@ -39,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.className = 'highlight-card reveal';
           card.setAttribute('data-id', photo.id);
           card.innerHTML = `
-            <img src="${photo.url}" alt="${photo.caption}" class="loaded" onerror="this.src='images/shema-logo.png'" />
+            <img src="${photo.url}" alt="${photo.caption}" loading="lazy" />
             <div class="highlight-card-info">
               <h3>${photo.caption}</h3>
               <p>${photo.description || ''}</p>
@@ -52,13 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 2. Load Events
+    // Load Events
     const eventsGrid = document.getElementById('eventsGrid');
     if (eventsGrid) {
       try {
         const adminEvents = JSON.parse(localStorage.getItem('shema_admin_events') || '[]');
         const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-        
         adminEvents.forEach(event => {
           let month = 'EVT';
           let day = '00';
@@ -67,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             month = MONTHS[d.getMonth()] || 'EVT';
             day = String(d.getDate()).padStart(2, '0');
           }
-          
           const card = document.createElement('div');
           card.className = 'event-card reveal';
           card.setAttribute('data-id', event.id);
@@ -80,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <h3>${event.title}</h3>
               <p>${event.description}</p>
               <div class="event-meta">
-                ${event.location ? `<span class="event-location">📍 ${event.location}</span>` : ''}
+                ${event.location ? `<span class="event-location"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${event.location}</span>` : ''}
               </div>
             </div>
           `;
@@ -91,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 3. Load Kerala Heritage Features (into carousel track)
+    // Load Kerala Heritage Features
     const carouselTrack = document.getElementById('carouselTrack');
     if (carouselTrack) {
       try {
@@ -101,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.className = 'kerala-card';
           card.setAttribute('data-id', feature.id);
           card.innerHTML = `
-            <img src="${feature.image}" alt="${feature.title}" class="loaded" onerror="this.src='images/shema-logo.png'" />
+            <img src="${feature.image}" alt="${feature.title}" loading="lazy" />
             <div class="kerala-card-overlay">
               <span class="kerala-card-tag">${feature.tag}</span>
               <h3>${feature.title}</h3>
@@ -118,40 +107,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadAdminContent();
 
-  // Re-observe any dynamically loaded admin elements for reveal animations
-  // (done later after revealObserver is created — see below)
-
-  /* ---------- Preloader ---------- */
-  const preloader = document.getElementById('preloader');
-  window.addEventListener('load', () => {
-    setTimeout(() => preloader.classList.add('hidden'), 800);
-  });
-  // Fallback: hide preloader after 3s max
-  setTimeout(() => preloader.classList.add('hidden'), 3000);
-
   /* ---------- Navbar scroll effect ---------- */
   const navbar = document.getElementById('navbar');
   const scrollThreshold = 80;
 
   function updateNavbar() {
-    if (window.scrollY > scrollThreshold) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > scrollThreshold);
   }
   window.addEventListener('scroll', updateNavbar, { passive: true });
   updateNavbar();
 
-  /* ---------- Mobile nav toggle ---------- */
+  /* ---------- Mobile nav toggle with aria-expanded ---------- */
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
   navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    // Animate hamburger
+    const isOpen = navLinks.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', isOpen);
     const spans = navToggle.querySelectorAll('span');
-    if (navLinks.classList.contains('active')) {
+    if (isOpen) {
       spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
       spans[1].style.opacity = '0';
       spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
@@ -166,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
       const spans = navToggle.querySelectorAll('span');
       spans[0].style.transform = 'none';
       spans[1].style.opacity = '1';
@@ -176,12 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Smooth scroll for anchor links ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (href === '#') return;
       e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
         const offset = navbar.offsetHeight + 10;
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        window.scrollTo({ top: targetPosition, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       }
     });
   });
@@ -191,96 +168,39 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target); // stop observing once revealed
+        revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  /* ---------- Counter animation ---------- */
-  const counters = document.querySelectorAll('.stat-number[data-count]');
-  let countersAnimated = false;
-
-  function animateCounters() {
-    if (countersAnimated) return;
-    const statsBar = document.querySelector('.stats-bar');
-    if (!statsBar) return;
-
-    const rect = statsBar.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      countersAnimated = true;
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-count'));
-        const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
-
-        function updateCounter() {
-          current += increment;
-          if (current < target) {
-            counter.textContent = Math.floor(current) + '+';
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = target + '+';
-          }
-        }
-        updateCounter();
-      });
-    }
-  }
-  window.addEventListener('scroll', animateCounters, { passive: true });
-  animateCounters();
-
   /* ---------- Back to top ---------- */
   const backToTop = document.getElementById('backToTop');
-  
+
   function toggleBackToTop() {
-    if (window.scrollY > 600) {
-      backToTop.classList.add('show');
-    } else {
-      backToTop.classList.remove('show');
-    }
+    backToTop.classList.toggle('show', window.scrollY > 500);
   }
   window.addEventListener('scroll', toggleBackToTop, { passive: true });
-  
+
   backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   });
-
-  /* ---------- Culture items stagger ---------- */
-  const cultureItems = document.querySelectorAll('.culture-item');
-  cultureItems.forEach((item, index) => {
-    item.style.transitionDelay = `${index * 0.08}s`;
-  });
-
-  /* ---------- Parallax-like subtle effect on hero ---------- */
-  const heroBg = document.querySelector('.hero-bg img');
-  if (heroBg) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      if (scrolled < window.innerHeight) {
-        heroBg.style.transform = `scale(${1 + scrolled * 0.0002}) translateY(${scrolled * 0.3}px)`;
-      }
-    }, { passive: true });
-  }
 
   /* ---------- Active nav link highlighting ---------- */
   const sections = document.querySelectorAll('section[id]');
-  
+
   function highlightNavLink() {
     const scrollPos = window.scrollY + navbar.offsetHeight + 100;
-    
     sections.forEach(section => {
       const top = section.offsetTop;
       const height = section.offsetHeight;
       const id = section.getAttribute('id');
       const link = navLinks.querySelector(`a[href="#${id}"]`);
-      
       if (link && scrollPos >= top && scrollPos < top + height) {
         navLinks.querySelectorAll('a').forEach(a => a.style.color = '');
         if (!link.classList.contains('nav-cta')) {
-          link.style.color = '#F9A825';
+          link.style.color = 'var(--kavi, #C6822B)';
         }
       }
     });
@@ -294,12 +214,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const carouselPrev = document.getElementById('carouselPrev');
   const carouselNext = document.getElementById('carouselNext');
   const carouselDots = document.getElementById('carouselDots');
+  const carouselPauseBtn = document.getElementById('carouselPauseBtn');
 
   if (carouselTrack && carouselPrev && carouselNext && carouselDots) {
     const cards = carouselTrack.querySelectorAll('.kerala-card');
     const totalSlides = cards.length;
     let currentSlide = 0;
     let autoPlayInterval = null;
+    let isPaused = false;
 
     // Create dot indicators
     for (let i = 0; i < totalSlides; i++) {
@@ -311,57 +233,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const dots = carouselDots.querySelectorAll('.carousel-dot');
 
-    // Create slide counter
+    // Create slide counter with aria-live
     const counterEl = document.createElement('div');
     counterEl.className = 'carousel-counter';
+    counterEl.setAttribute('aria-live', 'polite');
     counterEl.textContent = `1 / ${totalSlides}`;
-    carouselDots.parentElement.appendChild(counterEl);
+    carouselDots.parentElement.insertBefore(counterEl, carouselPauseBtn);
 
     function goToSlide(index) {
       if (index < 0) index = totalSlides - 1;
       if (index >= totalSlides) index = 0;
       currentSlide = index;
       carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-      
-      // Update dots
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
-
-      // Update counter
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
       counterEl.textContent = `${currentSlide + 1} / ${totalSlides}`;
     }
 
-    carouselPrev.addEventListener('click', () => {
-      goToSlide(currentSlide - 1);
-      resetAutoPlay();
-    });
+    carouselPrev.addEventListener('click', () => { goToSlide(currentSlide - 1); resetAutoPlay(); });
+    carouselNext.addEventListener('click', () => { goToSlide(currentSlide + 1); resetAutoPlay(); });
 
-    carouselNext.addEventListener('click', () => {
-      goToSlide(currentSlide + 1);
-      resetAutoPlay();
-    });
+    // Keyboard — scoped to when carousel is visible and focused
+    const keralaCarousel = document.getElementById('keralaCarousel');
+    keralaCarousel.setAttribute('tabindex', '0');
+    keralaCarousel.setAttribute('role', 'region');
+    keralaCarousel.setAttribute('aria-roledescription', 'carousel');
+    keralaCarousel.setAttribute('aria-label', 'Kerala Heritage');
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      const carousel = document.getElementById('keralaCarousel');
-      if (!carousel) return;
-      const rect = carousel.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-      if (!isVisible) return;
-
+    keralaCarousel.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
-        goToSlide(currentSlide - 1);
-        resetAutoPlay();
+        goToSlide(currentSlide - 1); resetAutoPlay();
+        e.preventDefault();
       } else if (e.key === 'ArrowRight') {
-        goToSlide(currentSlide + 1);
-        resetAutoPlay();
+        goToSlide(currentSlide + 1); resetAutoPlay();
+        e.preventDefault();
       }
     });
 
-    // Touch/swipe support
+    // Touch/swipe
     let touchStartX = 0;
-    let touchEndX = 0;
     const carouselViewport = document.getElementById('carouselViewport');
 
     carouselViewport.addEventListener('touchstart', (e) => {
@@ -369,36 +278,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     carouselViewport.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const diff = touchStartX - touchEndX;
+      const diff = touchStartX - e.changedTouches[0].screenX;
       if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-          goToSlide(currentSlide + 1); // swipe left → next
-        } else {
-          goToSlide(currentSlide - 1); // swipe right → prev
-        }
+        goToSlide(diff > 0 ? currentSlide + 1 : currentSlide - 1);
         resetAutoPlay();
       }
     }, { passive: true });
 
-    // Auto-play
+    // Auto-play — gated behind IntersectionObserver + reduced-motion
     function startAutoPlay() {
-      autoPlayInterval = setInterval(() => {
-        goToSlide(currentSlide + 1);
-      }, 5000);
+      if (prefersReducedMotion || isPaused) return;
+      stopAutoPlay();
+      autoPlayInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+      }
     }
 
     function resetAutoPlay() {
-      clearInterval(autoPlayInterval);
-      startAutoPlay();
+      if (!isPaused) {
+        stopAutoPlay();
+        startAutoPlay();
+      }
     }
 
-    startAutoPlay();
+    // Only autoplay when carousel is visible
+    const carouselObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !isPaused) {
+          startAutoPlay();
+        } else {
+          stopAutoPlay();
+        }
+      });
+    }, { threshold: 0.3 });
+    carouselObserver.observe(keralaCarousel);
 
-    // Pause auto-play on hover
-    const keralaCarousel = document.getElementById('keralaCarousel');
-    keralaCarousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-    keralaCarousel.addEventListener('mouseleave', () => startAutoPlay());
+    // Pause on hover
+    keralaCarousel.addEventListener('mouseenter', stopAutoPlay);
+    keralaCarousel.addEventListener('mouseleave', () => { if (!isPaused) startAutoPlay(); });
+
+    // Pause on focus, resume on blur (WCAG 2.2.2)
+    keralaCarousel.addEventListener('focusin', stopAutoPlay);
+    keralaCarousel.addEventListener('focusout', () => { if (!isPaused) startAutoPlay(); });
+
+    // Pause/Play button (WCAG 2.2.2)
+    if (carouselPauseBtn) {
+      const pauseIcon = document.getElementById('pauseIcon');
+      const playIcon = document.getElementById('playIcon');
+
+      carouselPauseBtn.addEventListener('click', () => {
+        isPaused = !isPaused;
+        carouselPauseBtn.setAttribute('aria-pressed', isPaused);
+        carouselPauseBtn.setAttribute('aria-label', isPaused ? 'Play carousel' : 'Pause carousel');
+
+        if (isPaused) {
+          stopAutoPlay();
+          if (pauseIcon) pauseIcon.style.display = 'none';
+          if (playIcon) playIcon.style.display = 'block';
+        } else {
+          if (pauseIcon) pauseIcon.style.display = 'block';
+          if (playIcon) playIcon.style.display = 'none';
+          startAutoPlay();
+        }
+      });
+    }
   }
 
   /* ============================================
@@ -422,41 +370,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const playVideo = () => {
-      keralaVideo.play().catch(err => {
-        console.error("Video play failed:", err);
-      });
+      keralaVideo.play().catch(err => console.error('Video play failed:', err));
       hideOverlay();
     };
 
-    // Play on clicking the button or anywhere on the overlay
-    videoPlayBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      playVideo();
-    });
-    
-    videoOverlay.addEventListener('click', () => {
-      playVideo();
-    });
-
-    // When video ends, show overlay again
-    keralaVideo.addEventListener('ended', () => {
-      showOverlay();
-    });
-
-    // When video is paused (by user clicking), show overlay
-    keralaVideo.addEventListener('pause', () => {
-      showOverlay();
-    });
+    videoPlayBtn.addEventListener('click', (e) => { e.stopPropagation(); playVideo(); });
+    videoOverlay.addEventListener('click', playVideo);
+    keralaVideo.addEventListener('ended', showOverlay);
+    keralaVideo.addEventListener('pause', showOverlay);
 
     keralaVideo.addEventListener('click', () => {
-      if (keralaVideo.paused) {
-        playVideo();
-      } else {
-        keralaVideo.pause();
-      }
+      if (keralaVideo.paused) playVideo();
+      else keralaVideo.pause();
     });
 
-    // Auto-pause when video scrolls out of view
+    // Auto-pause when scrolled out of view
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting && !keralaVideo.paused) {
@@ -464,22 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.25 });
-
     videoObserver.observe(keralaVideo);
   }
-
-  /* ---------- Tilt effect on Kerala heritage cards ---------- */
-  document.querySelectorAll('.kerala-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
 
   console.log('🌿 SHEMA Website loaded successfully');
 });
