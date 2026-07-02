@@ -13,11 +13,20 @@
     photos: 'shema_admin_photos',
     events: 'shema_admin_events',
     features: 'shema_admin_features',
+    committee: 'shema_admin_committee',
     deletedItems: 'shema_deleted_items',
     session: 'shema_admin_session'
   };
 
   // ---- Defaults ----
+  const DEFAULT_COMMITTEE = [
+    { id: 'default_committee_1', name: 'Antony Jones', role: 'President', image: '/.netlify/images?url=/images/committee-antony.jpg&w=400&fm=webp', isDefault: true },
+    { id: 'default_committee_2', name: 'Jacob Thomas', role: 'Vice President', image: '/.netlify/images?url=/images/committee-jacob.png&w=400&fm=webp', isDefault: true },
+    { id: 'default_committee_3', name: 'Shinto Varghese', role: 'Vice President', image: '/.netlify/images?url=/images/committee-shinto.png&w=400&fm=webp', isDefault: true },
+    { id: 'default_committee_4', name: 'Anu Joby', role: 'Secretary', image: '/.netlify/images?url=/images/committee-anu.png&w=400&fm=webp', isDefault: true },
+    { id: 'default_committee_5', name: 'Arun Thampi', role: 'Treasurer', image: '/.netlify/images?url=/images/committee-arun.png&w=400&fm=webp', isDefault: true }
+  ];
+
   const DEFAULT_PHOTOS = [
     {
       id: 'default_photo_1',
@@ -129,6 +138,14 @@
   const featureGrid = document.getElementById('featureGrid');
   const featureCount = document.getElementById('featureCount');
 
+  // Committee
+  const committeeForm = document.getElementById('committeeForm');
+  const committeeNameInput = document.getElementById('committeeName');
+  const committeeRoleInput = document.getElementById('committeeRole');
+  const committeeImageInput = document.getElementById('committeeImage');
+  const committeeGrid = document.getElementById('committeeGrid');
+  const committeeCount = document.getElementById('committeeCount');
+
   // Tabs
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -184,6 +201,7 @@
     renderPhotos();
     renderEvents();
     renderFeatures();
+    renderCommittee();
   }
 
   function logout() {
@@ -514,6 +532,77 @@
     featurePreview.style.display = 'none';
     renderFeatures();
     showToast('Heritage card added successfully! 🎨');
+  });
+
+  // ---- Committee CRUD ----
+  function renderCommittee() {
+    const deletedItems = getFromStorage(STORAGE_KEYS.deletedItems);
+    const customCommittee = getFromStorage(STORAGE_KEYS.committee);
+    
+    const defaultCommitteeToShow = DEFAULT_COMMITTEE.filter(c => !deletedItems.includes(c.id));
+    const allCommittee = [...defaultCommitteeToShow, ...customCommittee];
+    
+    committeeCount.textContent = allCommittee.length;
+
+    if (allCommittee.length === 0) {
+      committeeGrid.innerHTML = '<p class="empty-state">No committee members added yet.</p>';
+      return;
+    }
+
+    committeeGrid.innerHTML = allCommittee.map(member => `
+      <div class="list-item" data-id="${member.id}">
+        <img src="${member.image}" alt="${member.name}" onerror="this.src='images/shema-logo.png'" style="width:50px;height:50px;object-fit:cover;border-radius:50%;" />
+        <div class="list-item-info">
+          <strong>${member.name} ${member.isDefault ? '<span class="badge badge-default">Default</span>' : '<span class="badge badge-added">Added</span>'}</strong>
+          <span>${member.role}</span>
+        </div>
+        <button class="delete-btn" onclick="deleteCommittee('${member.id}')" title="Delete member">
+          🗑️
+        </button>
+      </div>
+    `).join('');
+  }
+
+  window.deleteCommittee = function(id) {
+    if (confirm('Are you sure you want to delete this committee member?')) {
+      if (id.startsWith('default_')) {
+        const deleted = getFromStorage(STORAGE_KEYS.deletedItems);
+        if (!deleted.includes(id)) {
+          deleted.push(id);
+          saveToStorage(STORAGE_KEYS.deletedItems, deleted);
+        }
+      } else {
+        let committee = getFromStorage(STORAGE_KEYS.committee);
+        committee = committee.filter(c => c.id !== id);
+        saveToStorage(STORAGE_KEYS.committee, committee);
+      }
+      renderCommittee();
+      showToast('Committee member deleted');
+    }
+  };
+
+  // Add committee member
+  committeeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = committeeNameInput.value.trim();
+    const role = committeeRoleInput.value.trim();
+    const image = committeeImageInput.value.trim();
+
+    if (!name || !role || !image) return;
+
+    const committee = getFromStorage(STORAGE_KEYS.committee);
+    committee.push({
+      id: generateId(),
+      name,
+      role,
+      image,
+      addedAt: new Date().toISOString()
+    });
+    saveToStorage(STORAGE_KEYS.committee, committee);
+
+    committeeForm.reset();
+    renderCommittee();
+    showToast('Committee member added successfully! 👥');
   });
 
   // ---- Shake animation (for wrong password) ----

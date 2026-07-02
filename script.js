@@ -20,6 +20,29 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error hiding deleted items:', e);
     }
 
+    // Load Committee
+    const committeeGrid = document.getElementById('committeeGrid');
+    if (committeeGrid) {
+      try {
+        const adminCommittee = JSON.parse(localStorage.getItem('shema_admin_committee') || '[]');
+        adminCommittee.forEach(member => {
+          const card = document.createElement('div');
+          card.className = 'committee-card reveal';
+          card.setAttribute('data-id', member.id);
+          card.innerHTML = `
+            <div class="committee-img-wrap">
+              <img src="${member.image}" alt="${member.name} - ${member.role}" loading="lazy" onerror="this.src='images/shema-logo.png'" />
+            </div>
+            <h3>${member.name}</h3>
+            <p>${member.role}</p>
+          `;
+          committeeGrid.appendChild(card);
+        });
+      } catch (e) {
+        console.error('Error loading admin committee:', e);
+      }
+    }
+
     // Load Photos
     const highlightsGrid = document.querySelector('.highlights-grid');
     if (highlightsGrid) {

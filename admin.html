@@ -91,6 +91,10 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
             Kerala Heritage
           </button>
+          <button class="tab-btn" data-tab="committee">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Committee
+          </button>
         </div>
 
         <!-- ===== Photos Tab ===== -->
@@ -287,6 +291,52 @@
             <h3>Kerala Heritage Cards <span class="count" id="featureCount">0</span></h3>
             <div class="list-grid" id="featureGrid">
               <p class="empty-state">No heritage cards found.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Committee Tab ===== -->
+        <div class="tab-content" id="tab-committee">
+          <div class="admin-section-header">
+            <div>
+              <h2>Manage Committee</h2>
+              <p>Add or update committee members displayed on the homepage.</p>
+            </div>
+          </div>
+
+          <!-- Add Committee Form -->
+          <div class="admin-form-card">
+            <h3>Add Committee Member</h3>
+            <form id="committeeForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="committeeName">Name</label>
+                  <input type="text" id="committeeName" placeholder="e.g. Antony Jones" required />
+                </div>
+                <div class="form-group">
+                  <label for="committeeRole">Role</label>
+                  <input type="text" id="committeeRole" placeholder="e.g. President" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="committeeImage">Image URL (or path)</label>
+                <input type="text" id="committeeImage" placeholder="e.g. /images/committee-antony.jpg" required />
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-add">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add Member
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Committee List -->
+          <div class="admin-list" id="committeeList">
+            <h3>Saved Members <span class="count" id="committeeCount">0</span></h3>
+            <div class="list-grid" id="committeeGrid">
+              <p class="empty-state">No committee members added yet.</p>
             </div>
           </div>
         </div>
