@@ -21,8 +21,7 @@
   // ---- Defaults ----
   const DEFAULT_COMMITTEE = [
     { id: 'default_committee_1', name: 'Antony Jones', role: 'President', image: '/.netlify/images?url=/images/committee-antony.jpg&w=400&fm=webp', isDefault: true },
-    { id: 'default_committee_2', name: 'Jacob Thomas', role: 'Vice President', image: '/.netlify/images?url=/images/committee-jacob.png&w=400&fm=webp', isDefault: true },
-    { id: 'default_committee_3', name: 'Shinto Varghese', role: 'Vice President', image: '/.netlify/images?url=/images/committee-shinto.png&w=400&fm=webp', isDefault: true },
+
     { id: 'default_committee_4', name: 'Anu Joby', role: 'Secretary', image: '/.netlify/images?url=/images/committee-anu.png&w=400&fm=webp', isDefault: true },
     { id: 'default_committee_5', name: 'Arun Thampi', role: 'Treasurer', image: '/.netlify/images?url=/images/committee-arun.png&w=400&fm=webp', isDefault: true }
   ];
