@@ -1431,6 +1431,11 @@ button { cursor: pointer; font-family: var(--ff-body); }
   .events-grid { grid-template-columns: 1fr; }
   .culture-grid { grid-template-columns: repeat(2, 1fr); }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .committee-card, .committee-card.president-card {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
 
   .video-play-btn { width: 64px; height: 64px; font-size: 1.4rem; }
 
