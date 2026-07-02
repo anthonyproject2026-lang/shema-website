@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const adminCommittee = JSON.parse(localStorage.getItem('shema_admin_committee') || '[]');
         adminCommittee.forEach(member => {
+          const isPresident = member.role.toLowerCase() === 'president';
+          
           const card = document.createElement('div');
-          card.className = 'committee-card reveal';
+          card.className = 'committee-card reveal' + (isPresident ? ' president-card' : '');
           card.setAttribute('data-id', member.id);
           card.innerHTML = `
             <div class="committee-img-wrap">
@@ -37,6 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>${member.role}</p>
           `;
           committeeGrid.appendChild(card);
+          
+          if (isPresident) {
+            const br = document.createElement('div');
+            br.className = 'committee-break';
+            committeeGrid.appendChild(br);
+          }
         });
       } catch (e) {
         console.error('Error loading admin committee:', e);
