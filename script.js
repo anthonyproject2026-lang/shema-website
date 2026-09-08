@@ -7,136 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Load Admin Content from LocalStorage ---------- */
-  function loadAdminContent() {
-    // Hide deleted items
-    try {
-      const deletedIds = JSON.parse(localStorage.getItem('shema_deleted_items') || '[]');
-      deletedIds.forEach(id => {
-        const element = document.querySelector(`[data-id="${id}"]`);
-        if (element) element.remove();
-      });
-    } catch (e) {
-      console.error('Error hiding deleted items:', e);
-    }
-
-    // Load Committee
-    const committeeGrid = document.getElementById('committeeGrid');
-    if (committeeGrid) {
-      try {
-        const adminCommittee = JSON.parse(localStorage.getItem('shema_admin_committee') || '[]');
-        adminCommittee.forEach(member => {
-          const isPresident = member.role.toLowerCase() === 'president';
-          
-          const card = document.createElement('div');
-          card.className = 'committee-card reveal' + (isPresident ? ' president-card' : '');
-          card.setAttribute('data-id', member.id);
-          card.innerHTML = `
-            <div class="committee-img-wrap">
-              <img src="${member.image}" alt="${member.name} - ${member.role}" loading="lazy" onerror="this.src='images/shema-logo.png'" />
-            </div>
-            <h3>${member.name}</h3>
-            <p>${member.role}</p>
-          `;
-          committeeGrid.appendChild(card);
-          
-          if (isPresident) {
-            const br = document.createElement('div');
-            br.className = 'committee-break';
-            committeeGrid.appendChild(br);
-          }
-        });
-      } catch (e) {
-        console.error('Error loading admin committee:', e);
-      }
-    }
-
-    // Load Photos
-    const highlightsGrid = document.querySelector('.highlights-grid');
-    if (highlightsGrid) {
-      try {
-        const adminPhotos = JSON.parse(localStorage.getItem('shema_admin_photos') || '[]');
-        adminPhotos.forEach(photo => {
-          const card = document.createElement('div');
-          card.className = 'highlight-card reveal';
-          card.setAttribute('data-id', photo.id);
-          card.innerHTML = `
-            <img src="${photo.url}" alt="${photo.caption}" loading="lazy" />
-            <div class="highlight-card-info">
-              <h3>${photo.caption}</h3>
-              <p>${photo.description || ''}</p>
-            </div>
-          `;
-          highlightsGrid.appendChild(card);
-        });
-      } catch (e) {
-        console.error('Error loading admin photos:', e);
-      }
-    }
-
-    // Load Events
-    const eventsGrid = document.getElementById('eventsGrid');
-    if (eventsGrid) {
-      try {
-        const adminEvents = JSON.parse(localStorage.getItem('shema_admin_events') || '[]');
-        const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-        adminEvents.forEach(event => {
-          let month = 'EVT';
-          let day = '00';
-          if (event.date) {
-            const d = new Date(event.date + 'T00:00:00');
-            month = MONTHS[d.getMonth()] || 'EVT';
-            day = String(d.getDate()).padStart(2, '0');
-          }
-          const card = document.createElement('div');
-          card.className = 'event-card reveal';
-          card.setAttribute('data-id', event.id);
-          card.innerHTML = `
-            <div class="event-date-badge">
-              <span class="event-month">${month}</span>
-              <span class="event-day">${day}</span>
-            </div>
-            <div class="event-card-content">
-              <h3>${event.title}</h3>
-              <p>${event.description}</p>
-              <div class="event-meta">
-                ${event.location ? `<span class="event-location"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${event.location}</span>` : ''}
-              </div>
-            </div>
-          `;
-          eventsGrid.insertBefore(card, eventsGrid.firstChild);
-        });
-      } catch (e) {
-        console.error('Error loading admin events:', e);
-      }
-    }
-
-    // Load Kerala Heritage Features
-    const carouselTrack = document.getElementById('carouselTrack');
-    if (carouselTrack) {
-      try {
-        const adminFeatures = JSON.parse(localStorage.getItem('shema_admin_features') || '[]');
-        adminFeatures.forEach(feature => {
-          const card = document.createElement('div');
-          card.className = 'kerala-card';
-          card.setAttribute('data-id', feature.id);
-          card.innerHTML = `
-            <img src="${feature.image}" alt="${feature.title}" loading="lazy" />
-            <div class="kerala-card-overlay">
-              <span class="kerala-card-tag">${feature.tag}</span>
-              <h3>${feature.title}</h3>
-              <p>${feature.description}</p>
-            </div>
-          `;
-          carouselTrack.appendChild(card);
-        });
-      } catch (e) {
-        console.error('Error loading admin features:', e);
-      }
-    }
-  }
-
-  loadAdminContent();
 
   /* ---------- Navbar scroll effect ---------- */
   const navbar = document.getElementById('navbar');
@@ -205,6 +75,70 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ---------- Accessible event photo gallery ---------- */
+  const eventGalleries = {
+    'voice-vineeth': []
+  };
+
+  function setupEventGallery() {
+    const modal = document.getElementById('eventGalleryModal');
+    const closeButton = document.getElementById('eventGalleryClose');
+    const galleryGrid = document.getElementById('eventGalleryGrid');
+    const emptyMessage = document.getElementById('eventGalleryEmpty');
+    const triggers = document.querySelectorAll('.event-gallery-trigger');
+    let previouslyFocused = null;
+
+    if (!modal || !closeButton || !galleryGrid || !emptyMessage) return;
+
+    function closeGallery() {
+      if (modal.hidden) return;
+      modal.hidden = true;
+      document.body.classList.remove('gallery-open');
+      if (previouslyFocused) previouslyFocused.focus();
+    }
+
+    function openGallery(trigger) {
+      const card = trigger.closest('[data-event-gallery]');
+      const galleryId = card ? card.dataset.eventGallery : '';
+      const photos = eventGalleries[galleryId] || [];
+      previouslyFocused = trigger;
+      galleryGrid.replaceChildren();
+
+      photos.forEach(photo => {
+        if (!/^images\/events\/[a-z0-9_\-/]+\.(?:avif|webp|jpe?g|png)$/i.test(photo.src)) return;
+        const image = document.createElement('img');
+        image.src = photo.src;
+        image.alt = photo.alt;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        galleryGrid.appendChild(image);
+      });
+
+      emptyMessage.hidden = galleryGrid.childElementCount > 0;
+      modal.hidden = false;
+      document.body.classList.add('gallery-open');
+      closeButton.focus();
+    }
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => openGallery(trigger));
+    });
+    closeButton.addEventListener('click', closeGallery);
+    modal.addEventListener('click', event => {
+      if (event.target === modal) closeGallery();
+    });
+    document.addEventListener('keydown', event => {
+      if (modal.hidden) return;
+      if (event.key === 'Escape') closeGallery();
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        closeButton.focus();
+      }
+    });
+  }
+
+  setupEventGallery();
 
   /* ---------- Back to top ---------- */
   const backToTop = document.getElementById('backToTop');
@@ -426,5 +360,4 @@ document.addEventListener('DOMContentLoaded', () => {
     videoObserver.observe(keralaVideo);
   }
 
-  console.log('🌿 SHEMA Website loaded successfully');
 });
