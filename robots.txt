@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin.html
 
 Sitemap: https://shema.com.au/sitemap.xml
