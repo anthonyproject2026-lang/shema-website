@@ -22,10 +22,17 @@ class LinkParser(HTMLParser):
     def __init__(self):
         super().__init__()
         self.links = []
+        self.image_preloads = []
+        self.eager_images = []
 
     def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
         if tag == "a":
-            self.links.append(dict(attrs))
+            self.links.append(attributes)
+        if tag == "link" and attributes.get("rel") == "preload" and attributes.get("as") == "image":
+            self.image_preloads.append(attributes)
+        if tag == "img" and attributes.get("fetchpriority") == "high":
+            self.eager_images.append(attributes)
 
 
 class ShemaSiteTests(unittest.TestCase):
@@ -43,6 +50,15 @@ class ShemaSiteTests(unittest.TestCase):
         self.assertIn("Moments to Remember", self.html)
         self.assertNotIn("Upcoming Events", self.html)
         self.assertNotIn("Previous Events", self.html)
+
+    def test_hero_preload_uses_responsive_candidates(self):
+        self.assertEqual(len(self.links.image_preloads), 1)
+        self.assertEqual(len(self.links.eager_images), 1)
+        preload = self.links.image_preloads[0]
+        hero = self.links.eager_images[0]
+        self.assertEqual(preload.get("href"), hero.get("src"))
+        self.assertEqual(preload.get("imagesrcset"), hero.get("srcset"))
+        self.assertEqual(preload.get("imagesizes"), hero.get("sizes"))
 
     def test_all_five_requested_events_are_present(self):
         for title in FACEBOOK_LINKS:
