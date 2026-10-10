@@ -22,41 +22,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
-  navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('active');
-    navToggle.setAttribute('aria-expanded', isOpen);
-    const spans = navToggle.querySelectorAll('span');
-    if (isOpen) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
-    }
-  });
-
-  // Close mobile nav on link click
+  const mobileNav = window.matchMedia('(max-width: 1280px)');
+  function setMenu(open, restoreFocus = false) {
+    navLinks.classList.toggle('active', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    if (open && mobileNav.matches) navLinks.querySelector('a').focus();
+    if (restoreFocus) navToggle.focus();
+  }
+  navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      navToggle.setAttribute('aria-expanded', 'false');
-      const spans = navToggle.querySelectorAll('span');
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
-    });
+    link.addEventListener('click', () => setMenu(false));
   });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && navLinks.classList.contains('active')) setMenu(false, true);
+  });
+  document.addEventListener('click', event => {
+    if (!navbar.contains(event.target)) setMenu(false);
+  });
+  navbar.addEventListener('focusout', event => {
+    if (!navbar.contains(event.relatedTarget)) setMenu(false);
+  });
+  mobileNav.addEventListener('change', () => setMenu(false));
 
   /* ---------- Smooth scroll for anchor links ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const href = anchor.getAttribute('href');
       if (href === '#') return;
-      e.preventDefault();
-      const target = document.querySelector(href);
+      const target = document.getElementById(href.slice(1));
       if (target) {
+        e.preventDefault();
+        history.replaceState(null, '', href);
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
         const offset = navbar.offsetHeight + 10;
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: targetPosition, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
@@ -94,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeGallery() {
       if (modal.hidden) return;
       modal.hidden = true;
+      [...document.body.children].forEach(el => { if (el !== modal) el.inert = false; });
       document.body.classList.remove('gallery-open');
       if (previouslyFocused) previouslyFocused.focus();
     }
@@ -117,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       emptyMessage.hidden = galleryGrid.childElementCount > 0;
       modal.hidden = false;
+      [...document.body.children].forEach(el => { if (el !== modal) el.inert = true; });
       document.body.classList.add('gallery-open');
       closeButton.focus();
     }
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create slide counter with aria-live
     const counterEl = document.createElement('div');
     counterEl.className = 'carousel-counter';
-    counterEl.setAttribute('aria-live', 'polite');
+    counterEl.setAttribute('aria-live', 'off');
     counterEl.textContent = `1 / ${totalSlides}`;
     carouselDots.parentElement.insertBefore(counterEl, carouselPauseBtn);
 
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Auto-play — gated behind IntersectionObserver + reduced-motion
     function startAutoPlay() {
-      if (prefersReducedMotion || isPaused) return;
+      if (prefersReducedMotion || isPaused || document.hidden || keralaCarousel.matches(':hover') || keralaCarousel.contains(document.activeElement)) return;
       stopAutoPlay();
       autoPlayInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
     }
@@ -282,6 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { threshold: 0.3 });
     carouselObserver.observe(keralaCarousel);
+
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stopAutoPlay(); });
 
     // Pause on hover
     keralaCarousel.addEventListener('mouseenter', stopAutoPlay);
@@ -335,8 +337,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const playVideo = () => {
-      keralaVideo.play().catch(err => console.error('Video play failed:', err));
-      hideOverlay();
+      keralaVideo.play().then(hideOverlay).catch(() => {
+        showOverlay();
+        videoPlayBtn.setAttribute('aria-label', 'Video unavailable. Try playing again');
+      });
     };
 
     videoPlayBtn.addEventListener('click', (e) => { e.stopPropagation(); playVideo(); });
