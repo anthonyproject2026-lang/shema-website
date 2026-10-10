@@ -1224,6 +1224,18 @@ button { cursor: pointer; font-family: var(--ff-body); }
   color: var(--ink-muted);
 }
 
+/* Complete licensed destination and craft images, including portrait subjects. */
+.heritage-media-card { display: flex; flex-direction: column; min-width: 0; padding: 1rem; text-align: left; }
+.heritage-photo { margin: 0; min-width: 0; }
+.heritage-photo img { display: block; width: 100%; height: 260px; object-fit: contain; background: var(--cream-alt); border-radius: 6px; }
+.heritage-photo figcaption { margin-top: .6rem; font-size: .75rem; line-height: 1.6; color: var(--ink-muted); overflow-wrap: anywhere; }
+.heritage-info { padding-top: 1rem; }
+.heritage-info h3 { font-family: var(--ff-display); margin-bottom: .4rem; }
+.heritage-info p { font-size: .85rem; line-height: 1.6; }
+.heritage-links { display: flex; flex-direction: column; gap: .5rem; margin-top: .8rem; }
+.heritage-links a, .heritage-photo a { color: var(--pachai); text-decoration: underline; }
+.heritage-links a { font-size: .8rem; line-height: 1.6; overflow-wrap: anywhere; }
+
 /* ---------- Video Section ---------- */
 .video-section {
   background: var(--ink);
