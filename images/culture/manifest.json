@@ -1,0 +1,258 @@
+[
+  {
+    "topic": "onam",
+    "id": "kerala-cuisine-91202828",
+    "title": "Kerala Sadya Feast.jpg",
+    "author": "athulvis",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kerala_Sadya_Feast.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "original_sha256": "8a294d53f2ba2ebd6d8fc17c93deb2913a1f692f38c8053e155e2636c905f03c",
+    "derivatives": [
+      {
+        "width": 480,
+        "height": 360,
+        "path": "images/culture/kerala-cuisine-91202828-480.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "path": "images/culture/kerala-cuisine-91202828-800.webp"
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "path": "images/culture/kerala-cuisine-91202828-1024.webp"
+      }
+    ],
+    "modifications": "EXIF orientation corrected where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "video_url": "https://www.keralatourism.org/video-gallery/celebration-of-keralas-tradition-and-culture/1682/",
+    "player_reference": [
+      "https://www.youtube.com/watch?v=gHESEeS1kGk"
+    ]
+  },
+  {
+    "topic": "pulikali",
+    "id": "pulikali-4144135",
+    "title": "Pulikali.jpg",
+    "author": "Felix Francis",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pulikali.jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "original_sha256": "293cc2b53cc79483f5a8a3f7ea045f57fe9297d597cdac39fdab9f89bf52f92a",
+    "derivatives": [
+      {
+        "width": 480,
+        "height": 360,
+        "path": "images/culture/pulikali-4144135-480.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "path": "images/culture/pulikali-4144135-800.webp"
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "path": "images/culture/pulikali-4144135-1024.webp"
+      }
+    ],
+    "modifications": "EXIF orientation corrected where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "video_url": "https://www.keralatourism.org/video-gallery/pulikali-tiger-dance/587/",
+    "player_reference": [
+      "https://www.youtube.com/watch?v=2TPNsaxPJLU"
+    ]
+  },
+  {
+    "topic": "thiruvathirakali",
+    "id": "thiruvathirakali-12691004",
+    "title": "Thiruvathirakali.JPG",
+    "author": "Jigesh at Malayalam Wikipedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Thiruvathirakali.JPG",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "original_sha256": "b834242a31d0d6930148328bf7aa26b720ed55ee795ecc1585421bb6e220057b",
+    "derivatives": [
+      {
+        "width": 480,
+        "height": 324,
+        "path": "images/culture/thiruvathirakali-12691004-480.webp"
+      },
+      {
+        "width": 800,
+        "height": 540,
+        "path": "images/culture/thiruvathirakali-12691004-800.webp"
+      },
+      {
+        "width": 1024,
+        "height": 692,
+        "path": "images/culture/thiruvathirakali-12691004-1024.webp"
+      }
+    ],
+    "modifications": "EXIF orientation corrected where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "video_url": "https://www.keralatourism.org/video-gallery/thiruvathirakali/141/",
+    "player_reference": [
+      "https://www.youtube.com/watch?v=SKEBTaFgPbk"
+    ]
+  },
+  {
+    "topic": "thrissur-pooram",
+    "id": "thrissur-pooram-62720583",
+    "title": "Thrisur pooram kudamattam.jpg",
+    "author": "Athulandl",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Thrisur_pooram_kudamattam.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "original_sha256": "6f5d0b4aae4a419b479921ae276777e91bf76a44c6cc9d0dc93ada350d38106f",
+    "derivatives": [
+      {
+        "width": 480,
+        "height": 270,
+        "path": "images/culture/thrissur-pooram-62720583-480.webp"
+      },
+      {
+        "width": 800,
+        "height": 450,
+        "path": "images/culture/thrissur-pooram-62720583-800.webp"
+      },
+      {
+        "width": 1024,
+        "height": 576,
+        "path": "images/culture/thrissur-pooram-62720583-1024.webp"
+      }
+    ],
+    "modifications": "EXIF orientation corrected where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "video_url": "https://www.keralatourism.org/video-gallery/kudamattom/494/",
+    "player_reference": [
+      "https://www.youtube.com/watch?v=X5RrnEuFvhU"
+    ]
+  },
+  {
+    "topic": "chenda-melam",
+    "id": "chenda-melam-130027123",
+    "title": "Chenda melam 2023-03-17.jpg",
+    "author": "Vis M",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Chenda_melam_2023-03-17.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "original_sha256": "5176de357d077de1271b3133fc4ff425d44667699874632bbb8599813286a4f5",
+    "derivatives": [
+      {
+        "width": 480,
+        "height": 337,
+        "path": "images/culture/chenda-melam-130027123-480.webp"
+      },
+      {
+        "width": 800,
+        "height": 561,
+        "path": "images/culture/chenda-melam-130027123-800.webp"
+      },
+      {
+        "width": 1024,
+        "height": 718,
+        "path": "images/culture/chenda-melam-130027123-1024.webp"
+      }
+    ],
+    "modifications": "EXIF orientation corrected where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "video_url": "https://www.keralatourism.org/video-gallery/peruvanam-pooram/776/",
+    "player_reference": [
+      "https://www.youtube.com/watch?v=mV7TY0_pRzw"
+    ]
+  },
+  {
+    "topic": "pookalam",
+    "id": "pookalam-153223880",
+    "title": "Pookalam for Onam at Kerala 02.jpg",
+    "author": "Bhuvana Meenakshi",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pookalam_for_Onam_at_Kerala_02.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "original_sha256": "3e91860ab458b9ed457dfb208ea2d57b56f744daf116cb217bfd587578934a7a",
+    "derivatives": [
+      {
+        "width": 480,
+        "height": 360,
+        "path": "images/culture/pookalam-153223880-480.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "path": "images/culture/pookalam-153223880-800.webp"
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "path": "images/culture/pookalam-153223880-1024.webp"
+      }
+    ],
+    "modifications": "EXIF orientation corrected where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "video_url": "https://www.keralatourism.org/video-gallery/pookkalam-contest-2022/1635/",
+    "player_reference": [
+      "https://www.youtube.com/watch?v=GlyHLdqh-cQ"
+    ]
+  },
+  {
+    "topic": "kerala-cuisine",
+    "id": "kerala-cuisine-146086406",
+    "title": "Traditional Sadya from Kerala.jpg",
+    "author": "Ganesh Mohan T",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Traditional_Sadya_from_Kerala.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "original_sha256": "aed56e9cc379836eebdb112154f15232b3143b38ac7f498eceffadfb88ce9b0b",
+    "derivatives": [
+      {
+        "width": 480,
+        "height": 360,
+        "path": "images/culture/kerala-cuisine-146086406-480.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "path": "images/culture/kerala-cuisine-146086406-800.webp"
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "path": "images/culture/kerala-cuisine-146086406-1024.webp"
+      }
+    ],
+    "modifications": "EXIF orientation corrected where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "video_url": "https://www.keralatourism.org/video-gallery/cuisine-of-kerala/591/",
+    "player_reference": [
+      "https://www.youtube.com/watch?v=LYyWArVBrBg"
+    ]
+  },
+  {
+    "topic": "classical-music",
+    "id": "classical-music-177430511",
+    "title": "Adoor P Sudarsanan 2025 2.jpg",
+    "author": "Fotokannan",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Adoor_P_Sudarsanan_2025_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "original_sha256": "42636cab2eab9634fdcb209dc66f27d414a9dc400f26ab62f2c6c106611f156e",
+    "derivatives": [
+      {
+        "width": 480,
+        "height": 360,
+        "path": "images/culture/classical-music-177430511-480.webp"
+      },
+      {
+        "width": 800,
+        "height": 600,
+        "path": "images/culture/classical-music-177430511-800.webp"
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "path": "images/culture/classical-music-177430511-1024.webp"
+      }
+    ],
+    "modifications": "EXIF orientation corrected where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "video_url": "https://www.keralatourism.org/video-gallery/navarathri-kerala/1460/",
+    "player_reference": [
+      "https://www.youtube.com/watch?v=JVpBeUH2UaQ"
+    ]
+  }
+]

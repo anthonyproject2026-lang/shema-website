@@ -1,4 +1,4 @@
-﻿"""Local browser regression: python tests/browser_review.py"""
+"""Local browser regression: python tests/browser_review.py"""
 from pathlib import Path
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from functools import partial
@@ -83,12 +83,12 @@ try:
             culture=page.locator('#culture')
             culture.scroll_into_view_if_needed()
             assert culture.locator('.culture-item').count()==8
-            assert culture.locator('.culture-item img').count()==1
+            assert culture.locator('.culture-item img').count()==8
             assert culture.locator('.culture-item').evaluate_all("items=>items.every(e=>{const r=e.getBoundingClientRect();return r.width>0 && r.left>=0 && r.right<=innerWidth+1 && e.scrollWidth<=e.clientWidth})")
-            discovery=culture.locator('.culture-discovery a')
+            discovery=culture.locator('.culture-video-card a').first
             assert discovery.is_visible()
             assert discovery.get_attribute('rel')=='noopener noreferrer'
-            assert discovery.get_attribute('href')=='https://www.keralatourism.org/video-gallery/'
+            assert discovery.get_attribute('href').startswith('https://www.keralatourism.org/video-gallery/')
             assert discovery.evaluate('(e)=>e.scrollWidth<=e.clientWidth')
             if motion=='reduce':
                 culture.screenshot(path=str(OUT/f'culture-{width}.png'), style='#navbar, #backToTop { visibility: hidden !important; }')

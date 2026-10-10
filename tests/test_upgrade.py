@@ -1,4 +1,4 @@
-﻿import re
+import re
 import unittest
 from html.parser import HTMLParser
 from PIL import Image
@@ -59,28 +59,40 @@ class UpgradeTests(unittest.TestCase):
         culture=html.split('id="culture"',1)[1].split('</section>',1)[0]
         cards=culture.split('<div class="culture-item reveal">')[1:]
         self.assertEqual(len(cards),8)
-        for card in cards:
-            heading=re.search(r'<h3>(.*?)</h3>',card).group(1)
-            parser=Elements(); parser.feed(card.split('</div>\n        </div>',1)[0])
+        import json
+        records=json.loads((ROOT/'images/culture/manifest.json').read_text(encoding='utf-8'))
+        credits=(ROOT/'media-credits.html').read_text(encoding='utf-8')
+        cp=Elements(); cp.feed(credits)
+        credit_links=[a['href'] for tag,a in cp.items if tag=='a']
+        for card, record in zip(cards, records):
+            card=card.split('</figure>',1)[0]+'</figure>'
+            parser=Elements(); parser.feed(card)
             images=[a for tag,a in parser.items if tag=='img']
-            if heading=='Onam Festival':
-                self.assertEqual(len(images),1)
-                image=images[0]
-                self.assertEqual(image['src'],'images/optimized/onam-sadhya-800.webp')
-                self.assertEqual(image['loading'],'lazy')
-                self.assertTrue(image['alt'])
-                with Image.open(ROOT/image['src']) as asset:
-                    self.assertEqual((int(image['width']),int(image['height'])),asset.size)
-                self.assertIn('Kerala heritage imagery',card)
-            else:
-                self.assertFalse(images,heading)
-                self.assertIn('culture-icon',card)
+            self.assertEqual(len(images),1)
+            image=images[0]
+            self.assertEqual(image['src'],record['derivatives'][1]['path'])
+            self.assertEqual(image['loading'],'lazy')
+            self.assertTrue(image['alt'])
+            with Image.open(ROOT/image['src']) as asset:
+                self.assertEqual((int(image['width']),int(image['height'])),asset.size)
+            self.assertIn('Photograph:',card)
+            self.assertIn(record['author'],card)
+            self.assertIn(record['license'],card)
+            self.assertIn(record['source_url'],credit_links)
+            self.assertIn(record['license_url'],credit_links)
+            self.assertIn(record['title'],credits)
+            if 'SA' in record['license']: self.assertIn('ShareAlike',credits)
+            for derivative in record['derivatives']:
+                with Image.open(ROOT/derivative['path']) as asset:
+                    self.assertEqual(asset.size,(derivative['width'],derivative['height']))
+                    self.assertFalse(asset.getexif())
+                    self.assertNotIn('icc_profile',asset.info)
         parser=Elements(); parser.feed(culture)
-        links=[a for tag,a in parser.items if tag=='a']
-        self.assertEqual(len(links),1)
-        self.assertEqual(links[0]['href'],'https://www.keralatourism.org/video-gallery/')
-        self.assertEqual(links[0]['target'],'_blank')
-        self.assertEqual(set(links[0]['rel'].split()),{'noopener','noreferrer'})
+        links=[a for tag,a in parser.items if tag=='a' and a.get('target')=='_blank']
+        self.assertEqual(len(links),8)
+        self.assertEqual({a['href'] for a in links},{r['video_url'] for r in records})
+        for link in links:
+            self.assertEqual(set(link['rel'].split()),{'noopener','noreferrer'})
         self.assertIn('Source: Kerala Tourism',culture)
         self.assertIn('separate from SHEMA events',culture)
         for tag,a in parser.items:
