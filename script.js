@@ -23,10 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('navLinks');
 
   const mobileNav = window.matchMedia('(max-width: 1280px)');
+  function updateCompactNav() {
+    const textSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    navbar.classList.toggle('compact', window.innerWidth <= Math.max(1280, textSize * 80));
+  }
+  updateCompactNav();
+  new ResizeObserver(updateCompactNav).observe(document.documentElement);
+  window.addEventListener('resize', updateCompactNav, { passive: true });
   function setMenu(open, restoreFocus = false) {
     navLinks.classList.toggle('active', open);
     navToggle.setAttribute('aria-expanded', String(open));
-    if (open && mobileNav.matches) navLinks.querySelector('a').focus();
+    if (open && (mobileNav.matches || navbar.classList.contains('compact'))) navLinks.querySelector('a').focus();
     if (restoreFocus) navToggle.focus();
   }
   navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
@@ -40,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!navbar.contains(event.target)) setMenu(false);
   });
   navbar.addEventListener('focusout', event => {
-    if (!navbar.contains(event.relatedTarget)) setMenu(false);
+    // A pointer press can blur a link with no new focus target before its click.
+    // Outside clicks are handled above; close here only for a known focus move.
+    if (event.relatedTarget && !navbar.contains(event.relatedTarget)) setMenu(false);
   });
   mobileNav.addEventListener('change', () => setMenu(false));
 
