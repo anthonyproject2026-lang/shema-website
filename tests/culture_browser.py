@@ -45,7 +45,7 @@ try:
             page.locator('#culture').screenshot(path=str(OUT/f'culture-complete-{width}.png'),style=style)
             page.locator('.culture-video-grid').screenshot(path=str(OUT/f'video-cards-{width}.png'),style=style)
             page.goto(f'http://127.0.0.1:{server.server_port}/media-credits.html')
-            assert page.locator('.media-credit').count()==8
+            assert page.locator('.media-credit').count()==16
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
             page.screenshot(path=str(OUT/f'credits-{width}.png'),full_page=True)
             results.append(dict(viewport=width,**data))

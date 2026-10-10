@@ -1,0 +1,340 @@
+[
+  {
+    "id": "padmanabhaswamy-temple-161693828",
+    "topic": "padmanabhaswamy-temple",
+    "name": "Padmanabhaswamy Temple",
+    "title": "Sree Padmanabhaswamy Temple,.jpg",
+    "caption": "Sree Padmanabhaswamy Temple tower in Thiruvananthapuram",
+    "author": "Shots by Karthik S.P",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sree_Padmanabhaswamy_Temple,.jpg",
+    "original_sha256": "b1fcaac76966b6c434b2059995aca375d8f639c3b6996ff449f4db8c3597530d",
+    "subject_verification": "Front view of named temple tower; portrait image, crop carefully for wide cards.",
+    "modifications": "EXIF orientation applied where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "derivatives": [
+      {
+        "path": "images/destinations-crafts/padmanabhaswamy-temple-161693828-480.webp",
+        "width": 480,
+        "height": 720,
+        "sha256": "a80987d1b75370633c76a3f6a38bde591500c95df073bedb566a9aadcffa8507"
+      },
+      {
+        "path": "images/destinations-crafts/padmanabhaswamy-temple-161693828-800.webp",
+        "width": 800,
+        "height": 1200,
+        "sha256": "04a64c57f08962d2f77df56d8b194382de28c9d1791dfe94ef6ada521e49deca"
+      },
+      {
+        "path": "images/destinations-crafts/padmanabhaswamy-temple-161693828-1024.webp",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "47c5c7811087a677d17693ea29b52610d6ebc082196612023af2bf2518767b57"
+      }
+    ],
+    "external_links": [
+      {
+        "url": "https://www.keralatourism.org/destination/padmanabha-swamy-temple-thiruvananthapuram/13/",
+        "label": "Learn more · Kerala Tourism",
+        "kind": "description"
+      }
+    ]
+  },
+  {
+    "id": "varkala-cliff-121378838",
+    "topic": "varkala-cliff",
+    "name": "Varkala Cliff",
+    "title": "Varkala cliff 03.jpg",
+    "caption": "View from Varkala cliff over the beach and Arabian Sea",
+    "author": "Ganesh Mohan T",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Varkala_cliff_03.jpg",
+    "original_sha256": "6408afedb69cc86d87c47ff5378b5f6936c791922e885458e41cdfcfbeac9a0a",
+    "subject_verification": "Cliff and beach from Varkala; portrait, requires considered wide crop.",
+    "modifications": "EXIF orientation applied where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "derivatives": [
+      {
+        "path": "images/destinations-crafts/varkala-cliff-121378838-480.webp",
+        "width": 480,
+        "height": 720,
+        "sha256": "cfcd9774e72b0fc14080e7d6e1bc4ebcdf03dc87324e1b4c3d11759b70c9c9c2"
+      },
+      {
+        "path": "images/destinations-crafts/varkala-cliff-121378838-800.webp",
+        "width": 800,
+        "height": 1200,
+        "sha256": "2e8762f1a3a4fbb14f69ce1610582131582092a62c04e66fd2b493448ad9ca83"
+      },
+      {
+        "path": "images/destinations-crafts/varkala-cliff-121378838-1024.webp",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "79f56db43d2efdf9e324286a9d154a4440d41d68e4b0dd15a58e89f5e93adbfb"
+      }
+    ],
+    "external_links": [
+      {
+        "url": "https://www.keralatourism.org/video-gallery/varkala-beach-kerala/1551/",
+        "label": "External video · Kerala Tourism",
+        "kind": "video"
+      }
+    ]
+  },
+  {
+    "id": "munnar-tea-gardens-68764763",
+    "topic": "munnar-tea-gardens",
+    "name": "Munnar Tea Gardens",
+    "title": "Panorama of Munnar Tea Gardens.jpg",
+    "caption": "Panorama of tea plantations in Munnar",
+    "author": "IM3847",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Panorama_of_Munnar_Tea_Gardens.jpg",
+    "original_sha256": "da96af480e16765a564fe9f92f085de79860b01de158b49ebac6263c2524312f",
+    "subject_verification": "Named Munnar tea gardens panorama with rows and hills; crop suitable region.",
+    "modifications": "EXIF orientation applied where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "derivatives": [
+      {
+        "path": "images/destinations-crafts/munnar-tea-gardens-68764763-480.webp",
+        "width": 480,
+        "height": 156,
+        "sha256": "278db9989a8bd8cd4ee9ac1c844add43793b67b9fcb9d937b6fa6f3f03585705"
+      },
+      {
+        "path": "images/destinations-crafts/munnar-tea-gardens-68764763-800.webp",
+        "width": 800,
+        "height": 259,
+        "sha256": "bbfb53a9094f26acc9761eebad2d755436b4c0969e33f1ec65b83db4696e71ee"
+      },
+      {
+        "path": "images/destinations-crafts/munnar-tea-gardens-68764763-1024.webp",
+        "width": 1024,
+        "height": 332,
+        "sha256": "500cb83773325736759e050ea4ede1bb6e1fe15abfce865823800338f61c73f5"
+      }
+    ],
+    "external_links": [
+      {
+        "url": "https://www.keralatourism.org/destination/munnar/202/",
+        "label": "Learn more · Kerala Tourism",
+        "kind": "description"
+      }
+    ]
+  },
+  {
+    "id": "fort-kochi-162909249",
+    "topic": "fort-kochi",
+    "name": "Fort Kochi",
+    "title": "Sunset with Chinese Fishing Nets, Fort Kochi 2.jpg",
+    "caption": "Chinese fishing nets at sunset in Fort Kochi",
+    "author": "Rangan Datta Wiki",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_with_Chinese_Fishing_Nets,_Fort_Kochi_2.jpg",
+    "original_sha256": "e6cdb1e214c13189e11931264bd475752beab1d4ff8afde429b8a701e1fb8b9c",
+    "subject_verification": "Named Fort Kochi Chinese fishing nets at sunset; nets clearly foregrounded.",
+    "modifications": "EXIF orientation applied where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "derivatives": [
+      {
+        "path": "images/destinations-crafts/fort-kochi-162909249-480.webp",
+        "width": 480,
+        "height": 318,
+        "sha256": "6f682ed5c2ecad7562e38ecf1134e621f7e73e47ddf89e7ea737fb9ebae1d77c"
+      },
+      {
+        "path": "images/destinations-crafts/fort-kochi-162909249-800.webp",
+        "width": 800,
+        "height": 530,
+        "sha256": "707bc0fe781d46382c5b8e272d4dec879af6980dc21b7b90c68d9cb5f6865cd8"
+      },
+      {
+        "path": "images/destinations-crafts/fort-kochi-162909249-1024.webp",
+        "width": 1024,
+        "height": 678,
+        "sha256": "6314a423f7127622cf486fa0c6718d3468cf9a5e5a490a1688714e3648200d04"
+      }
+    ],
+    "external_links": [
+      {
+        "url": "https://www.keralatourism.org/destination/fort-kochi/422/",
+        "label": "Learn more · Kerala Tourism",
+        "kind": "description"
+      }
+    ]
+  },
+  {
+    "id": "aranmula-kannadi-101277121",
+    "topic": "aranmula-kannadi",
+    "name": "Aranmula Kannadi",
+    "title": "Aranmula Kannadi.jpg",
+    "caption": "Aranmula metal-alloy mirrors on display",
+    "author": "Prasanth Prakash",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Aranmula_Kannadi.jpg",
+    "original_sha256": "ef12f47acfd8e336157d2e718c365422f7c39113f10ab21d7cd96d68cb598abd",
+    "subject_verification": "Source explicitly identifies Aranmula metal-alloy mirrors; visually ornate mirror display. Not a generic mirror substitution.",
+    "modifications": "EXIF orientation applied where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "derivatives": [
+      {
+        "path": "images/destinations-crafts/aranmula-kannadi-101277121-480.webp",
+        "width": 480,
+        "height": 320,
+        "sha256": "04b682155f5aa9591cb29eb407fa8a01713f52edd06a1052cd96e97261416643"
+      },
+      {
+        "path": "images/destinations-crafts/aranmula-kannadi-101277121-800.webp",
+        "width": 800,
+        "height": 533,
+        "sha256": "128f5dbf11c2db45a873823ad189686b9e3970efb64f223c1108711b273c420f"
+      },
+      {
+        "path": "images/destinations-crafts/aranmula-kannadi-101277121-1024.webp",
+        "width": 1024,
+        "height": 683,
+        "sha256": "9a0aa39362501a4370560f2dfa4905f0d8f1bd188f195c11e51ac9b6a34dd2f9"
+      }
+    ],
+    "external_links": [
+      {
+        "url": "https://www.keralatourism.org/kerala-article/2009/mirror-aranmula/13",
+        "label": "Learn more · Kerala Tourism",
+        "kind": "description"
+      },
+      {
+        "url": "https://www.keralatourism.org/video-gallery/aranmula-kannadi-pathanamthitta/1516/",
+        "label": "External video · Kerala Tourism",
+        "kind": "video"
+      }
+    ]
+  },
+  {
+    "id": "kasaragod-sarees-96010319",
+    "topic": "kasaragod-sarees",
+    "name": "Kasaragod Sarees",
+    "title": "Kasargod saree 01.jpg",
+    "caption": "Inside a saree weaving centre in Kasaragod; not a finished saree photograph",
+    "author": "Ajeeshkumar4u",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kasargod_saree_01.jpg",
+    "original_sha256": "965ec8d41548e619fa5f7bb16a38c70428dca72a5ca206f2553519089aad97a6",
+    "subject_verification": "Source explicitly identifies Kasargod saree weaving centre; loom/weaving-process photo, NOT a finished saree product close-up.",
+    "modifications": "EXIF orientation applied where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "derivatives": [
+      {
+        "path": "images/destinations-crafts/kasaragod-sarees-96010319-480.webp",
+        "width": 480,
+        "height": 320,
+        "sha256": "d1e7a09646a55721d49ecaa3f26a3aa52559704db9f720a235bebed3eafd8cab"
+      },
+      {
+        "path": "images/destinations-crafts/kasaragod-sarees-96010319-800.webp",
+        "width": 800,
+        "height": 533,
+        "sha256": "206f368fbb5412e0db227c9496cdc80eeb27014e23a2ba5a7daf49f5b278dc20"
+      },
+      {
+        "path": "images/destinations-crafts/kasaragod-sarees-96010319-1024.webp",
+        "width": 1024,
+        "height": 683,
+        "sha256": "4e851f48788f7f2e8b345a6a95cc0c5ff952ccda32c7d15920fb32dd10a6c37f"
+      }
+    ],
+    "external_links": [
+      {
+        "url": "https://www.keralatourism.org/destination/udayagiri-kasaragod-saree-unexplored/788/",
+        "label": "Learn more · Kerala Tourism",
+        "kind": "description"
+      }
+    ]
+  },
+  {
+    "id": "malabar-pepper-151971300",
+    "topic": "malabar-pepper",
+    "name": "Malabar Pepper",
+    "title": "Tellicherry Black Peppercorns.jpg",
+    "caption": "Tellicherry black peppercorns from Kerala, shown as an illustration; GI-certified Malabar provenance is not established",
+    "author": "Misterneedlemouse",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tellicherry_Black_Peppercorns.jpg",
+    "original_sha256": "902b5813c405b32c2b129c1394580f87ba11cf1b7a228d3b65d4ffb247eaf2c1",
+    "subject_verification": "Source title Tellicherry Black Peppercorns; description states Kerala origin. Regional pepper illustration only: NOT proof of a GI-certified Malabar Pepper lot. Use accurate caption Tellicherry black peppercorns from Kerala; never relabel as certified Malabar pepper.",
+    "modifications": "EXIF orientation applied where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "derivatives": [
+      {
+        "path": "images/destinations-crafts/malabar-pepper-151971300-480.webp",
+        "width": 480,
+        "height": 480,
+        "sha256": "8044002783c65cfd90e65e35877e5c55bf1e77111c0b0893e2be0de9b429cb85"
+      },
+      {
+        "path": "images/destinations-crafts/malabar-pepper-151971300-800.webp",
+        "width": 800,
+        "height": 800,
+        "sha256": "7e46660866307b3db4859d837b8f71e84770ecab8a308ff21b4f4e76a921e33f"
+      },
+      {
+        "path": "images/destinations-crafts/malabar-pepper-151971300-1024.webp",
+        "width": 1024,
+        "height": 1024,
+        "sha256": "ba774fa3ff0f4fbb0d5e827802809c79df5ff42b11eba10a0ed036f624a8d5e8"
+      }
+    ],
+    "external_links": [
+      {
+        "url": "https://www.indianspices.com/spice-catalog/pepper-1.html",
+        "label": "Learn about pepper · Spices Board",
+        "kind": "description"
+      },
+      {
+        "url": "https://indianspices.com/sites/default/files/GI_Guidelines_for_release.pdf",
+        "label": "GI guidelines · Spices Board",
+        "kind": "GI-specifications"
+      }
+    ]
+  },
+  {
+    "id": "alleppey-coir-137695846",
+    "topic": "alleppey-coir",
+    "name": "Alleppey Coir",
+    "title": "Coir rope for display at Coir Museum.jpg",
+    "caption": "Coir rope exhibit at the International Coir Museum in Alappuzha; not certified goods",
+    "author": "Vis M",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coir_rope_for_display_at_Coir_Museum.jpg",
+    "original_sha256": "5325ea45b9a2cadbdc472333766efaad73e7042da263ce025b1e0ff7274dc583",
+    "subject_verification": "Coir rope on display at International Coir Museum, Kalavoor/Alappuzha (source category and location). Exact local museum context, not proof of GI-certified production origin for the rope.",
+    "modifications": "EXIF orientation applied where required; resized and converted to WebP; embedded metadata removed. No crop or retouching. Full photograph displayed.",
+    "derivatives": [
+      {
+        "path": "images/destinations-crafts/alleppey-coir-137695846-480.webp",
+        "width": 480,
+        "height": 360,
+        "sha256": "8dbb09c3cd8e4e595b308e4c8002a18a09b36a8d96b71bfeab7bcc089f0e2326"
+      },
+      {
+        "path": "images/destinations-crafts/alleppey-coir-137695846-800.webp",
+        "width": 800,
+        "height": 600,
+        "sha256": "7b57c9290307f227164307a95abb36ee5e7cc544428c08a63c5545bea79ddc7e"
+      },
+      {
+        "path": "images/destinations-crafts/alleppey-coir-137695846-1024.webp",
+        "width": 1024,
+        "height": 768,
+        "sha256": "1a6e4a3b652dfd5b74bcc5c08d96e2f2e10bb0640258d79fadc22b4d3a225120"
+      }
+    ],
+    "external_links": [
+      {
+        "url": "https://www.keralatourism.org/shopping-options/strength-and-skill-coir-manufacturing-alappuzha/37/",
+        "label": "Learn more · Kerala Tourism",
+        "kind": "description"
+      }
+    ]
+  }
+]
