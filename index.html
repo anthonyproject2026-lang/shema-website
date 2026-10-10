@@ -15,13 +15,13 @@
   <meta property="og:url" content="https://shema.com.au/" />
   <meta property="og:site_name" content="Shepparton Malayalee Association" />
   <meta property="og:locale" content="en_AU" />
-  <meta property="og:image" content="https://shema.com.au/.netlify/images?url=/images/event-mayor.jpg&w=1200&fm=webp" />
+  <meta property="og:image" content="https://shema.com.auimages/optimized/event-mayor-1024.webp" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SHEMA — Shepparton Malayalee Association" />
   <meta name="twitter:description" content="Celebrating Kerala's cultural heritage in Shepparton, Victoria." />
-  <meta name="twitter:image" content="https://shema.com.au/.netlify/images?url=/images/event-mayor.jpg&w=1200&fm=webp" />
+  <meta name="twitter:image" content="https://shema.com.auimages/optimized/event-mayor-1024.webp" />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://shema.com.au/" />
@@ -33,11 +33,8 @@
 
   <!-- Hero preload -->
   <link rel="preload" as="image"
-        href="/.netlify/images?url=/images/kerala-backwaters.png&w=1600&fm=webp"
-        imagesrcset="/.netlify/images?url=/images/kerala-backwaters.png&w=800&fm=webp 800w,
-                     /.netlify/images?url=/images/kerala-backwaters.png&w=1200&fm=webp 1200w,
-                     /.netlify/images?url=/images/kerala-backwaters.png&w=1600&fm=webp 1600w,
-                     /.netlify/images?url=/images/kerala-backwaters.png&w=2400&fm=webp 2400w"
+        href="images/optimized/kerala-backwaters-1024.webp"
+        imagesrcset="images/optimized/kerala-backwaters-800.webp 800w, images/optimized/kerala-backwaters-1024.webp 1024w"
         imagesizes="100vw"
         fetchpriority="high" />
 
@@ -74,9 +71,9 @@
   <header>
     <nav class="navbar" id="navbar">
       <div class="container">
-        <a href="#" class="nav-logo">
-          <img src="/.netlify/images?url=/images/shema-logo.png&w=184&fm=webp" 
-               srcset="/.netlify/images?url=/images/shema-logo.png&w=184&fm=webp 1x, /.netlify/images?url=/images/shema-logo.png&w=368&fm=webp 2x" 
+        <a href="#hero" class="nav-logo">
+          <img src="images/optimized/shema-logo-184.webp"
+               srcset="images/optimized/shema-logo-184.webp 1x, images/optimized/shema-logo-368.webp 2x"
                alt="SHEMA Logo" class="logo-img" width="72" height="72" />
           SHEMA
         </a>
@@ -86,6 +83,7 @@
           <a href="#kerala">Kerala</a>
           <a href="#highlights">Gallery</a>
           <a href="#events">Events</a>
+          <a href="#contact">Membership &amp; Contact</a>
           <a href="#culture">Culture</a>
           <a href="#community">Community</a>
           <a href="#landmarks">Landmarks</a>
@@ -99,7 +97,7 @@
             </a>
           </div>
         </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-label="Toggle navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -107,16 +105,13 @@
   </header>
 
   <!-- ========== Main Content ========== -->
-  <main id="main">
+  <main id="main" tabindex="-1">
 
     <!-- ========== Hero Section ========== -->
     <section class="hero" id="hero">
       <div class="hero-bg">
-        <img src="/.netlify/images?url=/images/kerala-backwaters.png&w=1600&fm=webp"
-             srcset="/.netlify/images?url=/images/kerala-backwaters.png&w=800&fm=webp 800w,
-                     /.netlify/images?url=/images/kerala-backwaters.png&w=1200&fm=webp 1200w,
-                     /.netlify/images?url=/images/kerala-backwaters.png&w=1600&fm=webp 1600w,
-                     /.netlify/images?url=/images/kerala-backwaters.png&w=2400&fm=webp 2400w"
+        <img src="images/optimized/kerala-backwaters-1024.webp"
+             srcset="images/optimized/kerala-backwaters-800.webp 800w, images/optimized/kerala-backwaters-1024.webp 1024w"
              sizes="100vw"
              alt="Kerala Backwaters — lush green waterways"
              width="1200" height="800"
@@ -184,7 +179,7 @@
         <div class="video-wrapper reveal">
           <video id="keralaVideo"
                  src="videos/0601.mp4"
-                 poster="/.netlify/images?url=/images/0601-cover.jpg&w=860&fm=webp"
+                 poster="images/optimized/0601-cover-860.webp"
                  preload="none"
                  playsinline
                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
@@ -204,9 +199,8 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-image-wrap reveal">
-            <img src="/.netlify/images?url=/images/event-mayor.jpg&w=600&fm=webp"
-                 srcset="/.netlify/images?url=/images/event-mayor.jpg&w=600&fm=webp 600w,
-                         /.netlify/images?url=/images/event-mayor.jpg&w=1200&fm=webp 1200w"
+            <img src="images/optimized/event-mayor-600.webp"
+                 srcset="images/optimized/event-mayor-600.webp 600w, images/optimized/event-mayor-1024.webp 1024w"
                  sizes="(max-width: 1024px) 100vw, 50vw"
                  alt="SHEMA Cultural Event with Mayor Cr Shane Sali"
                  width="600" height="480" loading="lazy" />
@@ -292,8 +286,8 @@
         <div class="committee-grid reveal" id="committeeGrid">
           <div class="committee-card president-card" data-id="default_committee_1">
             <div class="committee-img-wrap">
-              <img src="/.netlify/images?url=/images/committee-antony.jpg&w=400&fm=webp" 
-                   srcset="/.netlify/images?url=/images/committee-antony.jpg&w=400&fm=webp 400w, /.netlify/images?url=/images/committee-antony.jpg&w=800&fm=webp 800w"
+              <img src="images/optimized/committee-antony-400.webp"
+                   srcset="images/optimized/committee-antony-400.webp 400w, images/optimized/committee-antony-800.webp 800w"
                    sizes="(max-width: 768px) 100vw, 300px"
                    alt="Antony Jones - President" width="400" height="400" loading="lazy" />
             </div>
@@ -304,8 +298,8 @@
 
           <div class="committee-card" data-id="default_committee_4">
             <div class="committee-img-wrap">
-              <img src="/.netlify/images?url=/images/committee-anu.png&w=400&fm=webp" 
-                   srcset="/.netlify/images?url=/images/committee-anu.png&w=400&fm=webp 400w, /.netlify/images?url=/images/committee-anu.png&w=800&fm=webp 800w"
+              <img src="images/optimized/committee-anu-400.webp"
+                   srcset="images/optimized/committee-anu-400.webp 400w, images/optimized/committee-anu-800.webp 800w"
                    sizes="(max-width: 768px) 100vw, 300px"
                    alt="Anu Joby - Secretary" width="400" height="400" loading="lazy" />
             </div>
@@ -314,8 +308,8 @@
           </div>
           <div class="committee-card" data-id="default_committee_5">
             <div class="committee-img-wrap">
-              <img src="/.netlify/images?url=/images/committee-arun.png&w=400&fm=webp" 
-                   srcset="/.netlify/images?url=/images/committee-arun.png&w=400&fm=webp 400w, /.netlify/images?url=/images/committee-arun.png&w=800&fm=webp 800w"
+              <img src="images/optimized/committee-arun-400.webp"
+                   srcset="images/optimized/committee-arun-400.webp 400w, images/optimized/committee-arun-800.webp 800w"
                    sizes="(max-width: 768px) 100vw, 300px"
                    alt="Arun Thampi - Treasurer" width="400" height="400" loading="lazy" />
             </div>
@@ -363,10 +357,8 @@
           <div class="carousel-viewport" id="carouselViewport">
             <div class="carousel-track" id="carouselTrack">
               <div class="kerala-card" data-id="default_feature_1">
-                <img src="/.netlify/images?url=/images/kathakali.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/kathakali.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/kathakali.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/kathakali.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/kathakali-1024.webp"
+                     srcset="images/optimized/kathakali-800.webp 800w, images/optimized/kathakali-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Kathakali — Classical Dance-Drama of Kerala" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -376,10 +368,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_2">
-                <img src="/.netlify/images?url=/images/theyyam.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/theyyam.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/theyyam.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/theyyam.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/theyyam-1024.webp"
+                     srcset="images/optimized/theyyam-800.webp 800w, images/optimized/theyyam-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Theyyam — Ancient Ritual Art of North Malabar" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -389,10 +379,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_3">
-                <img src="/.netlify/images?url=/images/boat-race.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/boat-race.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/boat-race.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/boat-race.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/boat-race-1024.webp"
+                     srcset="images/optimized/boat-race-800.webp 800w, images/optimized/boat-race-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Vallam Kali — Traditional Snake Boat Race" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -402,10 +390,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_4">
-                <img src="/.netlify/images?url=/images/kerala-backwaters.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/kerala-backwaters.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/kerala-backwaters.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/kerala-backwaters.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/kerala-backwaters-1024.webp"
+                     srcset="images/optimized/kerala-backwaters-800.webp 800w, images/optimized/kerala-backwaters-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Kerala Backwaters and Houseboats" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -415,10 +401,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_5">
-                <img src="/.netlify/images?url=/images/munnar.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/munnar.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/munnar.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/munnar.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/munnar-1024.webp"
+                     srcset="images/optimized/munnar-800.webp 800w, images/optimized/munnar-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Munnar Tea Gardens — Western Ghats" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -428,10 +412,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_6">
-                <img src="/.netlify/images?url=/images/onam-sadhya.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/onam-sadhya.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/onam-sadhya.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/onam-sadhya.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/onam-sadhya-1024.webp"
+                     srcset="images/optimized/onam-sadhya-800.webp 800w, images/optimized/onam-sadhya-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Onam Sadhya — Traditional Kerala Feast" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -441,10 +423,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_7">
-                <img src="/.netlify/images?url=/images/kalaripayattu.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/kalaripayattu.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/kalaripayattu.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/kalaripayattu.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/kalaripayattu-1024.webp"
+                     srcset="images/optimized/kalaripayattu-800.webp 800w, images/optimized/kalaripayattu-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Kalaripayattu — Ancient Martial Art of Kerala" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -454,10 +434,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_8">
-                <img src="/.netlify/images?url=/images/temple-festival.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/temple-festival.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/temple-festival.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/temple-festival.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/temple-festival-1024.webp"
+                     srcset="images/optimized/temple-festival-800.webp 800w, images/optimized/temple-festival-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Kerala Temple Festival — Sacred Celebrations" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -467,10 +445,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_9">
-                <img src="/.netlify/images?url=/images/chinese-fishing-nets.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/chinese-fishing-nets.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/chinese-fishing-nets.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/chinese-fishing-nets.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/chinese-fishing-nets-1024.webp"
+                     srcset="images/optimized/chinese-fishing-nets-800.webp 800w, images/optimized/chinese-fishing-nets-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Chinese Fishing Nets — Fort Kochi Heritage" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -480,10 +456,8 @@
                 </div>
               </div>
               <div class="kerala-card" data-id="default_feature_10">
-                <img src="/.netlify/images?url=/images/ayurveda.png&w=1140&fm=webp"
-                     srcset="/.netlify/images?url=/images/ayurveda.png&w=800&fm=webp 800w,
-                             /.netlify/images?url=/images/ayurveda.png&w=1140&fm=webp 1140w,
-                             /.netlify/images?url=/images/ayurveda.png&w=2280&fm=webp 2280w"
+                <img src="images/optimized/ayurveda-1024.webp"
+                     srcset="images/optimized/ayurveda-800.webp 800w, images/optimized/ayurveda-1024.webp 1024w"
                      sizes="(max-width: 1140px) 100vw, 1140px"
                      alt="Ayurveda — Ancient Healing Science of Kerala" width="1140" height="460" loading="lazy" />
                 <div class="kerala-card-overlay">
@@ -521,9 +495,8 @@
         </div>
         <div class="highlights-grid">
           <div class="highlight-card reveal" data-id="default_photo_1">
-            <img src="/.netlify/images?url=/images/event-mayor.jpg&w=600&fm=webp"
-                 srcset="/.netlify/images?url=/images/event-mayor.jpg&w=600&fm=webp 600w,
-                         /.netlify/images?url=/images/event-mayor.jpg&w=1200&fm=webp 1200w"
+            <img src="images/optimized/event-mayor-600.webp"
+                 srcset="images/optimized/event-mayor-600.webp 600w, images/optimized/event-mayor-1024.webp 1024w"
                  sizes="(max-width: 768px) 100vw, 50vw"
                  alt="SHEMA Event with Cr Shane Sali, Mayor of Greater Shepparton" width="600" height="380" loading="lazy" />
             <div class="highlight-card-info">
@@ -532,9 +505,8 @@
             </div>
           </div>
           <div class="highlight-card reveal" data-id="default_photo_2">
-            <img src="/.netlify/images?url=/images/event-lamp.jpg&w=600&fm=webp"
-                 srcset="/.netlify/images?url=/images/event-lamp.jpg&w=600&fm=webp 600w,
-                         /.netlify/images?url=/images/event-lamp.jpg&w=1200&fm=webp 1200w"
+            <img src="images/optimized/event-lamp-600.webp"
+                 srcset="images/optimized/event-lamp-600.webp 600w, images/optimized/event-lamp-1024.webp 1024w"
                  sizes="(max-width: 768px) 100vw, 50vw"
                  alt="Traditional Lamp Lighting Ceremony at SHEMA Event" width="600" height="380" loading="lazy" />
             <div class="highlight-card-info">
@@ -565,7 +537,7 @@
               <h3>Voice of Vineeth Sreenivasan Live</h3>
               <p>A memorable evening of Malayalam music, performance and community celebration in Shepparton.</p>
               <div class="event-actions">
-                <button class="event-gallery-trigger" type="button" aria-controls="eventGalleryModal">View Photos</button>
+                <button class="event-gallery-trigger" type="button" aria-controls="eventGalleryModal">Photo availability</button>
                 <a class="event-video-link" href="https://www.facebook.com/share/v/1c8QmG9wZi/" target="_blank" rel="noopener noreferrer">Watch on Facebook</a>
               </div>
             </div>
@@ -628,9 +600,14 @@
         </div>
         <div class="culture-grid">
           <div class="culture-item reveal">
-            <div class="culture-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
+            <figure class="culture-photo">
+              <img src="images/optimized/onam-sadhya-800.webp"
+                   srcset="images/optimized/onam-sadhya-800.webp 800w, images/optimized/onam-sadhya-1024.webp 1024w"
+                   sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1280px) 40vw, 260px"
+                   width="800" height="800" loading="lazy"
+                   alt="Onam Sadhya dishes served on a banana leaf" />
+              <figcaption>Kerala heritage imagery &middot; Onam Sadhya</figcaption>
+            </figure>
             <h3>Onam Festival</h3>
             <p>Kerala's harvest festival featuring Pookalam (floral carpets), boat races, and the grand Onam Sadhya feast</p>
           </div>
@@ -684,6 +661,14 @@
             <p>Carnatic music and Sopana Sangeetham — Kerala's devotional musical traditions at temples</p>
           </div>
         </div>
+        <div class="culture-discovery reveal">
+          <div>
+            <h3>Cultural video discovery</h3>
+            <p>Discover Kerala's arts, traditions and festivals in the official Kerala Tourism video gallery.</p>
+            <small>Source: Kerala Tourism &middot; General Kerala heritage, separate from SHEMA events.</small>
+          </div>
+          <a href="https://www.keralatourism.org/video-gallery/" target="_blank" rel="noopener noreferrer">Explore cultural videos at Kerala Tourism <span aria-hidden="true">&nearr;</span> (opens in a new tab)</a>
+        </div>
       </div>
     </section>
 
@@ -691,10 +676,8 @@
     <section class="community section-pad" id="community">
       <div class="container">
         <div class="community-banner reveal">
-          <img src="/.netlify/images?url=/images/event-mayor.jpg&w=1140&fm=webp"
-               srcset="/.netlify/images?url=/images/event-mayor.jpg&w=800&fm=webp 800w,
-                       /.netlify/images?url=/images/event-mayor.jpg&w=1140&fm=webp 1140w,
-                       /.netlify/images?url=/images/event-mayor.jpg&w=2280&fm=webp 2280w"
+          <img src="images/optimized/event-mayor-1024.webp"
+               srcset="images/optimized/event-mayor-800.webp 800w, images/optimized/event-mayor-1024.webp 1024w"
                sizes="(max-width: 1140px) 100vw, 1140px"
                alt="SHEMA Community Event with Mayor Shane Sali" width="1140" height="420" loading="lazy" />
           <div class="community-banner-overlay">
@@ -866,8 +849,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#" class="nav-logo">
-            <img src="/.netlify/images?url=/images/shema-logo.png&w=120&fm=webp" alt="SHEMA Logo" class="logo-img" width="44" height="44" loading="lazy" />
+          <a href="#hero" class="nav-logo">
+            <img src="images/optimized/shema-logo-120.webp" alt="SHEMA Logo" class="logo-img" width="44" height="44" loading="lazy" />
             SHEMA
           </a>
           <p>
@@ -881,7 +864,8 @@
             <li><a href="#about">About SHEMA</a></li>
             <li><a href="#kerala">Kerala Heritage</a></li>
             <li><a href="#highlights">Gallery</a></li>
-            <li><a href="#events">Events</a></li>
+            <li><a href="#events">Events</a>
+          <a href="#contact">Membership &amp; Contact</a></li>
             <li><a href="#culture">Culture</a></li>
             <li><a href="#community">Community</a></li>
           </ul>
@@ -938,7 +922,7 @@
       <p class="section-label">Event Gallery</p>
       <h2 id="eventGalleryTitle">Voice of Vineeth Sreenivasan Live</h2>
       <div class="event-gallery-grid" id="eventGalleryGrid"></div>
-      <p class="event-gallery-empty" id="eventGalleryEmpty">The ten approved event photographs will appear here once they are supplied and privacy-checked.</p>
+      <p class="event-gallery-empty" id="eventGalleryEmpty">No photographs are available in this gallery yet. You can watch the event using the Facebook link on the event card.</p>
     </div>
   </div>
 
