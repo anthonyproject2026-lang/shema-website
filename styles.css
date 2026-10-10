@@ -635,6 +635,7 @@ button { cursor: pointer; font-family: var(--ff-body); }
 
 .carousel-track {
   display: flex;
+  gap: 0;
   transition: transform 0.5s var(--ease);
   will-change: transform;
 }
@@ -643,18 +644,23 @@ button { cursor: pointer; font-family: var(--ff-body); }
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  height: 460px;
-  min-width: 100%;
-  flex-shrink: 0;
+  /* Match the track's percentage transform, independent of image dimensions. */
+  flex: 0 0 100%;
+  min-width: 0;
+  min-height: 460px;
+  display: grid;
 }
 .kerala-card img {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   transition: transform .6s var(--ease);
 }
 .kerala-card:hover img { transform: scale(1.04); }
 .kerala-card-overlay {
-  position: absolute; inset: 0;
+  /* Keep captions in layout so narrow cards grow instead of clipping text. */
+  position: relative;
   background: linear-gradient(to top, rgba(36,29,20,.9) 0%, rgba(36,29,20,.15) 55%, transparent 100%);
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 2.2rem;
@@ -864,13 +870,29 @@ button { cursor: pointer; font-family: var(--ff-body); }
   line-height: 1.6;
 }
 
-/* Existing heritage thumbnail and external discovery; no embedded media. */
+/* Licensed cultural photographs retain their full frame. */
 .culture-photo { margin: 0 0 .8rem; }
 .culture-photo img {
-  display: block; width: 100%; height: 116px;
-  object-fit: cover; border-radius: 6px;
+  display: block; width: 100%; height: auto; min-height: 145px;
+  object-fit: contain; border-radius: 6px; background: var(--cream-alt);
 }
 .culture-photo figcaption { margin-top: .4rem; font-size: .7rem; color: var(--ink-muted); }
+.culture-photo a, .culture-media-note a, .culture-video-card a { color: var(--pachai); text-decoration: underline; }
+.culture-media-note { margin-top: 1rem; font-size: .85rem; color: var(--ink-muted); }
+.culture-video-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.2rem; }
+.culture-video-card { display: flex; flex-direction: column; gap: .65rem; padding: 1.2rem; background: #fff; border: 1px solid var(--border); border-radius: 10px; }
+.culture-video-label { font-size: .7rem; color: var(--ink-muted); }
+.culture-video-card h4 { font-family: var(--ff-display); font-size: 1rem; }
+.culture-video-card p, .culture-video-card a { font-size: .85rem; }
+.culture-video-card a { margin-top: auto; padding-block: .5rem; }
+.media-credits { max-width: 850px; overflow-wrap: anywhere; }
+.media-credits a { color: var(--pachai); text-decoration: underline; }
+.media-credits h1 { margin-block: 1rem; }
+.media-credit { margin-block: 2rem; scroll-margin-top: 1rem; }
+.media-credit h2 { font-size: 1.3rem; }
+.media-credit p { margin-top: .7rem; }
+@media (max-width: 1024px) { .culture-video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .culture-video-grid { grid-template-columns: 1fr; } }
 .culture-discovery {
   display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
   margin-top: 1.5rem; padding: 1.25rem;
@@ -1399,7 +1421,7 @@ button { cursor: pointer; font-family: var(--ff-body); }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-image-wrap img { height: 340px; }
   .kerala-carousel { padding: 0 48px; }
-  .kerala-card { height: 400px; }
+  .kerala-card { min-height: 400px; }
   .culture-grid { grid-template-columns: repeat(2, 1fr); }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
   .landmarks-grid { grid-template-columns: 1fr; }
@@ -1424,8 +1446,8 @@ button { cursor: pointer; font-family: var(--ff-body); }
   .highlights-grid { grid-template-columns: 1fr; }
   .highlight-card img { height: 260px; }
 
-  .kerala-carousel { padding: 0 40px; }
-  .kerala-card { height: 320px; }
+  .kerala-carousel { padding: 0 48px; }
+  .kerala-card { min-height: 320px; }
   .kerala-card h3 { font-size: 1.2rem; }
   .kerala-card p { font-size: .82rem; }
   .kerala-card-overlay { padding: 1.3rem; }
@@ -1457,8 +1479,7 @@ button { cursor: pointer; font-family: var(--ff-body); }
   .products-grid { grid-template-columns: 1fr; }
   .about-features { grid-template-columns: 1fr; }
 
-  .kerala-carousel { padding: 0 34px; }
-  .kerala-card { height: 280px; }
+  .kerala-card { min-height: 280px; }
   .kerala-card h3 { font-size: 1.1rem; }
   .kerala-card p { font-size: .78rem; line-height: 1.5; }
   .kerala-card-overlay { padding: 1rem; }
@@ -1482,8 +1503,7 @@ button { cursor: pointer; font-family: var(--ff-body); }
 }
 
 @media (max-width: 360px) {
-  .kerala-carousel { padding: 0 28px; }
-  .kerala-card { height: 240px; }
+  .kerala-card { min-height: 240px; }
   .carousel-arrow { width: 24px; height: 24px; }
   .nav-logo .logo-img { width: 50px; height: 50px; }
   .nav-logo { font-size: 1.3rem; }
