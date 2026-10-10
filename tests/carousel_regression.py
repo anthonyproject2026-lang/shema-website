@@ -55,7 +55,7 @@ try:
     # Load all existing images before measurements: intrinsic sizing must not
     # change the track stride when a lazy image becomes available.
     page.locator('.kerala-card img').evaluate_all("imgs=>imgs.forEach(i=>i.loading='eager')")
-    page.wait_for_function("[...document.querySelectorAll('.kerala-card img')].every(i=>i.complete&&i.naturalWidth)")
+    page.locator('.kerala-card img').evaluate_all("imgs=>Promise.all(imgs.map(i=>i.decode()))")
     total=page.locator('.kerala-card').count()
     longest=page.locator('.kerala-card p').evaluate_all('(ps)=>ps.map(p=>p.textContent.length).indexOf(Math.max(...ps.map(p=>p.textContent.length)))')
     def check(index, action):

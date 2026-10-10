@@ -15,8 +15,21 @@ class DestinationsCraftsTests(unittest.TestCase):
         new = (ROOT/'index.html').read_text(encoding='utf-8')
         def culture(s): return s.split('id="culture"',1)[1].split('</section>',1)[0]
         self.assertEqual(culture(old),culture(new))
+        self.assertEqual(old,new)  # All homepage copy and media remain unchanged.
         for filename in ('_headers','script.js'):
-            self.assertEqual(subprocess.check_output(['git','show','HEAD:'+filename],cwd=ROOT).decode().replace('\r\n','\n'),(ROOT/filename).read_text(encoding='utf-8'))
+            previous = subprocess.check_output(['git','show','HEAD:'+filename],cwd=ROOT).decode().replace('\r\n','\n')
+            current = (ROOT/filename).read_text(encoding='utf-8')
+            if filename=='script.js':
+                # This audit repairs navigation. Keep every other handler,
+                # including carousel, video, dialogs and hash offsets, identical.
+                start='  /* ---------- Mobile nav toggle with aria-expanded ---------- */'
+                end='  /* ---------- Smooth scroll for anchor links ---------- */'
+                def outside_nav(s):
+                    prefix,nav=s.split(start,1)
+                    return prefix+end+nav.split(end,1)[1]
+                self.assertEqual(outside_nav(previous),outside_nav(current))
+            else:
+                self.assertEqual(previous,current)
 
     def test_all_eight_cards_and_licensed_derivatives(self):
         raw = (ROOT/'images/destinations-crafts/manifest.json').read_text(encoding='utf-8')

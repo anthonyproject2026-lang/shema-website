@@ -49,7 +49,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  scroll-padding-top: 80px;
+  scroll-padding-top: max(80px, 4.5em);
 }
 body {
   font-family: var(--ff-body);
@@ -780,6 +780,8 @@ button { cursor: pointer; font-family: var(--ff-body); }
   margin-top: 2.5rem;
 }
 .highlight-card {
+  display: grid;
+  min-height: 380px;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -791,13 +793,14 @@ button { cursor: pointer; font-family: var(--ff-body); }
   box-shadow: var(--shadow-lg);
 }
 .highlight-card img {
-  width: 100%; height: 380px;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   transition: transform .6s var(--ease);
 }
 .highlight-card:hover img { transform: scale(1.03); }
 .highlight-card-info {
-  position: absolute; bottom: 0; left: 0; right: 0;
+  position: relative; align-self: end;
   padding: 1.8rem 1.5rem;
   background: linear-gradient(to top, rgba(36,29,20,.85), transparent);
 }
@@ -918,12 +921,14 @@ button { cursor: pointer; font-family: var(--ff-body); }
   border: var(--kasavu-border);
 }
 .community-banner img {
-  width: 100%; height: 420px;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   object-position: center top;
 }
 .community-banner-overlay {
-  position: absolute; inset: 0;
+  position: relative;
+  min-height: 420px;
   background: rgba(36,29,20,.65);
   display: flex; align-items: center; justify-content: center;
 }
@@ -940,7 +945,7 @@ button { cursor: pointer; font-family: var(--ff-body); }
 }
 .community-banner-content p {
   font-size: 1.05rem;
-  color: rgba(255,255,255,.8);
+  color: #fff;
   line-height: 1.8;
 }
 .community-info {
@@ -1456,7 +1461,7 @@ button { cursor: pointer; font-family: var(--ff-body); }
   .stats-inner .stats-sep { display: none; }
 
   .highlights-grid { grid-template-columns: 1fr; }
-  .highlight-card img { height: 260px; }
+  .highlight-card { min-height: 260px; }
 
   .kerala-carousel { padding: 0 48px; }
   .kerala-card { min-height: 320px; }
@@ -1466,7 +1471,7 @@ button { cursor: pointer; font-family: var(--ff-body); }
   .carousel-arrow { width: 34px; height: 34px; }
   .carousel-arrow svg { width: 16px; height: 16px; }
 
-  .community-banner img { height: 280px; }
+  .community-banner-overlay { min-height: 280px; }
   .community-info { grid-template-columns: 1fr; }
 
   .events-grid { grid-template-columns: 1fr; }
@@ -1507,7 +1512,7 @@ button { cursor: pointer; font-family: var(--ff-body); }
   .hero-badge { font-size: .62rem; letter-spacing: 1.5px; padding: .3rem .7rem; }
   .hero-content { padding-top: 5rem; }
 
-  .community-banner img { height: 200px; }
+  .community-banner-overlay { min-height: 200px; }
   .community-banner-content h2 { font-size: clamp(1.2rem, 4.5vw, 1.8rem); }
   .community-banner-content p { font-size: .88rem; }
 
@@ -1775,3 +1780,36 @@ button, .event-video-link, .event-gallery-trigger, .footer-socials a, .carousel-
 .hero-buttons a, .cta-buttons a { white-space: nowrap; }
 .hero-buttons .btn-outline { background: var(--cream); color: var(--pachai); border-color: var(--brass); font-weight: 600; }
 .hero-buttons .btn-outline:hover { background: var(--cream-alt); color: var(--pachai); }
+
+/* Text must reflow when readers enlarge it, including long names and addresses. */
+main, .footer { overflow-wrap: anywhere; }
+.hero-badge, .kerala-card-tag { max-width: 100%; }
+.footer-contact li > *, .footer-brand, .heritage-info { min-width: 0; }
+.hero-buttons a, .cta-buttons a { white-space: normal; text-align: center; }
+/* Keep the poster and shade behind a caption/play control that sizes the card. */
+.video-wrapper { display: grid; }
+.video-wrapper video { position: absolute; inset: 0; }
+.video-wrapper .video-overlay {
+  position: relative !important;
+  padding: 1rem .5rem;
+  gap: 1rem;
+}
+.video-wrapper .bg-text {
+  position: static !important;
+  padding: .5rem;
+}
+.video-wrapper { aspect-ratio: auto; min-height: clamp(200px, 56.25vw, 484px); }
+.video-overlay > * { flex-shrink: 0; }
+
+/* Also collapse when enlarged text no longer fits the desktop destination row. */
+.navbar.compact .nav-links {
+  display: none; position: fixed; top: 0; right: 0;
+  width: min(100vw, 320px); height: 100dvh; overflow-y: auto;
+  background: rgba(36,29,20,.96);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  flex-direction: column; padding: 4.5rem 2rem 2rem; gap: .6rem;
+  box-shadow: -8px 0 30px rgba(0,0,0,.25); z-index: 1001;
+}
+.navbar.compact .nav-links.active { display: flex; }
+.navbar.compact .nav-links > a { min-height: 44px; display: inline-flex; align-items: center; flex-shrink: 0; }
+.navbar.compact .nav-toggle { display: flex; z-index: 1002; }
