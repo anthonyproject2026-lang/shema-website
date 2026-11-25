@@ -22,3 +22,8 @@ yarn-error.log*
 # Python test caches
 __pycache__/
 *.py[cod]
+__pycache__/
+tools/blender/out/*.blend
+tools/blender/out/*.blend1
+tools/blender/out/*.glb
+tools/blender/out/lamp-og.png
