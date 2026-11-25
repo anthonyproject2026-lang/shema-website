@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "timezone": "Australia/Melbourne",
+  "updated": "2026-11-26",
+  "events": [
+    {
+      "id": "voice-of-vineeth-sreenivasan-live-2026",
+      "title": "Voice of Vineeth Sreenivasan Live",
+      "category": "live",
+      "status": "past",
+      "datePrecision": "year",
+      "start": "2026",
+      "end": null,
+      "allDay": false,
+      "timezone": "Australia/Melbourne",
+      "venue": null,
+      "description": "A memorable evening of Malayalam music, performance and community celebration in Shepparton.",
+      "image": null,
+      "links": [
+        {
+          "label": "Watch on Facebook",
+          "url": "https://www.facebook.com/share/v/1c8QmG9wZi/",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "talent-show-2k26",
+      "title": "Talent Show 2K26",
+      "category": "show",
+      "status": "past",
+      "datePrecision": "year",
+      "start": "2026",
+      "end": null,
+      "allDay": false,
+      "timezone": "Australia/Melbourne",
+      "venue": null,
+      "description": "A vibrant showcase of music, dance, drama and creative talent from across our multicultural community.",
+      "image": null,
+      "links": [
+        {
+          "label": "Watch on Facebook",
+          "url": "https://www.facebook.com/reel/1500400011768100",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "athletics-day-2026",
+      "title": "Athletics Day 2026",
+      "category": "sport",
+      "status": "past",
+      "datePrecision": "year",
+      "start": "2026",
+      "end": null,
+      "allDay": false,
+      "timezone": "Australia/Melbourne",
+      "venue": null,
+      "description": "A community day of friendly competition, teamwork and activities for participants of all ages.",
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "onam-2k26",
+      "title": "Onam 2K26",
+      "category": "onam",
+      "status": "past",
+      "datePrecision": "year",
+      "start": "2026",
+      "end": null,
+      "allDay": false,
+      "timezone": "Australia/Melbourne",
+      "venue": null,
+      "description": "Traditional Sadhya and cultural performances, including highlights from the Onam Core Committee 2K26 and Onam Celebration 2K26.",
+      "image": null,
+      "links": [
+        {
+          "label": "Watch the committee video",
+          "url": "https://www.facebook.com/reel/1581554060224328",
+          "kind": "video"
+        },
+        {
+          "label": "Watch the celebration video",
+          "url": "https://www.facebook.com/reel/1132441579444104",
+          "kind": "video"
+        }
+      ]
+    },
+    {
+      "id": "onanilavu-2k26",
+      "title": "Onanilavu 2K26",
+      "category": "night",
+      "status": "past",
+      "datePrecision": "year",
+      "start": "2026",
+      "end": null,
+      "allDay": false,
+      "timezone": "Australia/Melbourne",
+      "venue": null,
+      "description": "An evening of culture, friendship and community spirit shared by SHEMA families and friends.",
+      "image": null,
+      "links": [
+        {
+          "label": "Watch on Facebook",
+          "url": "https://www.facebook.com/reel/1578855873677593",
+          "kind": "video"
+        }
+      ]
+    }
+  ]
+}
