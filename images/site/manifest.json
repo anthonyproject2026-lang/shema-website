@@ -1,0 +1,638 @@
+{
+  "hero-backwaters": {
+    "source": "images/kerala-backwaters.png",
+    "aspect": 1.6,
+    "files": [
+      {
+        "path": "images/site/hero-backwaters-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 300,
+        "bytes": 31238,
+        "sha256": "bd8648cd143bfe8c4283bd85812f336de7a200589e6cfeecc8b0290337581035"
+      },
+      {
+        "path": "images/site/hero-backwaters-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 300,
+        "bytes": 20351,
+        "sha256": "27ca30285865c6ff42e4a33570a8cc0fbf0af8caccaf9d95be089f32b840c6ca"
+      },
+      {
+        "path": "images/site/hero-backwaters-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 600,
+        "bytes": 94548,
+        "sha256": "b76f5be9bf00025752a0242aed8262e6d8570ec5186eb5e4ea9ac332f571f592"
+      },
+      {
+        "path": "images/site/hero-backwaters-960.avif",
+        "format": "avif",
+        "width": 960,
+        "height": 600,
+        "bytes": 60498,
+        "sha256": "41e67de08667fd6aafebfe832b9c6097e8ac52a657611d9872ab5aded62d66ec"
+      },
+      {
+        "path": "images/site/hero-backwaters-1024.webp",
+        "format": "webp",
+        "width": 1024,
+        "height": 640,
+        "bytes": 106624,
+        "sha256": "788af3f688b152c67a2344baf38cf9dfe65f8d1f44b640e7c8623d4999642ff6"
+      },
+      {
+        "path": "images/site/hero-backwaters-1024.avif",
+        "format": "avif",
+        "width": 1024,
+        "height": 640,
+        "bytes": 68583,
+        "sha256": "3fbd388c73dd653985e30dbbec4831088cd852c28299363295f04a1854fc6d50"
+      }
+    ]
+  },
+  "event-mayor": {
+    "source": "images/event-mayor.jpg",
+    "aspect": 1.3333333333333333,
+    "files": [
+      {
+        "path": "images/site/event-mayor-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 360,
+        "bytes": 13010,
+        "sha256": "b9825fbe57971c3726c708031319bb119c56e62db17837ae8171e832a9a80f08"
+      },
+      {
+        "path": "images/site/event-mayor-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 16158,
+        "sha256": "936ae23efe0589ddc3d6193319bccf8084191b20eb3296bd74754d8379014ed8"
+      },
+      {
+        "path": "images/site/event-mayor-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 360,
+        "bytes": 26418,
+        "sha256": "15d27a35eb346b0b164c804e68f91474b433fbca0194b9c0117a16fd8b4aaad1"
+      },
+      {
+        "path": "images/site/event-mayor-741.avif",
+        "format": "avif",
+        "width": 741,
+        "height": 556,
+        "bytes": 25772,
+        "sha256": "ed5972bcdbe42159e5cc7c4e0d4779fc0d645184ad804ee77c55c06eda985494"
+      },
+      {
+        "path": "images/site/event-mayor-741.webp",
+        "format": "webp",
+        "width": 741,
+        "height": 556,
+        "bytes": 31028,
+        "sha256": "efb5969ee6488201bca6b6196b4adfbdb0a5accb31567df9462c3750e55aebdf"
+      },
+      {
+        "path": "images/site/event-mayor-741.jpg",
+        "format": "jpg",
+        "width": 741,
+        "height": 556,
+        "bytes": 54338,
+        "sha256": "0e65cb37ec96941a3a3935521fb62d7ddd6644f920939ef3b9b818a63d3c1b6a"
+      }
+    ]
+  },
+  "event-lamp": {
+    "source": "images/event-lamp.jpg",
+    "aspect": 1.3333333333333333,
+    "files": [
+      {
+        "path": "images/site/event-lamp-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 360,
+        "bytes": 13459,
+        "sha256": "041c6e726e6ced3cfe5c8bd86141d47b1783933db6df0074634ba40a753ebc8a"
+      },
+      {
+        "path": "images/site/event-lamp-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 17716,
+        "sha256": "dedd83ec9d23817e6cbe683f065274b6d098a06e4cc627d8080c6db2b2d0718b"
+      },
+      {
+        "path": "images/site/event-lamp-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 360,
+        "bytes": 27942,
+        "sha256": "f2c017640ee0a2ca2388267792bc4a16f642d65c85863c0d3ae0d16d4d3e0779"
+      },
+      {
+        "path": "images/site/event-lamp-836.avif",
+        "format": "avif",
+        "width": 836,
+        "height": 627,
+        "bytes": 32411,
+        "sha256": "ba1e9313d34a4911e3e1cd02e6c32ba0b6495389d46984e3720c6df6c2ed4a86"
+      },
+      {
+        "path": "images/site/event-lamp-836.webp",
+        "format": "webp",
+        "width": 836,
+        "height": 627,
+        "bytes": 40408,
+        "sha256": "e938d96d37ca67f9d668646aa6b19d15c7c4383f2af3fd25f80c30a69a254e0e"
+      },
+      {
+        "path": "images/site/event-lamp-836.jpg",
+        "format": "jpg",
+        "width": 836,
+        "height": 627,
+        "bytes": 68950,
+        "sha256": "fe34e2774953648b67fd28edcf642cdb1d285f54c600c22ce19e60591d4c71f4"
+      }
+    ]
+  },
+  "event-mayor-wide": {
+    "source": "images/event-mayor.jpg",
+    "aspect": null,
+    "files": [
+      {
+        "path": "images/site/event-mayor-wide-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 261,
+        "bytes": 11425,
+        "sha256": "c5fed8c85c9ecb0c4cbaafecd6e2475110bdb1bc17cabb76b74c17fc521d6075"
+      },
+      {
+        "path": "images/site/event-mayor-wide-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 261,
+        "bytes": 14718,
+        "sha256": "7d3c9d4708193a0353f05cc6abc10edc303b629f364d640efba7529d7e286ec9"
+      },
+      {
+        "path": "images/site/event-mayor-wide-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 261,
+        "bytes": 22124,
+        "sha256": "74be4b1613c067102531efea6fb29d483a9c8f3b58049bc326b301babee19825"
+      },
+      {
+        "path": "images/site/event-mayor-wide-960.avif",
+        "format": "avif",
+        "width": 960,
+        "height": 521,
+        "bytes": 31940,
+        "sha256": "fcc8030f327fd277884c3c981e1d845def546ff6f928ad1222476bbc65c68c22"
+      },
+      {
+        "path": "images/site/event-mayor-wide-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 521,
+        "bytes": 39504,
+        "sha256": "82c5ae180933465e7389f46aca97a899c2d101f27481906ebab132fac1934751"
+      },
+      {
+        "path": "images/site/event-mayor-wide-960.jpg",
+        "format": "jpg",
+        "width": 960,
+        "height": 521,
+        "bytes": 68168,
+        "sha256": "6e92e87b0e78c149f98df699e5725499a6e43148804e26e90277eb740aeaf5d6"
+      },
+      {
+        "path": "images/site/event-mayor-wide-1024.avif",
+        "format": "avif",
+        "width": 1024,
+        "height": 556,
+        "bytes": 36244,
+        "sha256": "4752b2cb35d355e06bfe17bbd8218de768ea5eaaff40a49f56574e1819edb0c2"
+      },
+      {
+        "path": "images/site/event-mayor-wide-1024.webp",
+        "format": "webp",
+        "width": 1024,
+        "height": 556,
+        "bytes": 44968,
+        "sha256": "d1f51d975606ba68dcaf014ad5bb079e6edf4377cd13bb08f6a594dd1dd8e946"
+      },
+      {
+        "path": "images/site/event-mayor-wide-1024.jpg",
+        "format": "jpg",
+        "width": 1024,
+        "height": 556,
+        "bytes": 74332,
+        "sha256": "18fcef6dd302455be449eab4c228c630993163c385d6bae76b3e0700a6085d20"
+      }
+    ]
+  },
+  "event-lamp-wide": {
+    "source": "images/event-lamp.jpg",
+    "aspect": null,
+    "files": [
+      {
+        "path": "images/site/event-lamp-wide-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 294,
+        "bytes": 12458,
+        "sha256": "0cbbdcf3614fe7bcdfc4eb2e81c7a6069b0d7f511ca946fa5d74fe7c93744520"
+      },
+      {
+        "path": "images/site/event-lamp-wide-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 294,
+        "bytes": 16094,
+        "sha256": "803264da3d45517dfa5ee110999cd647249ee837a9985c7ecc06e32d6b53a0af"
+      },
+      {
+        "path": "images/site/event-lamp-wide-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 294,
+        "bytes": 24386,
+        "sha256": "ebc34f6a301da179c576040c8c41ec50e6aaec59a76efa9953b8cb93b4a46723"
+      },
+      {
+        "path": "images/site/event-lamp-wide-960.avif",
+        "format": "avif",
+        "width": 960,
+        "height": 588,
+        "bytes": 34142,
+        "sha256": "9c0a4238eabebc759e434be7449740866e43f577a25e93524034b526fada5160"
+      },
+      {
+        "path": "images/site/event-lamp-wide-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 588,
+        "bytes": 42880,
+        "sha256": "9795d5a14e21f87ec895753ebaa55021fc522f962426c7493123227780b9def3"
+      },
+      {
+        "path": "images/site/event-lamp-wide-960.jpg",
+        "format": "jpg",
+        "width": 960,
+        "height": 588,
+        "bytes": 73894,
+        "sha256": "213d85e470009fb363137cb0324f910b7920c0e34fb71dea16b9bd70f944f455"
+      },
+      {
+        "path": "images/site/event-lamp-wide-1024.avif",
+        "format": "avif",
+        "width": 1024,
+        "height": 627,
+        "bytes": 38785,
+        "sha256": "e848d29c9fe4740cdf278abf761765e2fd3a68b856235b916baa3c5b42654489"
+      },
+      {
+        "path": "images/site/event-lamp-wide-1024.webp",
+        "format": "webp",
+        "width": 1024,
+        "height": 627,
+        "bytes": 49250,
+        "sha256": "4a286b18be01a0d56bacb049844e33ebe56110bf7937d92b36e6854587d2cd2a"
+      },
+      {
+        "path": "images/site/event-lamp-wide-1024.jpg",
+        "format": "jpg",
+        "width": 1024,
+        "height": 627,
+        "bytes": 80872,
+        "sha256": "d12354335bb1d4eba437a44461710de5fbb76eb0798cd97df1c30d9026e840a1"
+      }
+    ]
+  },
+  "committee-antony": {
+    "source": "images/committee-antony.jpg",
+    "aspect": 0.8,
+    "files": [
+      {
+        "path": "images/site/committee-antony-240.avif",
+        "format": "avif",
+        "width": 240,
+        "height": 300,
+        "bytes": 3522,
+        "sha256": "9af0b2e465610a74d41cf9353a4115e1077905c1592b21003732491481943de7"
+      },
+      {
+        "path": "images/site/committee-antony-240.webp",
+        "format": "webp",
+        "width": 240,
+        "height": 300,
+        "bytes": 4630,
+        "sha256": "481f6a2ea554f1e14e704fc228e8e41f121e9c8728eb8da7cfffb67b4d0cadbc"
+      },
+      {
+        "path": "images/site/committee-antony-240.jpg",
+        "format": "jpg",
+        "width": 240,
+        "height": 300,
+        "bytes": 9262,
+        "sha256": "988110d7d143427f96a874a66c79fe2e21444c8a5d6c688a9408c27af39bc372"
+      },
+      {
+        "path": "images/site/committee-antony-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 600,
+        "bytes": 8291,
+        "sha256": "3e5dda398ce98d575a1fd33eca8055bba1a1195272a8146932c74eb8d3f5f437"
+      },
+      {
+        "path": "images/site/committee-antony-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 10692,
+        "sha256": "7c4aa3fcd45122c6a7cbc57770eed34f852ac64c70328c4616e48871ff9970c5"
+      },
+      {
+        "path": "images/site/committee-antony-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 600,
+        "bytes": 24225,
+        "sha256": "0873325814e5ee2e65afcd6c453b89bf2e18bbec1c2cc4b207138572529e2e11"
+      }
+    ]
+  },
+  "committee-anu": {
+    "source": "images/committee-anu.png",
+    "aspect": 0.8,
+    "files": [
+      {
+        "path": "images/site/committee-anu-240.avif",
+        "format": "avif",
+        "width": 240,
+        "height": 300,
+        "bytes": 4178,
+        "sha256": "28b4849a1c7ca97d1941b744b7cd4e847ce3c632da7cb2feec74dc73f5d40ece"
+      },
+      {
+        "path": "images/site/committee-anu-240.webp",
+        "format": "webp",
+        "width": 240,
+        "height": 300,
+        "bytes": 5298,
+        "sha256": "c41ce4ee222621ca2f0709fa451240edcbb8bab3ff82216f7f74428d979aad25"
+      },
+      {
+        "path": "images/site/committee-anu-240.jpg",
+        "format": "jpg",
+        "width": 240,
+        "height": 300,
+        "bytes": 10100,
+        "sha256": "3a3154af11a191596eb2a509f4c59b83dbcf92b66956287f62d14408a551e758"
+      },
+      {
+        "path": "images/site/committee-anu-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 600,
+        "bytes": 11460,
+        "sha256": "24e07c0155a29312a33dd8ed48fee3b9320ed5dabb7b7997249d77880b8e2176"
+      },
+      {
+        "path": "images/site/committee-anu-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 14824,
+        "sha256": "19fc0502719c523707350c19419ec9a83b5bffc275356c98a0b024afaeb2b5c0"
+      },
+      {
+        "path": "images/site/committee-anu-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 600,
+        "bytes": 29612,
+        "sha256": "5dd6dd5bb0e7d4ad4160b6142d12faf578123289fc919e2ee179224d4a768ab1"
+      }
+    ]
+  },
+  "committee-arun": {
+    "source": "images/committee-arun.png",
+    "aspect": 0.8,
+    "files": [
+      {
+        "path": "images/site/committee-arun-240.avif",
+        "format": "avif",
+        "width": 240,
+        "height": 300,
+        "bytes": 3855,
+        "sha256": "64dea7d0a87764db58a0c2575e128b09a7529c52a8a0432717003ff607afe9dc"
+      },
+      {
+        "path": "images/site/committee-arun-240.webp",
+        "format": "webp",
+        "width": 240,
+        "height": 300,
+        "bytes": 4946,
+        "sha256": "33eba47dc0f4cbab328f9647111c921abca9b7575d9882246931d35decfeeb0e"
+      },
+      {
+        "path": "images/site/committee-arun-240.jpg",
+        "format": "jpg",
+        "width": 240,
+        "height": 300,
+        "bytes": 9528,
+        "sha256": "233c4cfc84f610945c6d74098232c1b015afb408bf37bc5cc2aa422243b5773a"
+      },
+      {
+        "path": "images/site/committee-arun-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 600,
+        "bytes": 10282,
+        "sha256": "5909cb03785d9ad2bdd4363407581abc5ac025c9e461c3bc3ff20391341e274b"
+      },
+      {
+        "path": "images/site/committee-arun-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 12860,
+        "sha256": "6ba4ddea64bc887269a9f1f8187a5188037306e9424f0dcc7323cb15b71e3c09"
+      },
+      {
+        "path": "images/site/committee-arun-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 600,
+        "bytes": 27731,
+        "sha256": "e271db060fb11b42bdd147336c422c7fdc196b092ab0092dddbfc30eb744f7d4"
+      }
+    ]
+  },
+  "kerala-intro-poster": {
+    "source": "images/0601-cover.jpg",
+    "aspect": 1.7777777777777777,
+    "files": [
+      {
+        "path": "images/site/kerala-intro-poster-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 270,
+        "bytes": 13096,
+        "sha256": "c289fe28c136940d8a6d8579b6afc47ebb672c8713a2a1eca98625f1687bb4fc"
+      },
+      {
+        "path": "images/site/kerala-intro-poster-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 18674,
+        "sha256": "0f38350615213f7ae4a6c39a1788ccbf67ffcf300742a7295c146328692c3295"
+      },
+      {
+        "path": "images/site/kerala-intro-poster-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 270,
+        "bytes": 27619,
+        "sha256": "c4a4337b418e290aaf8de2fa266ccf6731df7bd2f41c2472809b140ca404d2d8"
+      },
+      {
+        "path": "images/site/kerala-intro-poster-960.avif",
+        "format": "avif",
+        "width": 960,
+        "height": 540,
+        "bytes": 31612,
+        "sha256": "22e1376d77c73d5a1c11ddffd7b04a8340f29ce295ec68e1645d118c0ca04a8d"
+      },
+      {
+        "path": "images/site/kerala-intro-poster-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 43166,
+        "sha256": "c396215a32004edc9e7c0ae88404ed7b878f6e7d157974156c9f80f2106e5c59"
+      },
+      {
+        "path": "images/site/kerala-intro-poster-960.jpg",
+        "format": "jpg",
+        "width": 960,
+        "height": 540,
+        "bytes": 76348,
+        "sha256": "07690a54e97eb648422fb3f6e313a9c1ee562af7cbfd824ba8adfb8ccfdca43e"
+      },
+      {
+        "path": "images/site/kerala-intro-poster-1600.avif",
+        "format": "avif",
+        "width": 1600,
+        "height": 900,
+        "bytes": 56238,
+        "sha256": "04fe1045c7020a78337bea1a514d4e6b6091f47fbb67df12d27ee4f08657f5d5"
+      },
+      {
+        "path": "images/site/kerala-intro-poster-1600.webp",
+        "format": "webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 73798,
+        "sha256": "4ccc069fb4243123fd8d1fb4e878196d4eb944e8f38f5046aa71dd1a7ce17437"
+      },
+      {
+        "path": "images/site/kerala-intro-poster-1600.jpg",
+        "format": "jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 154672,
+        "sha256": "ac20b469be29928d58225f8ee51148bedbb822d65744dceaa78e07ddc3dfe261"
+      }
+    ]
+  },
+  "lamp-lit": {
+    "source": "tools/blender/out/lamp-lit.png",
+    "aspect": null,
+    "files": [
+      {
+        "path": "images/site/lamp-lit-480.avif",
+        "format": "avif",
+        "width": 480,
+        "height": 360,
+        "bytes": 5359,
+        "sha256": "d6305e05579c136fda8c64704049e8406438b8c95169fa7e5546cf37b2ed3c4f"
+      },
+      {
+        "path": "images/site/lamp-lit-480.webp",
+        "format": "webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 7924,
+        "sha256": "da05a7b185fe4d5817dfda10f02966c200193707c52f672052f2d21a0772e83d"
+      },
+      {
+        "path": "images/site/lamp-lit-480.jpg",
+        "format": "jpg",
+        "width": 480,
+        "height": 360,
+        "bytes": 13148,
+        "sha256": "32fece7d173915017b8e8d2dbc4e0433d94818d1ae41cf4683e017a02e0b1311"
+      },
+      {
+        "path": "images/site/lamp-lit-960.avif",
+        "format": "avif",
+        "width": 960,
+        "height": 720,
+        "bytes": 11546,
+        "sha256": "fb3f6458df4586ab9fb5c42162f6255f813c3927b99f33699c776b5d65b3e83e"
+      },
+      {
+        "path": "images/site/lamp-lit-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 720,
+        "bytes": 18004,
+        "sha256": "0960f1be747d062e73b88bf2b4506e0d6cee65c97b3261d855025ca34c6ed46a"
+      },
+      {
+        "path": "images/site/lamp-lit-960.jpg",
+        "format": "jpg",
+        "width": 960,
+        "height": 720,
+        "bytes": 33393,
+        "sha256": "a7ed013096fe89cde8a8824b872d4e28047fe75048bfb5ca9c2af55b13521037"
+      },
+      {
+        "path": "images/site/lamp-lit-1600.avif",
+        "format": "avif",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 19726,
+        "sha256": "cfcef8e0937990797bd7d7878e29bb2afdacecc782183feee68c494b0eea136d"
+      },
+      {
+        "path": "images/site/lamp-lit-1600.webp",
+        "format": "webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 33516,
+        "sha256": "4b0222fe8e4ea07c7be8784f2fb7154daa385c9bfe142ccee43fd30fed371d45"
+      },
+      {
+        "path": "images/site/lamp-lit-1600.jpg",
+        "format": "jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 67068,
+        "sha256": "f013850a91a5edbeae954e0e2b01668f782a801778a75b939d12e379dac9d177"
+      }
+    ]
+  }
+}
