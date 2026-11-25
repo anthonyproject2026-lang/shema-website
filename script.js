@@ -1,376 +1,136 @@
-/* ============================================
-   SHEMA Website — Interactive Scripts
-   Kerala Mural & Kasavu Redesign
-   ============================================ */
+/* SHEMA website: shared behaviour for every page.
+   - forwards old home-page #hashes to their new homes
+   - accessible mobile menu (aria-expanded, Escape, focus return)
+   - one fade-and-rise reveal, off under prefers-reduced-motion
+   - back-to-top after 1.5 screens
+   Events (js/events.js) and the 3D lamp (js/lamp.js) live in their own files. */
+(function () {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+  var docEl = document.documentElement;
+  docEl.classList.add('js');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-
-  /* ---------- Navbar scroll effect ---------- */
-  const navbar = document.getElementById('navbar');
-  const scrollThreshold = 80;
-
-  function updateNavbar() {
-    navbar.classList.toggle('scrolled', window.scrollY > scrollThreshold);
-  }
-  window.addEventListener('scroll', updateNavbar, { passive: true });
-  updateNavbar();
-
-  /* ---------- Mobile nav toggle with aria-expanded ---------- */
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-
-  const mobileNav = window.matchMedia('(max-width: 1280px)');
-  function updateCompactNav() {
-    const textSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-    navbar.classList.toggle('compact', window.innerWidth <= Math.max(1280, textSize * 80));
-  }
-  updateCompactNav();
-  new ResizeObserver(updateCompactNav).observe(document.documentElement);
-  window.addEventListener('resize', updateCompactNav, { passive: true });
-  function setMenu(open, restoreFocus = false) {
-    navLinks.classList.toggle('active', open);
-    navToggle.setAttribute('aria-expanded', String(open));
-    if (open && (mobileNav.matches || navbar.classList.contains('compact'))) navLinks.querySelector('a').focus();
-    if (restoreFocus) navToggle.focus();
-  }
-  navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => setMenu(false));
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && navLinks.classList.contains('active')) setMenu(false, true);
-  });
-  document.addEventListener('click', event => {
-    if (!navbar.contains(event.target)) setMenu(false);
-  });
-  navbar.addEventListener('focusout', event => {
-    // A pointer press can blur a link with no new focus target before its click.
-    // Outside clicks are handled above; close here only for a known focus move.
-    if (event.relatedTarget && !navbar.contains(event.relatedTarget)) setMenu(false);
-  });
-  mobileNav.addEventListener('change', () => setMenu(false));
-
-  /* ---------- Smooth scroll for anchor links ---------- */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const href = anchor.getAttribute('href');
-      if (href === '#') return;
-      const target = document.getElementById(href.slice(1));
-      if (target) {
-        e.preventDefault();
-        history.replaceState(null, '', href);
-        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
-        target.focus({ preventScroll: true });
-        const offset = navbar.offsetHeight + 10;
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: targetPosition, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-      }
-    });
-  });
-
-  /* ---------- Scroll-reveal with IntersectionObserver ---------- */
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-  /* ---------- Accessible event photo gallery ---------- */
-  const eventGalleries = {
-    'voice-vineeth': []
+  /* ---------- Old #hash forwarding (home page only) ---------- */
+  var FORWARD = {
+    video: '/kerala.html#journey',
+    kerala: '/kerala.html#heritage',
+    culture: '/kerala.html#traditions',
+    landmarks: '/kerala.html#landmarks',
+    products: '/kerala.html#crafts',
+    community: '#about',
+    highlights: '#photos',
+    'leadership-history': '#committee',
+    hero: '#top'
   };
 
-  function setupEventGallery() {
-    const modal = document.getElementById('eventGalleryModal');
-    const closeButton = document.getElementById('eventGalleryClose');
-    const galleryGrid = document.getElementById('eventGalleryGrid');
-    const emptyMessage = document.getElementById('eventGalleryEmpty');
-    const triggers = document.querySelectorAll('.event-gallery-trigger');
-    let previouslyFocused = null;
-
-    if (!modal || !closeButton || !galleryGrid || !emptyMessage) return;
-
-    function closeGallery() {
-      if (modal.hidden) return;
-      modal.hidden = true;
-      [...document.body.children].forEach(el => { if (el !== modal) el.inert = false; });
-      document.body.classList.remove('gallery-open');
-      if (previouslyFocused) previouslyFocused.focus();
+  function forwardHash() {
+    if (document.body.getAttribute('data-page') !== 'home') return;
+    var key = decodeURIComponent(location.hash.slice(1));
+    var target = FORWARD[key];
+    if (!target) return;
+    if (target.charAt(0) === '/') {
+      location.replace(target);
+      return;
     }
+    history.replaceState(null, '', target);
+    var el = document.getElementById(target.slice(1));
+    if (el) el.scrollIntoView();
+  }
+  forwardHash();
+  window.addEventListener('hashchange', forwardHash);
 
-    function openGallery(trigger) {
-      const card = trigger.closest('[data-event-gallery]');
-      const galleryId = card ? card.dataset.eventGallery : '';
-      const photos = eventGalleries[galleryId] || [];
-      previouslyFocused = trigger;
-      galleryGrid.replaceChildren();
-
-      photos.forEach(photo => {
-        if (!/^images\/events\/[a-z0-9_\-/]+\.(?:avif|webp|jpe?g|png)$/i.test(photo.src)) return;
-        const image = document.createElement('img');
-        image.src = photo.src;
-        image.alt = photo.alt;
-        image.loading = 'lazy';
-        image.decoding = 'async';
-        galleryGrid.appendChild(image);
-      });
-
-      emptyMessage.hidden = galleryGrid.childElementCount > 0;
-      modal.hidden = false;
-      [...document.body.children].forEach(el => { if (el !== modal) el.inert = true; });
-      document.body.classList.add('gallery-open');
-      closeButton.focus();
-    }
-
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', () => openGallery(trigger));
-    });
-    closeButton.addEventListener('click', closeGallery);
-    modal.addEventListener('click', event => {
-      if (event.target === modal) closeGallery();
-    });
-    document.addEventListener('keydown', event => {
-      if (modal.hidden) return;
-      if (event.key === 'Escape') closeGallery();
-      if (event.key === 'Tab') {
-        event.preventDefault();
-        closeButton.focus();
+  /* ---------- Mobile menu ---------- */
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (toggle && links) {
+    var setMenu = function (open, restoreFocus) {
+      toggle.setAttribute('aria-expanded', String(open));
+      links.classList.toggle('is-open', open);
+      if (open) {
+        var first = links.querySelector('a');
+        if (first) first.focus();
+      } else if (restoreFocus) {
+        toggle.focus();
       }
+    };
+    toggle.addEventListener('click', function () {
+      setMenu(toggle.getAttribute('aria-expanded') !== 'true', false);
     });
+    links.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false, false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, true);
+    });
+    document.addEventListener('click', function (e) {
+      if (toggle.getAttribute('aria-expanded') === 'true' && !e.target.closest('.site-nav')) setMenu(false, false);
+    });
+    var header = toggle.closest('.site-header');
+    if (header) {
+      header.addEventListener('focusout', function (e) {
+        if (toggle.getAttribute('aria-expanded') === 'true' && e.relatedTarget && !header.contains(e.relatedTarget)) {
+          setMenu(false, false);
+        }
+      });
+    }
+    window.matchMedia('(min-width: 961px)').addEventListener('change', function () { setMenu(false, false); });
   }
 
-  setupEventGallery();
-
-  /* ---------- Back to top ---------- */
-  const backToTop = document.getElementById('backToTop');
-
-  function toggleBackToTop() {
-    backToTop.classList.toggle('show', window.scrollY > 500);
-  }
-  window.addEventListener('scroll', toggleBackToTop, { passive: true });
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  /* ---------- Move focus to in-page targets (skip link, nav) ---------- */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    var target = id && document.getElementById(id);
+    if (!target) return;
+    if (!target.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(target.tagName)) {
+      target.setAttribute('tabindex', '-1');
+    }
+    setTimeout(function () { target.focus({ preventScroll: true }); }, 0);
   });
 
-  /* ---------- Active nav link highlighting ---------- */
-  const sections = document.querySelectorAll('section[id]');
-
-  function highlightNavLink() {
-    const scrollPos = window.scrollY + navbar.offsetHeight + 100;
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-      const link = navLinks.querySelector(`a[href="#${id}"]`);
-      if (link && scrollPos >= top && scrollPos < top + height) {
-        navLinks.querySelectorAll('a').forEach(a => a.style.color = '');
-        if (!link.classList.contains('nav-cta')) {
-          link.style.color = 'var(--kavi, #C6822B)';
-        }
-      }
+  /* ---------- One reveal: fade and rise 12px, 400ms, once ----------
+     Content is never hidden before JS runs; elements already on screen are left alone. */
+  if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+    var pending = [];
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top > window.innerHeight) pending.push(el);
     });
-  }
-  window.addEventListener('scroll', highlightNavLink, { passive: true });
-
-  /* ============================================
-     Kerala Heritage Carousel
-     ============================================ */
-  const carouselTrack = document.getElementById('carouselTrack');
-  const carouselPrev = document.getElementById('carouselPrev');
-  const carouselNext = document.getElementById('carouselNext');
-  const carouselDots = document.getElementById('carouselDots');
-  const carouselPauseBtn = document.getElementById('carouselPauseBtn');
-
-  if (carouselTrack && carouselPrev && carouselNext && carouselDots) {
-    const cards = carouselTrack.querySelectorAll('.kerala-card');
-    const totalSlides = cards.length;
-    let currentSlide = 0;
-    let autoPlayInterval = null;
-    let isPaused = false;
-
-    // Create dot indicators
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      dot.addEventListener('click', () => { goToSlide(i); resetAutoPlay(); });
-      carouselDots.appendChild(dot);
-    }
-    const dots = carouselDots.querySelectorAll('.carousel-dot');
-
-    // Create slide counter with aria-live
-    const counterEl = document.createElement('div');
-    counterEl.className = 'carousel-counter';
-    counterEl.setAttribute('aria-live', 'off');
-    counterEl.textContent = `1 / ${totalSlides}`;
-    carouselDots.parentElement.insertBefore(counterEl, carouselPauseBtn);
-
-    function goToSlide(index) {
-      if (index < 0) index = totalSlides - 1;
-      if (index >= totalSlides) index = 0;
-      currentSlide = index;
-      carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
-      counterEl.textContent = `${currentSlide + 1} / ${totalSlides}`;
-    }
-
-    carouselPrev.addEventListener('click', () => { goToSlide(currentSlide - 1); resetAutoPlay(); });
-    carouselNext.addEventListener('click', () => { goToSlide(currentSlide + 1); resetAutoPlay(); });
-
-    // Keyboard — scoped to when carousel is visible and focused
-    const keralaCarousel = document.getElementById('keralaCarousel');
-    keralaCarousel.setAttribute('tabindex', '0');
-    keralaCarousel.setAttribute('role', 'region');
-    keralaCarousel.setAttribute('aria-roledescription', 'carousel');
-    keralaCarousel.setAttribute('aria-label', 'Kerala Heritage');
-
-    keralaCarousel.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        goToSlide(currentSlide - 1); resetAutoPlay();
-        e.preventDefault();
-      } else if (e.key === 'ArrowRight') {
-        goToSlide(currentSlide + 1); resetAutoPlay();
-        e.preventDefault();
-      }
-    });
-
-    // Touch/swipe
-    let touchStartX = 0;
-    const carouselViewport = document.getElementById('carouselViewport');
-
-    carouselViewport.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    carouselViewport.addEventListener('touchend', (e) => {
-      const diff = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 50) {
-        goToSlide(diff > 0 ? currentSlide + 1 : currentSlide - 1);
-        resetAutoPlay();
-      }
-    }, { passive: true });
-
-    // Auto-play — gated behind IntersectionObserver + reduced-motion
-    function startAutoPlay() {
-      if (prefersReducedMotion || isPaused || document.hidden || keralaCarousel.matches(':hover') || keralaCarousel.contains(document.activeElement)) return;
-      stopAutoPlay();
-      autoPlayInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
-    }
-
-    function stopAutoPlay() {
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = null;
-      }
-    }
-
-    function resetAutoPlay() {
-      if (!isPaused) {
-        stopAutoPlay();
-        startAutoPlay();
-      }
-    }
-
-    // Only autoplay when carousel is visible
-    const carouselObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !isPaused) {
-          startAutoPlay();
-        } else {
-          stopAutoPlay();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealing');
+          io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3 });
-    carouselObserver.observe(keralaCarousel);
-
-    document.addEventListener('visibilitychange', () => { if (document.hidden) stopAutoPlay(); });
-
-    // Pause on hover
-    keralaCarousel.addEventListener('mouseenter', stopAutoPlay);
-    keralaCarousel.addEventListener('mouseleave', () => { if (!isPaused) startAutoPlay(); });
-
-    // Pause on focus, resume on blur (WCAG 2.2.2)
-    keralaCarousel.addEventListener('focusin', stopAutoPlay);
-    keralaCarousel.addEventListener('focusout', () => { if (!isPaused) startAutoPlay(); });
-
-    // Pause/Play button (WCAG 2.2.2)
-    if (carouselPauseBtn) {
-      const pauseIcon = document.getElementById('pauseIcon');
-      const playIcon = document.getElementById('playIcon');
-
-      carouselPauseBtn.addEventListener('click', () => {
-        isPaused = !isPaused;
-        carouselPauseBtn.setAttribute('aria-pressed', isPaused);
-        carouselPauseBtn.setAttribute('aria-label', isPaused ? 'Play carousel' : 'Pause carousel');
-
-        if (isPaused) {
-          stopAutoPlay();
-          if (pauseIcon) pauseIcon.style.display = 'none';
-          if (playIcon) playIcon.style.display = 'block';
-        } else {
-          if (pauseIcon) pauseIcon.style.display = 'block';
-          if (playIcon) playIcon.style.display = 'none';
-          startAutoPlay();
-        }
-      });
-    }
+    }, { rootMargin: '0px 0px 10% 0px' });
+    pending.forEach(function (el) { io.observe(el); });
   }
 
-  /* ============================================
-     Video — Auto-stop on end & scroll-out
-     ============================================ */
-  const videoPlayBtn = document.getElementById('videoPlayBtn');
-  const keralaVideo = document.getElementById('keralaVideo');
-  const videoOverlay = document.getElementById('videoOverlay');
-
-  if (videoPlayBtn && keralaVideo && videoOverlay) {
-    const showOverlay = () => {
-      videoOverlay.style.opacity = '1';
-      videoOverlay.style.visibility = 'visible';
-      keralaVideo.controls = false;
+  /* ---------- Back to top ---------- */
+  var toTop = document.getElementById('backToTop');
+  if (toTop) {
+    var onScroll = function () {
+      toTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 1.5);
     };
-
-    const hideOverlay = () => {
-      videoOverlay.style.opacity = '0';
-      videoOverlay.style.visibility = 'hidden';
-      keralaVideo.controls = true;
-    };
-
-    const playVideo = () => {
-      keralaVideo.play().then(hideOverlay).catch(() => {
-        showOverlay();
-        videoPlayBtn.setAttribute('aria-label', 'Video unavailable. Try playing again');
-      });
-    };
-
-    videoPlayBtn.addEventListener('click', (e) => { e.stopPropagation(); playVideo(); });
-    videoOverlay.addEventListener('click', playVideo);
-    keralaVideo.addEventListener('ended', showOverlay);
-    keralaVideo.addEventListener('pause', showOverlay);
-
-    keralaVideo.addEventListener('click', () => {
-      if (keralaVideo.paused) playVideo();
-      else keralaVideo.pause();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      var brand = document.querySelector('.brand');
+      if (brand) brand.focus({ preventScroll: true });
     });
-
-    // Auto-pause when scrolled out of view
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting && !keralaVideo.paused) {
-          keralaVideo.pause();
-        }
-      });
-    }, { threshold: 0.25 });
-    videoObserver.observe(keralaVideo);
   }
 
-});
+  /* ---------- Kerala video: pause when scrolled away ---------- */
+  var video = document.getElementById('keralaVideo');
+  if (video && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting && !video.paused) video.pause();
+      });
+    }, { threshold: 0.25 }).observe(video);
+  }
+})();
