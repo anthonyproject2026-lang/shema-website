@@ -11,32 +11,33 @@ IDS = ['padmanabhaswamy-temple-161693828','varkala-cliff-121378838','munnar-tea-
 
 class DestinationsCraftsTests(unittest.TestCase):
     def test_previous_culture_and_security_preserved(self):
-        old = subprocess.check_output(['git','show','HEAD:index.html'],cwd=ROOT).decode('utf-8')
-        new = (ROOT/'index.html').read_text(encoding='utf-8')
-        def culture(s): return s.split('id="culture"',1)[1].split('</section>',1)[0]
-        self.assertEqual(culture(old),culture(new))
-        self.assertEqual(old,new)  # All homepage copy and media remain unchanged.
-        for filename in ('_headers','script.js'):
-            previous = subprocess.check_output(['git','show','HEAD:'+filename],cwd=ROOT).decode().replace('\r\n','\n')
-            current = (ROOT/filename).read_text(encoding='utf-8')
-            if filename=='script.js':
-                # This audit repairs navigation. Keep every other handler,
-                # including carousel, video, dialogs and hash offsets, identical.
-                start='  /* ---------- Mobile nav toggle with aria-expanded ---------- */'
-                end='  /* ---------- Smooth scroll for anchor links ---------- */'
-                def outside_nav(s):
-                    prefix,nav=s.split(start,1)
-                    return prefix+end+nav.split(end,1)[1]
-                self.assertEqual(outside_nav(previous),outside_nav(current))
-            else:
-                self.assertEqual(previous,current)
+        # Redesign (2026-11): the home page intentionally changed, so instead of "index.html is
+        # unchanged" this checks every Kerala card title and text from the last pre-redesign
+        # home page (commit 2facc67) is still published, now on kerala.html.
+        import re, html as H
+        old = subprocess.check_output(['git','show','2facc67:index.html'],cwd=ROOT).decode('utf-8')
+        new = H.unescape((ROOT/'kerala.html').read_text(encoding='utf-8'))
+        def section(s, id_): return s.split('id="'+id_+'"',1)[1].split('</section>',1)[0]
+        checked = 0
+        flat = re.sub(r'\s+',' ',new)
+        for id_ in ('kerala','culture','landmarks','products'):
+            for m in re.finditer(r'<(h3|h4)>(.*?)</\1>\s*<p>(.*?)</p>', section(old, id_), re.S):
+                for text in (m.group(2), m.group(3)):
+                    clean = H.unescape(re.sub(r'\s+',' ',re.sub(r'<[^>]+>','',text))).strip()
+                    self.assertTrue(clean in flat, (id_, clean))
+                    checked += 1
+        self.assertGreaterEqual(checked, 60)
+        headers = (ROOT/'_headers').read_text(encoding='utf-8')
+        for directive in ("default-src 'self'", "script-src 'self';", "frame-ancestors 'none'", 'X-Frame-Options: DENY'):
+            self.assertIn(directive, headers)
+        self.assertNotIn('unsafe-eval', headers)
 
     def test_all_eight_cards_and_licensed_derivatives(self):
         raw = (ROOT/'images/destinations-crafts/manifest.json').read_text(encoding='utf-8')
         records = json.loads(raw)
         self.assertEqual([r['id'] for r in records], IDS)
         self.assertNotRegex(raw, r'[A-Za-z]:\\|local_path|evidence_path')
-        html = (ROOT/'index.html').read_text(encoding='utf-8')
+        html = (ROOT/'kerala.html').read_text(encoding='utf-8')
         credits = (ROOT/'media-credits.html').read_text(encoding='utf-8')
         parser = Elements(); parser.feed(credits)
         credit_links = {a.get('href') for t,a in parser.items if t=='a'}

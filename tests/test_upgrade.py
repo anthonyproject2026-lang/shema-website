@@ -23,13 +23,16 @@ class UpgradeTests(unittest.TestCase):
                     elif url.fragment:
                         self.assertIn(url.fragment,ids,(page.name,value))
                 for candidate in a.get('srcset','').split(','):
-                    if candidate.strip(): self.assertTrue((ROOT/candidate.split()[0]).is_file())
-    def test_static_images_and_honest_empty_gallery(self):
-        html=(ROOT/'index.html').read_text(encoding='utf-8')
-        self.assertNotIn('/.netlify/images?',html)
-        self.assertIn('No photographs are available',html)
-        self.assertNotIn('ten approved',html)
-        self.assertRegex(html,r'preload="none"')
+                    if candidate.strip(): self.assertTrue((ROOT/candidate.split()[0].lstrip('/')).is_file(), candidate)
+    def test_static_images_and_honest_empty_states(self):
+        # Redesign (2026-11): the empty photo modal is gone; the honest empty state is now the
+        # "Next event to be announced" card, and the video (preload="none") lives on kerala.html.
+        for page in ROOT.glob('*.html'):
+            html=page.read_text(encoding='utf-8')
+            self.assertNotIn('/.netlify/images?',html)
+            self.assertNotIn('ten approved',html)
+        self.assertIn('Next event to be announced',(ROOT/'index.html').read_text(encoding='utf-8'))
+        self.assertRegex((ROOT/'kerala.html').read_text(encoding='utf-8'),r'preload="none"')
     def test_not_found_recovery(self):
         html=(ROOT/'404.html').read_text(encoding='utf-8')
         self.assertIn('/index.html#contact',html)
@@ -55,9 +58,12 @@ class UpgradeTests(unittest.TestCase):
                                      (page.name, tag, attr, descriptors))
 
     def test_culture_thumbnail_mapping_and_discovery_safety(self):
-        html=(ROOT/'index.html').read_text(encoding='utf-8')
-        culture=html.split('id="culture"',1)[1].split('</section>',1)[0]
-        cards=culture.split('<div class="culture-item reveal">')[1:]
+        # Redesign (2026-11): Kerala content moved to kerala.html (#traditions + #videos);
+        # credits are one line under each image ("Photo: author, licence").
+        html=(ROOT/'kerala.html').read_text(encoding='utf-8')
+        culture=html.split('id="traditions"',1)[1].split('</section>',1)[0]
+        videos=html.split('id="videos"',1)[1].split('</section>',1)[0]
+        cards=culture.split('<figure class="card culture-item reveal"')[1:]
         self.assertEqual(len(cards),8)
         import json
         records=json.loads((ROOT/'images/culture/manifest.json').read_text(encoding='utf-8'))
@@ -66,18 +72,18 @@ class UpgradeTests(unittest.TestCase):
         credit_links=[a['href'] for tag,a in cp.items if tag=='a']
         for card, record in zip(cards, records):
             card=card.split('</figure>',1)[0]+'</figure>'
-            parser=Elements(); parser.feed(card)
+            parser=Elements(); parser.feed('<figure '+card)
             images=[a for tag,a in parser.items if tag=='img']
             self.assertEqual(len(images),1)
             image=images[0]
-            self.assertEqual(image['src'],record['derivatives'][1]['path'])
+            self.assertEqual(image['src'].lstrip('/'),record['derivatives'][1]['path'])
             self.assertEqual(image['loading'],'lazy')
             self.assertTrue(image['alt'])
-            with Image.open(ROOT/image['src']) as asset:
+            with Image.open(ROOT/image['src'].lstrip('/')) as asset:
                 self.assertEqual((int(image['width']),int(image['height'])),asset.size)
-            self.assertIn('Photograph:',card)
-            self.assertIn(record['author'],card)
+            self.assertIn('Photo: '+record['author'],card)
             self.assertIn(record['license'],card)
+            self.assertIn('/media-credits.html#'+record['id'],card)
             self.assertIn(record['source_url'],credit_links)
             self.assertIn(record['license_url'],credit_links)
             self.assertIn(record['title'],credits)
@@ -87,14 +93,15 @@ class UpgradeTests(unittest.TestCase):
                     self.assertEqual(asset.size,(derivative['width'],derivative['height']))
                     self.assertFalse(asset.getexif())
                     self.assertNotIn('icc_profile',asset.info)
-        parser=Elements(); parser.feed(culture)
+        parser=Elements(); parser.feed(videos)
         links=[a for tag,a in parser.items if tag=='a' and a.get('target')=='_blank']
         self.assertEqual(len(links),8)
         self.assertEqual({a['href'] for a in links},{r['video_url'] for r in records})
         for link in links:
             self.assertEqual(set(link['rel'].split()),{'noopener','noreferrer'})
-        self.assertIn('Source: Kerala Tourism',culture)
-        self.assertIn('separate from SHEMA events',culture)
+        self.assertIn('Source: Kerala Tourism',videos)
+        self.assertIn('separate from SHEMA events',videos)
+        parser=Elements(); parser.feed(culture+videos)
         for tag,a in parser.items:
             self.assertNotIn(tag,('iframe','video','script'))
             self.assertNotIn('download',a)
