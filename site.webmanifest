@@ -1,0 +1,20 @@
+{
+  "name": "Shepparton Malayalee Association",
+  "short_name": "SHEMA",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#2a1d14",
+  "background_color": "#ece4d4",
+  "display": "browser",
+  "start_url": "/"
+}

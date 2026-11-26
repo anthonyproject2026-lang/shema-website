@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "timezone": "Australia/Melbourne",
+  "updated": "2027-01-15",
+  "events": [
+    {
+      "id": "test-fixture-daylight-time",
+      "title": "TEST FIXTURE – not a real event (daylight time)",
+      "category": "community",
+      "status": "upcoming",
+      "datePrecision": "datetime",
+      "start": "2027-04-03T17:30:00+11:00",
+      "end": "2027-04-03T21:30:00+11:00",
+      "allDay": false,
+      "timezone": "Australia/Melbourne",
+      "venue": {
+        "name": "Example Hall (test fixture)",
+        "address": "1 Example Street",
+        "suburb": "Testville",
+        "state": "VIC",
+        "postcode": "0000"
+      },
+      "description": "Fixture text; commas, semicolons and a backslash \\ test escaping.",
+      "image": null,
+      "links": [
+        {
+          "label": "Details",
+          "url": "https://example.com/test-fixture",
+          "kind": "details"
+        }
+      ]
+    },
+    {
+      "id": "test-fixture-standard-time",
+      "title": "TEST FIXTURE – not a real event (standard time)",
+      "category": "community",
+      "status": "upcoming",
+      "datePrecision": "datetime",
+      "start": "2027-04-10T17:30:00+10:00",
+      "end": "2027-04-10T21:30:00+10:00",
+      "allDay": false,
+      "timezone": "Australia/Melbourne",
+      "venue": {
+        "name": "Example Hall (test fixture)",
+        "address": "1 Example Street",
+        "suburb": "Testville",
+        "state": "VIC",
+        "postcode": "0000"
+      },
+      "description": "Fixture event after daylight saving ends.",
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "test-fixture-all-day",
+      "title": "TEST FIXTURE – not a real event (all day)",
+      "category": "community",
+      "status": "upcoming",
+      "datePrecision": "date",
+      "start": "2027-05-01",
+      "end": null,
+      "allDay": true,
+      "timezone": "Australia/Melbourne",
+      "venue": null,
+      "description": "Fixture all-day event with no venue.",
+      "image": null,
+      "links": []
+    }
+  ]
+}

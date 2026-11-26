@@ -1,57 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHEMA — Shepparton Malayalee Association | Kerala Heritage in Shepparton</title>
-  <meta name="description" content="Shepparton Malayalee Association (SHEMA) — 350+ Malayalee families celebrating Kerala's cultural heritage in Greater Shepparton through Onam, Vishu, and community events since 2016." />
-  <meta name="keywords" content="SHEMA, Shepparton Malayalee Association, Kerala, Malayalee, Shepparton, community, cultural, Onam, Vishu, Kathakali, Theyyam" />
-  <meta name="author" content="SHEMA Inc." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="SHEMA — Shepparton Malayalee Association" />
-  <meta property="og:description" content="350+ Malayalee families celebrating Kerala's cultural heritage in Greater Shepparton, Victoria." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SHEMA – Shepparton Malayalee Association</title>
+  <meta name="description" content="The Shepparton Malayalee Association (SHEMA) brings together 350+ Malayalee families in Greater Shepparton, Victoria. See what&#x27;s on and join for $50 a year." />
+  <link rel="canonical" href="https://shema.com.au/" />
+  <meta name="theme-color" content="#2a1d14" />
+  <meta property="og:title" content="SHEMA – Shepparton Malayalee Association" />
+  <meta property="og:description" content="350+ Malayalee families in Greater Shepparton, Victoria, sharing Kerala&#x27;s culture through 12 cultural events each year." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://shema.com.au/" />
   <meta property="og:site_name" content="Shepparton Malayalee Association" />
   <meta property="og:locale" content="en_AU" />
-  <meta property="og:image" content="https://shema.com.auimages/optimized/event-mayor-1024.webp" />
-
-  <!-- Twitter Card -->
+  <meta property="og:image" content="https://shema.com.au/assets/og/shema-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="A brass Kerala lamp on a flower carpet beside the words Shepparton Malayalee Association." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SHEMA — Shepparton Malayalee Association" />
-  <meta name="twitter:description" content="Celebrating Kerala's cultural heritage in Shepparton, Victoria." />
-  <meta name="twitter:image" content="https://shema.com.auimages/optimized/event-mayor-1024.webp" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://shema.com.au/" />
-
-  <!-- Fonts — preconnect + link (not @import) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600&family=Manjari:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Hero preload -->
-  <link rel="preload" as="image"
-        href="images/optimized/kerala-backwaters-1024.webp"
-        imagesrcset="images/optimized/kerala-backwaters-800.webp 800w, images/optimized/kerala-backwaters-1024.webp 1024w"
-        imagesizes="100vw"
-        fetchpriority="high" />
-
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="images/shema-logo.png" type="image/png" />
-
-  <!-- Structured Data — Organization -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" href="/images/site/hero-backwaters-1024.webp" imagesrcset="/images/site/hero-backwaters-480.webp 480w, /images/site/hero-backwaters-960.webp 960w, /images/site/hero-backwaters-1024.webp 1024w" imagesizes="100vw" fetchpriority="high" />
+  <script src="/js/events.js" defer></script>
+  <script src="/js/lamp.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Shepparton Malayalee Association (SHEMA)",
+    "name": "Shepparton Malayalee Association (SHEMA) Inc.",
     "alternateName": "SHEMA",
-    "url": "https://shema.com.au",
-    "logo": "https://shema.com.au/images/shema-logo.png",
+    "url": "https://shema.com.au/",
+    "logo": "https://shema.com.au/images/icon-512.png",
     "email": "sheppartonmc@gmail.com",
-    "areaServed": "Greater Shepparton",
+    "foundingDate": "2016",
+    "areaServed": "Greater Shepparton, Victoria, Australia",
     "sameAs": [
       "https://www.facebook.com/sheppartonmc",
       "https://www.instagram.com/shema_shepparton/",
@@ -59,888 +45,346 @@
     ]
   }
   </script>
-
-
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/script.js" defer></script>
 </head>
-<body>
-
-  <!-- Skip to content (a11y) -->
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <!-- ========== Navigation ========== -->
-  <header>
-    <nav class="navbar" id="navbar">
-      <div class="container">
-        <a href="#hero" class="nav-logo">
-          <img src="images/optimized/shema-logo-184.webp"
-               srcset="images/optimized/shema-logo-184.webp 1x, images/optimized/shema-logo-368.webp 2x"
-               alt="SHEMA Logo" class="logo-img" width="72" height="72" />
-          SHEMA
-        </a>
-        <div class="nav-links" id="navLinks">
-          <a href="#about">About</a>
-          <a href="#committee">Committee</a>
-          <a href="#kerala">Kerala</a>
-          <a href="#highlights">Gallery</a>
-          <a href="#events">Events</a>
-          <a href="#contact">Membership &amp; Contact</a>
-          <a href="#culture">Culture</a>
-          <a href="#community">Community</a>
-          <a href="#landmarks">Landmarks</a>
-          <a href="https://smaregistry.vercel.app/" class="nav-cta" target="_blank" rel="noopener noreferrer nofollow">Become a Member</a>
-          <div class="nav-socials-header">
-            <a href="https://www.facebook.com/sheppartonmc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/shema_shepparton/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-          </div>
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-label="Toggle navigation" aria-expanded="false">
-          <span></span><span></span><span></span>
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="SHEMA home">
+        <img src="/images/optimized/shema-logo-120.webp" width="40" height="39" alt="" />
+        <span class="brand-name">SHEMA</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
         </button>
-      </div>
-    </nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#events">What's On</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="/gallery.html">Gallery</a></li>
+          <li><a href="/kerala.html">Kerala</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--join header-join" href="#join">Join</a>
+    </div>
   </header>
 
-  <!-- ========== Main Content ========== -->
   <main id="main" tabindex="-1">
 
-    <!-- ========== Hero Section ========== -->
-    <section class="hero" id="hero">
-      <div class="hero-bg">
-        <img src="images/optimized/kerala-backwaters-1024.webp"
-             srcset="images/optimized/kerala-backwaters-800.webp 800w, images/optimized/kerala-backwaters-1024.webp 1024w"
-             sizes="100vw"
-             alt="Kerala Backwaters — lush green waterways"
-             width="1200" height="800"
-             fetchpriority="high" loading="eager" />
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="dot"></span>
-            Shepparton &bull; Victoria &bull; Australia
-          </div>
-          <h1>Shepparton Malayalee <em>Association</em></h1>
-          <p class="hero-ml">ഷെപ്പാർട്ടൺ മലയാളി അസോസിയേഷൻ</p>
-          <p class="hero-desc">
-            Since 2016, over 350 Malayalee families have made Shepparton home — bringing
-            Kerala's warmth, traditions, and community spirit to the Goulburn Valley.
-          </p>
-          <div class="hero-buttons">
-            <a href="#about" class="btn-primary">
-              About SHEMA
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#kerala" class="btn-outline">
-              Explore Kerala
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="hero-scroll">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
-      </div>
-    </section>
-
-    <!-- ========== Stats Bar — human text ========== -->
-    <section class="stats-bar">
-      <div class="container">
-        <div class="stats-inner">
-          <p>Established <strong>2016</strong></p>
-          <span class="stats-sep"></span>
-          <p><strong>350+</strong> families across Greater Shepparton</p>
-          <span class="stats-sep"></span>
-          <p><strong>12</strong> cultural events each year</p>
-          <span class="stats-sep"></span>
-          <p><strong>$50/yr</strong> membership</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-img" src="/images/site/hero-backwaters-1024.webp" srcset="/images/site/hero-backwaters-480.webp 480w, /images/site/hero-backwaters-960.webp 960w, /images/site/hero-backwaters-1024.webp 1024w" sizes="100vw" width="1024" height="640" alt="" fetchpriority="high" loading="eager" decoding="async" />
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-kicker">Greater Shepparton, Victoria · Established 2016</p>
+        <h1 id="hero-title">Shepparton Malayalee <em>Association</em></h1>
+        <p class="ml hero-ml" lang="ml">ഷെപ്പാർട്ടൺ മലയാളി അസോസിയേഷൻ</p>
+        <p class="hero-intro">A community of 350+ Malayalee families, keeping Kerala's culture alive in Greater Shepparton with 12 cultural events each year.</p>
+        <div class="hero-actions">
+          <a class="btn btn--join btn--lg" href="#join">Become a member – $50 a family per year</a>
+          <a class="btn btn--cream-outline btn--lg" href="#events">See what's on</a>
         </div>
       </div>
     </section>
 
-    <!-- ========== Video Section ========== -->
-    <section class="video-section section-pad" id="video">
+    <section class="stats section--green" aria-label="SHEMA in numbers">
+      <ul class="container stats-list">
+        <li><strong>350+</strong> <span>families</span></li>
+        <li><strong>2016</strong> <span>established</span></li>
+        <li><strong>12</strong> <span>cultural events each year</span></li>
+      </ul>
+    </section>
+
+    <section class="section section--cream coming-up" id="events" aria-labelledby="events-title">
       <div class="container">
-        <div class="reveal" style="text-align: center;">
-          <span class="section-label" style="justify-content: center;">Introductory Video</span>
-          <h2 class="section-title" style="color: #fff; margin-inline: auto;">
-            Kerala — A 30-Second Journey
-          </h2>
-          <p class="section-subtitle" style="color: rgba(255,255,255,.5); margin-inline: auto; text-align: center;">
-            Backwaters, performing arts, festivals and iconic landscapes
-            of God's Own Country.
-          </p>
-        </div>
-        <div class="video-wrapper reveal">
-          <video id="keralaVideo"
-                 src="videos/0601.mp4"
-                 poster="images/optimized/0601-cover-860.webp"
-                 preload="none"
-                 playsinline
-                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-          </video>
-          <div class="video-overlay" id="videoOverlay" style="position: absolute; inset: 0; background: rgba(36,29,20,0.5); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.4s ease, visibility 0.4s ease; border-radius: 12px; z-index: 5;">
-            <button class="video-play-btn" id="videoPlayBtn" aria-label="Play Video" style="position: relative; z-index: 6;">
-              ▶
-            </button>
-            <span class="bg-text" style="position: absolute; bottom: 1.5rem; z-index: 6; color: #fff; font-family: var(--ff-display); font-size: 1.05rem; font-weight: 500; text-align: center; width: 90%; letter-spacing: .5px;">30-Second Intro — Kerala's Rich Cultural Heritage</span>
-          </div>
+        <p class="kicker">What's on</p>
+        <h2 id="events-title">Coming up</h2>
+        <div class="upcoming-list" id="upcomingList">
+          <article class="honest-card">
+            <h3>Next event to be announced</h3>
+            <p>Follow us on Facebook for dates and details.</p>
+            <p class="honest-actions"><a class="btn btn--green" href="https://www.facebook.com/sheppartonmc" target="_blank" rel="noopener noreferrer">Follow SHEMA on Facebook<span class="visually-hidden"> (opens in a new tab)</span></a> <a class="text-link" href="#past-events">See past events</a></p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ========== About Section ========== -->
-    <section class="about section-pad" id="about">
+    <section class="section section--green photo-band" id="photos" aria-labelledby="photos-title">
       <div class="container">
-        <div class="about-grid">
-          <div class="about-image-wrap reveal">
-            <img src="images/optimized/event-mayor-600.webp"
-                 srcset="images/optimized/event-mayor-600.webp 600w, images/optimized/event-mayor-1024.webp 1024w"
-                 sizes="(max-width: 1024px) 100vw, 50vw"
-                 alt="SHEMA Cultural Event with Mayor Cr Shane Sali"
-                 width="600" height="480" loading="lazy" />
-            <div class="about-image-badge">
-              <strong>SHEMA</strong>
-              <span>Shepparton Malayalee Association</span>
-            </div>
-          </div>
-          <div class="about-text reveal">
-            <span class="section-label">About SHEMA</span>
-            <h2 class="section-title">Bridging Kerala &amp; Shepparton</h2>
-            <span class="section-title-ml">കേരളവും ഷെപ്പാർട്ടണും തമ്മിൽ</span>
-            <p>
-              Shepparton Malayalee Association (SHEMA) is a community organisation
-              representing Malayalee families living in and around Shepparton. We preserve
-              cultural identity, support community connection and celebrate Kerala's rich
-              traditions through cultural events, festivals and social gatherings.
-            </p>
-            <p>
-              Kerala is known for its scenic backwaters, rich artistic heritage and diverse
-              traditions — a culture deeply rooted in hospitality, community values and a
-              strong emphasis on education and service.
-            </p>
-            <p>
-              Many of our families contribute significantly to the region, particularly in
-              healthcare — nursing, aged care and allied health services — forming an
-              important part of the local workforce.
-            </p>
-            <div class="about-features">
-              <div class="about-feature">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                </div>
-                <div>
-                  <h3>Cultural Events</h3>
-                  <p>Onam, Vishu &amp; Kerala festivals celebrated annually</p>
-                </div>
-              </div>
-              <div class="about-feature">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div>
-                  <h3>Community Support</h3>
-                  <p>Fostering connections among Malayalee families</p>
-                </div>
-              </div>
-              <div class="about-feature">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                </div>
-                <div>
-                  <h3>Healthcare Leaders</h3>
-                  <p>Contributing to nursing, aged care &amp; allied health</p>
-                </div>
-              </div>
-              <div class="about-feature">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <div>
-                  <h3>Multicultural Harmony</h3>
-                  <p>Strengthening Greater Shepparton's diversity</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <h2 id="photos-title">Our community</h2>
+        <p class="ml" lang="ml">ഷെമയുടെ ഇവന്റ് ഹൈലൈറ്റുകൾ</p>
+        <div class="photo-band-grid">
+          <figure class="photo-band-item reveal">
+            <picture><source type="image/avif" srcset="/images/site/event-mayor-wide-480.avif 480w, /images/site/event-mayor-wide-960.avif 960w, /images/site/event-mayor-wide-1024.avif 1024w" sizes="(max-width: 760px) 100vw, 560px" /><source type="image/webp" srcset="/images/site/event-mayor-wide-480.webp 480w, /images/site/event-mayor-wide-960.webp 960w, /images/site/event-mayor-wide-1024.webp 1024w" sizes="(max-width: 760px) 100vw, 560px" /><img src="/images/site/event-mayor-wide-960.jpg" srcset="/images/site/event-mayor-wide-480.jpg 480w, /images/site/event-mayor-wide-960.jpg 960w, /images/site/event-mayor-wide-1024.jpg 1024w" sizes="(max-width: 760px) 100vw, 560px" width="960" height="521" alt="Cr Shane Sali, Mayor of Greater Shepparton, with SHEMA members on stage at the SHEMA Cultural Evening." loading="lazy" decoding="async" /></picture>
+            <figcaption>SHEMA Cultural Evening with Cr Shane Sali, Mayor of Greater Shepparton</figcaption>
+          </figure>
+          <figure class="photo-band-item reveal">
+            <picture><source type="image/avif" srcset="/images/site/event-lamp-wide-480.avif 480w, /images/site/event-lamp-wide-960.avif 960w, /images/site/event-lamp-wide-1024.avif 1024w" sizes="(max-width: 760px) 100vw, 560px" /><source type="image/webp" srcset="/images/site/event-lamp-wide-480.webp 480w, /images/site/event-lamp-wide-960.webp 960w, /images/site/event-lamp-wide-1024.webp 1024w" sizes="(max-width: 760px) 100vw, 560px" /><img src="/images/site/event-lamp-wide-960.jpg" srcset="/images/site/event-lamp-wide-480.jpg 480w, /images/site/event-lamp-wide-960.jpg 960w, /images/site/event-lamp-wide-1024.jpg 1024w" sizes="(max-width: 760px) 100vw, 560px" width="960" height="588" alt="A traditional nilavilakku lamp being lit on stage at a SHEMA event." loading="lazy" decoding="async" /></picture>
+            <figcaption>Traditional lamp lighting – the nilavilakku ceremony</figcaption>
+          </figure>
+        </div>
+        <p class="band-link"><a class="text-link text-link--light" href="/gallery.html">See the gallery</a></p>
+      </div>
+    </section>
+
+    <section class="section section--cream about" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <p class="kicker">About SHEMA</p>
+          <h2 id="about-title">Bridging Kerala &amp; Shepparton</h2>
+          <p class="ml" lang="ml">കേരളവും ഷെപ്പാർട്ടണും തമ്മിൽ</p>
+          <p>Shepparton Malayalee Association (SHEMA) Inc. is an incorporated community organisation representing Malayalee families in and around Shepparton. Since 2016 we have worked to preserve our cultural identity, support community connection and celebrate Kerala's traditions through cultural events, festivals and social gatherings. Many of our families contribute to the region, particularly in healthcare: nursing, aged care and allied health. We are proud to have the support of Cr Shane Sali, Mayor of Greater Shepparton.</p>
+        </div>
+        <div class="about-card reveal">
+          <h3>What SHEMA does locally</h3>
+          <ul class="tick-list">
+            <li>Runs 12 cultural events each year, including Onam, a talent show and an athletics day.</li>
+            <li>Brings 350+ Malayalee families together for festivals and social gatherings.</li>
+            <li>Preserves cultural identity and celebrates Kerala's traditions.</li>
+            <li>Contributes to the broader Greater Shepparton community, strengthening multicultural harmony, wellbeing and local development.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ========== Committee Section ========== -->
-    <section class="committee section-pad" id="committee">
+    <div class="kasavu-divider" aria-hidden="true"></div>
+
+    <section class="section section--cream-alt committee" id="committee" aria-labelledby="committee-title">
       <div class="container">
-        <div class="reveal" style="text-align: center;">
-          <span class="section-label" style="justify-content: center;">Leadership</span>
-          <h2 class="section-title">Meet Our Committee</h2>
-          <span class="section-title-ml">ഞങ്ങളുടെ കമ്മിറ്റി</span>
-          <p class="section-subtitle" style="margin-inline: auto; text-align: center;">
-            The dedicated team working behind the scenes to bring the SHEMA community together.
-          </p>
-        </div>
-        <div class="committee-grid reveal" id="committeeGrid">
-          <div class="committee-card president-card" data-id="default_committee_1">
-            <div class="committee-img-wrap">
-              <img src="images/optimized/committee-antony-400.webp"
-                   srcset="images/optimized/committee-antony-400.webp 400w, images/optimized/committee-antony-800.webp 800w"
-                   sizes="(max-width: 768px) 100vw, 300px"
-                   alt="Antony Jones - President" width="400" height="400" loading="lazy" />
-            </div>
+        <h2 id="committee-title">Our committee</h2>
+        <p class="ml" lang="ml">ഞങ്ങളുടെ കമ്മിറ്റി</p>
+        <p class="section-intro">The committee members who lead SHEMA.</p>
+        <ul class="committee-grid">
+          <li class="committee-card reveal">
+            <picture class="committee-photo"><source type="image/avif" srcset="/images/site/committee-antony-240.avif 240w, /images/site/committee-antony-480.avif 480w" sizes="(max-width: 600px) 45vw, 220px" /><source type="image/webp" srcset="/images/site/committee-antony-240.webp 240w, /images/site/committee-antony-480.webp 480w" sizes="(max-width: 600px) 45vw, 220px" /><img src="/images/site/committee-antony-480.jpg" srcset="/images/site/committee-antony-240.jpg 240w, /images/site/committee-antony-480.jpg 480w" sizes="(max-width: 600px) 45vw, 220px" width="480" height="600" alt="Antony Jones, President" loading="lazy" decoding="async" /></picture>
             <h3>Antony Jones</h3>
             <p>President</p>
-          </div>
-          <div class="committee-break"></div>
-
-          <div class="committee-card" data-id="default_committee_4">
-            <div class="committee-img-wrap">
-              <img src="images/optimized/committee-anu-400.webp"
-                   srcset="images/optimized/committee-anu-400.webp 400w, images/optimized/committee-anu-800.webp 800w"
-                   sizes="(max-width: 768px) 100vw, 300px"
-                   alt="Anu Joby - Secretary" width="400" height="400" loading="lazy" />
-            </div>
+          </li>
+          <li class="committee-card reveal">
+            <picture class="committee-photo"><source type="image/avif" srcset="/images/site/committee-anu-240.avif 240w, /images/site/committee-anu-480.avif 480w" sizes="(max-width: 600px) 45vw, 220px" /><source type="image/webp" srcset="/images/site/committee-anu-240.webp 240w, /images/site/committee-anu-480.webp 480w" sizes="(max-width: 600px) 45vw, 220px" /><img src="/images/site/committee-anu-480.jpg" srcset="/images/site/committee-anu-240.jpg 240w, /images/site/committee-anu-480.jpg 480w" sizes="(max-width: 600px) 45vw, 220px" width="480" height="600" alt="Anu Joby, Secretary" loading="lazy" decoding="async" /></picture>
             <h3>Anu Joby</h3>
             <p>Secretary</p>
-          </div>
-          <div class="committee-card" data-id="default_committee_5">
-            <div class="committee-img-wrap">
-              <img src="images/optimized/committee-arun-400.webp"
-                   srcset="images/optimized/committee-arun-400.webp 400w, images/optimized/committee-arun-800.webp 800w"
-                   sizes="(max-width: 768px) 100vw, 300px"
-                   alt="Arun Thampi - Treasurer" width="400" height="400" loading="lazy" />
-            </div>
+          </li>
+          <li class="committee-card reveal">
+            <picture class="committee-photo"><source type="image/avif" srcset="/images/site/committee-arun-240.avif 240w, /images/site/committee-arun-480.avif 480w" sizes="(max-width: 600px) 45vw, 220px" /><source type="image/webp" srcset="/images/site/committee-arun-240.webp 240w, /images/site/committee-arun-480.webp 480w" sizes="(max-width: 600px) 45vw, 220px" /><img src="/images/site/committee-arun-480.jpg" srcset="/images/site/committee-arun-240.jpg 240w, /images/site/committee-arun-480.jpg 480w" sizes="(max-width: 600px) 45vw, 220px" width="480" height="600" alt="Arun Thampi, Treasurer" loading="lazy" decoding="async" /></picture>
             <h3>Arun Thampi</h3>
             <p>Treasurer</p>
-          </div>
-        </div>
+          </li>
+        </ul>
+        <p class="committee-contact">Questions for the committee? Email <a href="mailto:sheppartonmc@gmail.com">sheppartonmc@gmail.com</a></p>
       </div>
     </section>
 
-    <!-- ========== Historical Leadership ========== -->
-    <section class="leadership-history section-pad" id="leadership-history">
-      <div class="container">
-        <div class="reveal" style="text-align: center;">
-          <span class="section-label" style="justify-content: center;">A Decade of Leadership</span>
-          <h2 class="section-title">Leadership Through the Years</h2>
-          <p class="section-subtitle" style="margin-inline: auto; text-align: center;">
-            Celebrating a Decade of Service, Dedication &amp; Community Leadership
-          </p>
+    <!-- TODO (committee): "Why join" block. NOT PUBLISHED.
+         Do not publish until the committee confirms each benefit in writing.
+         Do not invent benefits. To publish: move the section out of the template. -->
+    <template id="tpl-why-join">
+      <section id="why-join" class="section section--green">
+        <div class="container">
+          <h2>Why join SHEMA</h2>
+          <ul class="benefits">
+            <li>TODO (committee): benefit 1 – confirm before publishing</li>
+            <li>TODO (committee): benefit 2 – confirm before publishing</li>
+            <li>TODO (committee): benefit 3 – confirm before publishing</li>
+          </ul>
+          <p>$50 a year per family</p>
+          <a class="btn btn--join" href="https://smaregistry.vercel.app/">Become a member</a>
         </div>
-        <div class="leadership-placeholder reveal">
-          <span class="leadership-year">2016–2026</span>
-          <h3>Honouring Those Who Led the Way</h3>
-          <p>Historical committee portraits and service years will be added here after the photographs and details are approved for publication.</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </template>
 
-    <!-- ========== Kerala Heritage Carousel ========== -->
-    <section class="kerala section-pad" id="kerala">
-      <div class="container">
-        <div class="reveal">
-          <span class="section-label">God's Own Country</span>
-          <h2 class="section-title">The Heritage of Kerala</h2>
-          <span class="section-title-ml">കേരളത്തിന്റെ പൈതൃകം</span>
-          <p class="section-subtitle">
-            A land of enchanting backwaters, ancient performing arts, and timeless traditions
-            that have captivated the world for centuries.
-          </p>
-        </div>
-        <div class="kerala-carousel reveal" id="keralaCarousel">
-          <button class="carousel-arrow carousel-arrow-left" id="carouselPrev" aria-label="Previous slide">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <div class="carousel-viewport" id="carouselViewport">
-            <div class="carousel-track" id="carouselTrack">
-              <div class="kerala-card" data-id="default_feature_1">
-                <img src="images/optimized/kathakali-1024.webp"
-                     srcset="images/optimized/kathakali-800.webp 800w, images/optimized/kathakali-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Kathakali — Classical Dance-Drama of Kerala" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Performing Art</span>
-                  <h3>Kathakali</h3>
-                  <p>The classical dance-drama of Kerala, known for its elaborate costumes, vivid face makeup, and powerful storytelling rooted in Hindu mythology.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_2">
-                <img src="images/optimized/theyyam-1024.webp"
-                     srcset="images/optimized/theyyam-800.webp 800w, images/optimized/theyyam-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Theyyam — Ancient Ritual Art of North Malabar" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Ritual Art</span>
-                  <h3>Theyyam</h3>
-                  <p>An ancient ritual art form from North Malabar, where performers are believed to become possessed by divine spirits, adorned with stunning headgear and body paint.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_3">
-                <img src="images/optimized/boat-race-1024.webp"
-                     srcset="images/optimized/boat-race-800.webp 800w, images/optimized/boat-race-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Vallam Kali — Traditional Snake Boat Race" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Tradition</span>
-                  <h3>Vallam Kali</h3>
-                  <p>The iconic snake boat races of Kerala, where massive chundan vallams race through the backwaters in a breathtaking display of teamwork and tradition.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_4">
-                <img src="images/optimized/kerala-backwaters-1024.webp"
-                     srcset="images/optimized/kerala-backwaters-800.webp 800w, images/optimized/kerala-backwaters-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Kerala Backwaters and Houseboats" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Landscape</span>
-                  <h3>Backwaters &amp; Houseboats</h3>
-                  <p>Kerala's iconic network of serene lagoons, canals and lakes, best experienced on traditional kettuvallam houseboats gliding through palm-fringed waters.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_5">
-                <img src="images/optimized/munnar-1024.webp"
-                     srcset="images/optimized/munnar-800.webp 800w, images/optimized/munnar-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Munnar Tea Gardens — Western Ghats" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Nature</span>
-                  <h3>Munnar &amp; Western Ghats</h3>
-                  <p>Rolling emerald tea plantations, misty mountain peaks, and pristine forests that make Kerala's Western Ghats a UNESCO-worthy natural treasure.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_6">
-                <img src="images/optimized/onam-sadhya-1024.webp"
-                     srcset="images/optimized/onam-sadhya-800.webp 800w, images/optimized/onam-sadhya-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Onam Sadhya — Traditional Kerala Feast" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Cuisine</span>
-                  <h3>Onam Sadhya</h3>
-                  <p>The grand vegetarian feast of Kerala, served on a banana leaf with up to 26 dishes — a culinary tradition that embodies the spirit of Onam festival.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_7">
-                <img src="images/optimized/kalaripayattu-1024.webp"
-                     srcset="images/optimized/kalaripayattu-800.webp 800w, images/optimized/kalaripayattu-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Kalaripayattu — Ancient Martial Art of Kerala" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Martial Art</span>
-                  <h3>Kalaripayattu</h3>
-                  <p>One of the oldest martial arts in the world, originating in Kerala. Practitioners train in traditional kalaris, mastering strikes, kicks and weaponry.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_8">
-                <img src="images/optimized/temple-festival-1024.webp"
-                     srcset="images/optimized/temple-festival-800.webp 800w, images/optimized/temple-festival-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Kerala Temple Festival — Sacred Celebrations" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Festival</span>
-                  <h3>Temple Festivals</h3>
-                  <p>Grand celebrations featuring caparisoned elephants, traditional percussion ensembles, colourful parasols, and spectacular fireworks at Kerala's sacred temples.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_9">
-                <img src="images/optimized/chinese-fishing-nets-1024.webp"
-                     srcset="images/optimized/chinese-fishing-nets-800.webp 800w, images/optimized/chinese-fishing-nets-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Chinese Fishing Nets — Fort Kochi Heritage" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Heritage</span>
-                  <h3>Chinese Fishing Nets</h3>
-                  <p>The iconic cantilevered fishing nets of Fort Kochi, introduced by Chinese traders centuries ago — now a symbol of Kerala's multicultural maritime history.</p>
-                </div>
-              </div>
-              <div class="kerala-card" data-id="default_feature_10">
-                <img src="images/optimized/ayurveda-1024.webp"
-                     srcset="images/optimized/ayurveda-800.webp 800w, images/optimized/ayurveda-1024.webp 1024w"
-                     sizes="(max-width: 1140px) 100vw, 1140px"
-                     alt="Ayurveda — Ancient Healing Science of Kerala" width="1140" height="460" loading="lazy" />
-                <div class="kerala-card-overlay">
-                  <span class="kerala-card-tag">Wellness</span>
-                  <h3>Ayurveda</h3>
-                  <p>Kerala is the heartland of Ayurveda — the ancient Indian system of holistic medicine using herbal remedies, therapeutic oils and time-honoured healing practices.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-arrow carousel-arrow-right" id="carouselNext" aria-label="Next slide">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <div class="carousel-dots" id="carouselDots"></div>
-          <!-- Pause/Play button for WCAG 2.2.2 -->
-          <button class="carousel-pause-btn" id="carouselPauseBtn" aria-label="Pause carousel" aria-pressed="false">
-            <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5,3 19,12 5,21"/></svg>
-          </button>
-        </div>
-      </div>
-    </section>
+    <div class="kasavu-divider" aria-hidden="true"></div>
 
-    <!-- ========== Event Gallery / Highlights ========== -->
-    <section class="highlights section-pad" id="highlights">
+    <section class="section section--cream past-events" id="past-events" aria-labelledby="past-title">
       <div class="container">
-        <div class="reveal">
-          <span class="section-label">Photo Gallery</span>
-          <h2 class="section-title">SHEMA Event Highlights</h2>
-          <span class="section-title-ml">ഷെമയുടെ ഇവന്റ് ഹൈലൈറ്റുകൾ</span>
-          <p class="section-subtitle">
-            Moments from our community celebrations, cultural events and gatherings
-            that bring the Shepparton Malayalee community together.
-          </p>
-        </div>
-        <div class="highlights-grid">
-          <div class="highlight-card reveal" data-id="default_photo_1">
-            <img src="images/optimized/event-mayor-600.webp"
-                 srcset="images/optimized/event-mayor-600.webp 600w, images/optimized/event-mayor-1024.webp 1024w"
-                 sizes="(max-width: 768px) 100vw, 50vw"
-                 alt="SHEMA Event with Cr Shane Sali, Mayor of Greater Shepparton" width="600" height="380" loading="lazy" />
-            <div class="highlight-card-info">
-              <h3>SHEMA Cultural Evening</h3>
-              <p>With Cr Shane Sali, Mayor — Greater Shepparton City Council</p>
-            </div>
-          </div>
-          <div class="highlight-card reveal" data-id="default_photo_2">
-            <img src="images/optimized/event-lamp-600.webp"
-                 srcset="images/optimized/event-lamp-600.webp 600w, images/optimized/event-lamp-1024.webp 1024w"
-                 sizes="(max-width: 768px) 100vw, 50vw"
-                 alt="Traditional Lamp Lighting Ceremony at SHEMA Event" width="600" height="380" loading="lazy" />
-            <div class="highlight-card-info">
-              <h3>Traditional Lamp Lighting</h3>
-              <p>Nilavilakku ceremony — an auspicious beginning to every Kerala celebration</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== Prime Events of the Year ========== -->
-    <section class="events section-pad" id="events">
-      <div class="container">
-        <div class="reveal">
-          <span class="section-label">Our 2026 Highlights</span>
-          <h2 class="section-title">Prime Events of the Year – Moments to Remember</h2>
-          <span class="section-title-ml">ഓർമ്മയിൽ സൂക്ഷിക്കേണ്ട നിമിഷങ്ങൾ</span>
-          <p class="section-subtitle">
-            Relive the performances, celebrations and shared experiences that brought the SHEMA community together.
-          </p>
-        </div>
-        <div class="events-grid events-grid-memories">
-          <article class="event-card event-memory-card reveal" data-event-gallery="voice-vineeth">
-            <div class="event-memory-accent" aria-hidden="true">LIVE</div>
-            <div class="event-card-content">
-              <span class="event-year">2026</span>
+        <p class="kicker">2026</p>
+        <h2 id="past-title">Past events</h2>
+        <p class="ml" lang="ml">ഓർമ്മയിൽ സൂക്ഷിക്കേണ്ട നിമിഷങ്ങൾ</p>
+        <p class="section-intro">Highlights from our 2026 events. Videos open on Facebook.</p>
+        <div class="past-grid" id="pastList">
+          <article class="event-card event-memory-card reveal" id="event-voice-of-vineeth-sreenivasan-live-2026" data-category="live">
+            <picture class="event-media"><source type="image/avif" srcset="/assets/tiles/tile-live-360.avif 360w, /assets/tiles/tile-live-720.avif 720w" sizes="(max-width: 700px) 112px, 200px" /><img src="/assets/tiles/tile-live-720.webp" srcset="/assets/tiles/tile-live-360.webp 360w, /assets/tiles/tile-live-720.webp 720w" sizes="(max-width: 700px) 112px, 200px" width="720" height="540" alt="" loading="lazy" decoding="async" /></picture>
+            <div class="event-body">
+              <p class="event-head"><span class="chip chip--live">LIVE</span> <span class="event-when"><time datetime="2026">2026</time></span></p>
               <h3>Voice of Vineeth Sreenivasan Live</h3>
-              <p>A memorable evening of Malayalam music, performance and community celebration in Shepparton.</p>
-              <div class="event-actions">
-                <button class="event-gallery-trigger" type="button" aria-controls="eventGalleryModal">Photo availability</button>
-                <a class="event-video-link" href="https://www.facebook.com/share/v/1c8QmG9wZi/" target="_blank" rel="noopener noreferrer">Watch on Facebook</a>
-              </div>
+              <p class="event-desc">A memorable evening of Malayalam music, performance and community celebration in Shepparton.</p>
+              <div class="event-actions"><a class="btn btn--sm btn--outline" href="https://www.facebook.com/share/v/1c8QmG9wZi/" target="_blank" rel="noopener noreferrer" aria-label="Watch on Facebook: Voice of Vineeth Sreenivasan Live (opens in a new tab)">Watch on Facebook</a></div>
             </div>
           </article>
-          <article class="event-card event-memory-card reveal">
-            <div class="event-memory-accent" aria-hidden="true">SHOW</div>
-            <div class="event-card-content">
-              <span class="event-year">2026</span>
+          <article class="event-card event-memory-card reveal" id="event-talent-show-2k26" data-category="show">
+            <picture class="event-media"><source type="image/avif" srcset="/assets/tiles/tile-show-360.avif 360w, /assets/tiles/tile-show-720.avif 720w" sizes="(max-width: 700px) 112px, 200px" /><img src="/assets/tiles/tile-show-720.webp" srcset="/assets/tiles/tile-show-360.webp 360w, /assets/tiles/tile-show-720.webp 720w" sizes="(max-width: 700px) 112px, 200px" width="720" height="540" alt="" loading="lazy" decoding="async" /></picture>
+            <div class="event-body">
+              <p class="event-head"><span class="chip chip--show">SHOW</span> <span class="event-when"><time datetime="2026">2026</time></span></p>
               <h3>Talent Show 2K26</h3>
-              <p>A vibrant showcase of music, dance, drama and creative talent from across our multicultural community.</p>
-              <div class="event-actions"><a class="event-video-link" href="https://www.facebook.com/reel/1500400011768100" target="_blank" rel="noopener noreferrer">Watch on Facebook</a></div>
+              <p class="event-desc">A vibrant showcase of music, dance, drama and creative talent from across our multicultural community.</p>
+              <div class="event-actions"><a class="btn btn--sm btn--outline" href="https://www.facebook.com/reel/1500400011768100" target="_blank" rel="noopener noreferrer" aria-label="Watch on Facebook: Talent Show 2K26 (opens in a new tab)">Watch on Facebook</a></div>
             </div>
           </article>
-
-          <article class="event-card event-memory-card reveal">
-            <div class="event-memory-accent" aria-hidden="true">SPORT</div>
-            <div class="event-card-content">
-              <span class="event-year">2026</span>
+          <article class="event-card event-memory-card reveal" id="event-athletics-day-2026" data-category="sport">
+            <picture class="event-media"><source type="image/avif" srcset="/assets/tiles/tile-sport-360.avif 360w, /assets/tiles/tile-sport-720.avif 720w" sizes="(max-width: 700px) 112px, 200px" /><img src="/assets/tiles/tile-sport-720.webp" srcset="/assets/tiles/tile-sport-360.webp 360w, /assets/tiles/tile-sport-720.webp 720w" sizes="(max-width: 700px) 112px, 200px" width="720" height="540" alt="" loading="lazy" decoding="async" /></picture>
+            <div class="event-body">
+              <p class="event-head"><span class="chip chip--sport">SPORT</span> <span class="event-when"><time datetime="2026">2026</time></span></p>
               <h3>Athletics Day 2026</h3>
-              <p>A community day of friendly competition, teamwork and activities for participants of all ages.</p>
-              <p class="event-media-note">Event photographs will be added after approval.</p>
+              <p class="event-desc">A community day of friendly competition, teamwork and activities for participants of all ages.</p>
             </div>
           </article>
-          <article class="event-card event-memory-card reveal">
-            <div class="event-memory-accent" aria-hidden="true">ONAM</div>
-            <div class="event-card-content">
-              <span class="event-year">2026</span>
+          <article class="event-card event-memory-card reveal" id="event-onam-2k26" data-category="onam">
+            <picture class="event-media"><source type="image/avif" srcset="/assets/tiles/tile-onam-360.avif 360w, /assets/tiles/tile-onam-720.avif 720w" sizes="(max-width: 700px) 112px, 200px" /><img src="/assets/tiles/tile-onam-720.webp" srcset="/assets/tiles/tile-onam-360.webp 360w, /assets/tiles/tile-onam-720.webp 720w" sizes="(max-width: 700px) 112px, 200px" width="720" height="540" alt="" loading="lazy" decoding="async" /></picture>
+            <div class="event-body">
+              <p class="event-head"><span class="chip chip--onam">ONAM</span> <span class="event-when"><time datetime="2026">2026</time></span></p>
               <h3>Onam 2K26</h3>
-              <p>Traditional Sadhya and cultural performances, including highlights from the Onam Core Committee 2K26 and Onam Celebration 2K26.</p>
-              <div class="event-actions">
-                <a class="event-video-link" href="https://www.facebook.com/reel/1581554060224328" target="_blank" rel="noopener noreferrer">Core Committee Video</a>
-                <a class="event-video-link" href="https://www.facebook.com/reel/1132441579444104" target="_blank" rel="noopener noreferrer">Celebration Video</a>
-              </div>
+              <p class="event-desc">Traditional Sadhya and cultural performances, including highlights from the Onam Core Committee 2K26 and Onam Celebration 2K26.</p>
+              <div class="event-actions"><a class="btn btn--sm btn--outline" href="https://www.facebook.com/reel/1581554060224328" target="_blank" rel="noopener noreferrer" aria-label="Watch the committee video: Onam 2K26 (opens in a new tab)">Watch the committee video</a><a class="btn btn--sm btn--outline" href="https://www.facebook.com/reel/1132441579444104" target="_blank" rel="noopener noreferrer" aria-label="Watch the celebration video: Onam 2K26 (opens in a new tab)">Watch the celebration video</a></div>
             </div>
           </article>
-          <article class="event-card event-memory-card reveal">
-            <div class="event-memory-accent" aria-hidden="true">NIGHT</div>
-            <div class="event-card-content">
-              <span class="event-year">2026</span>
+          <article class="event-card event-memory-card reveal" id="event-onanilavu-2k26" data-category="night">
+            <picture class="event-media"><source type="image/avif" srcset="/assets/tiles/tile-night-360.avif 360w, /assets/tiles/tile-night-720.avif 720w" sizes="(max-width: 700px) 112px, 200px" /><img src="/assets/tiles/tile-night-720.webp" srcset="/assets/tiles/tile-night-360.webp 360w, /assets/tiles/tile-night-720.webp 720w" sizes="(max-width: 700px) 112px, 200px" width="720" height="540" alt="" loading="lazy" decoding="async" /></picture>
+            <div class="event-body">
+              <p class="event-head"><span class="chip chip--night">NIGHT</span> <span class="event-when"><time datetime="2026">2026</time></span></p>
               <h3>Onanilavu 2K26</h3>
-              <p>An evening of culture, friendship and community spirit shared by SHEMA families and friends.</p>
-              <div class="event-actions"><a class="event-video-link" href="https://www.facebook.com/reel/1578855873677593" target="_blank" rel="noopener noreferrer">Watch on Facebook</a></div>
+              <p class="event-desc">An evening of culture, friendship and community spirit shared by SHEMA families and friends.</p>
+              <div class="event-actions"><a class="btn btn--sm btn--outline" href="https://www.facebook.com/reel/1578855873677593" target="_blank" rel="noopener noreferrer" aria-label="Watch on Facebook: Onanilavu 2K26 (opens in a new tab)">Watch on Facebook</a></div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ========== Cultural Highlights ========== -->
-    <section class="culture section-pad" id="culture">
-      <div class="container">
-        <div class="reveal">
-          <span class="section-label">Cultural Heritage</span>
-          <h2 class="section-title">Traditions We Celebrate</h2>
-          <span class="section-title-ml">ഞങ്ങൾ ആഘോഷിക്കുന്ന പാരമ്പര്യങ്ങൾ</span>
-          <p class="section-subtitle">
-            From grand temple festivals to intimate family gatherings, Kerala's cultural
-            tapestry is woven with vibrant art forms, rituals and celebrations.
-          </p>
+    <section class="section section--ink lamp" id="lamp" aria-labelledby="lamp-title" data-lamp data-activate="click">
+      <div class="container lamp-grid">
+        <div class="lamp-stage">
+          <div class="lamp-viewer">
+            <picture class="lamp-still"><source type="image/avif" srcset="/images/site/lamp-lit-480.avif 480w, /images/site/lamp-lit-960.avif 960w, /images/site/lamp-lit-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 640px" /><source type="image/webp" srcset="/images/site/lamp-lit-480.webp 480w, /images/site/lamp-lit-960.webp 960w, /images/site/lamp-lit-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 640px" /><img src="/images/site/lamp-lit-960.jpg" srcset="/images/site/lamp-lit-480.jpg 480w, /images/site/lamp-lit-960.jpg 960w, /images/site/lamp-lit-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 640px" width="960" height="720" alt="3D model of a brass nilavilakku, a traditional Kerala oil lamp, standing on a circular pookalam flower carpet, with an Onam sadhya on a banana leaf and a chenda drum beside it." loading="lazy" decoding="async" /></picture>
+          </div>
+          <div class="lamp-toolbar" hidden></div>
+          <p class="lamp-status visually-hidden" role="status" aria-live="polite"></p>
+          <details class="lamp-describe">
+            <summary>Describe this scene</summary>
+            <p id="lamp-desc-home">A stylised 3D model. In the centre stands a brass nilavilakku, a traditional Kerala oil lamp, with a round base, a slender stem, a shallow bowl holding five wicks, and a pointed spire. It stands in the middle of a pookalam, a circular flower carpet in rings of red, gold, cream, green and ochre. To the front left is an Onam sadhya served on a banana leaf: a mound of rice with small servings of curry beside it. To the back right is a chenda, a tall wooden drum with rope lacing and two sticks resting on top. When the lamp is lit, a small flame burns at each of the five wicks.</p>
+          </details>
         </div>
-        <p class="culture-media-note">Photographs of Kerala heritage, separate from SHEMA events. <a href="media-credits.html">Detailed photograph credits and licenses</a>.</p>
-        <div class="culture-grid">
-          <div class="culture-item reveal">
-            <figure class="culture-photo">
-              <img src="images/culture/kerala-cuisine-91202828-800.webp" srcset="images/culture/kerala-cuisine-91202828-480.webp 480w, images/culture/kerala-cuisine-91202828-800.webp 800w, images/culture/kerala-cuisine-91202828-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1024px) 42vw, 260px" width="800" height="600" loading="lazy" alt="Sadhya served on a banana leaf" />
-              <figcaption>Photograph: Sadhya served on a banana leaf.<br />athulvis · CC BY-SA 4.0 · <a href="media-credits.html#kerala-cuisine-91202828">Credit &amp; source</a></figcaption>
-            </figure>
-            <h3>Onam Festival</h3>
-            <p>Kerala's harvest festival featuring Pookalam (floral carpets), boat races, and the grand Onam Sadhya feast</p>
-          </div>
-          <div class="culture-item reveal">
-            <figure class="culture-photo">
-              <img src="images/culture/pulikali-4144135-800.webp" srcset="images/culture/pulikali-4144135-480.webp 480w, images/culture/pulikali-4144135-800.webp 800w, images/culture/pulikali-4144135-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1024px) 42vw, 260px" width="800" height="600" loading="lazy" alt="Pulikali performers in a street procession" />
-              <figcaption>Photograph: Pulikali performers in a street procession.<br />Felix Francis · CC BY 2.0 · <a href="media-credits.html#pulikali-4144135">Credit &amp; source</a></figcaption>
-            </figure>
-            <h3>Pulikali</h3>
-            <p>The spectacular tiger dance of Thrissur — performers paint their bodies as tigers and dance through the streets</p>
-          </div>
-          <div class="culture-item reveal">
-            <figure class="culture-photo">
-              <img src="images/culture/thiruvathirakali-12691004-800.webp" srcset="images/culture/thiruvathirakali-12691004-480.webp 480w, images/culture/thiruvathirakali-12691004-800.webp 800w, images/culture/thiruvathirakali-12691004-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1024px) 42vw, 260px" width="800" height="540" loading="lazy" alt="Thiruvathirakali dancers performing on stage" />
-              <figcaption>Photograph: Thiruvathirakali dancers performing on stage.<br />Jigesh at Malayalam Wikipedia · CC BY-SA 3.0 · <a href="media-credits.html#thiruvathirakali-12691004">Credit &amp; source</a></figcaption>
-            </figure>
-            <h3>Thiruvathirakali</h3>
-            <p>Graceful group dance performed by women in white and gold sarees during the Thiruvathira festival</p>
-          </div>
-          <div class="culture-item reveal">
-            <figure class="culture-photo">
-              <img src="images/culture/thrissur-pooram-62720583-800.webp" srcset="images/culture/thrissur-pooram-62720583-480.webp 480w, images/culture/thrissur-pooram-62720583-800.webp 800w, images/culture/thrissur-pooram-62720583-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1024px) 42vw, 260px" width="800" height="450" loading="lazy" alt="Kudamattam at Thrissur Pooram, 2016" />
-              <figcaption>Photograph: Kudamattam at Thrissur Pooram, 2016.<br />Athulandl · CC BY-SA 4.0 · <a href="media-credits.html#thrissur-pooram-62720583">Credit &amp; source</a></figcaption>
-            </figure>
-            <h3>Thrissur Pooram</h3>
-            <p>Kerala's most iconic temple festival with decorated elephants, Chenda Melam percussion, and fireworks</p>
-          </div>
-          <div class="culture-item reveal">
-            <figure class="culture-photo">
-              <img src="images/culture/chenda-melam-130027123-800.webp" srcset="images/culture/chenda-melam-130027123-480.webp 480w, images/culture/chenda-melam-130027123-800.webp 800w, images/culture/chenda-melam-130027123-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1024px) 42vw, 260px" width="800" height="561" loading="lazy" alt="Chenda percussion ensemble performing outdoors" />
-              <figcaption>Photograph: Chenda percussion ensemble performing outdoors.<br />Vis M · CC BY-SA 4.0 · <a href="media-credits.html#chenda-melam-130027123">Credit &amp; source</a></figcaption>
-            </figure>
-            <h3>Chenda Melam</h3>
-            <p>The thunderous percussion ensemble using the Chenda drum — a cornerstone of Kerala's temple festivals</p>
-          </div>
-          <div class="culture-item reveal">
-            <figure class="culture-photo">
-              <img src="images/culture/pookalam-153223880-800.webp" srcset="images/culture/pookalam-153223880-480.webp 480w, images/culture/pookalam-153223880-800.webp 800w, images/culture/pookalam-153223880-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1024px) 42vw, 260px" width="800" height="600" loading="lazy" alt="Pookalam floral carpet for Onam in Kerala" />
-              <figcaption>Photograph: Pookalam floral carpet for Onam in Kerala.<br />Bhuvana Meenakshi · CC BY 4.0 · <a href="media-credits.html#pookalam-153223880">Credit &amp; source</a></figcaption>
-            </figure>
-            <h3>Pookalam</h3>
-            <p>Intricate floral carpet designs made with fresh flower petals during the ten-day Onam celebrations</p>
-          </div>
-          <div class="culture-item reveal">
-            <figure class="culture-photo">
-              <img src="images/culture/kerala-cuisine-146086406-800.webp" srcset="images/culture/kerala-cuisine-146086406-480.webp 480w, images/culture/kerala-cuisine-146086406-800.webp 800w, images/culture/kerala-cuisine-146086406-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1024px) 42vw, 260px" width="800" height="600" loading="lazy" alt="Traditional Kerala Sadhya on a banana leaf" />
-              <figcaption>Photograph: Traditional Kerala Sadhya on a banana leaf.<br />Ganesh Mohan T · CC BY-SA 4.0 · <a href="media-credits.html#kerala-cuisine-146086406">Credit &amp; source</a></figcaption>
-            </figure>
-            <h3>Kerala Cuisine</h3>
-            <p>Puttu, Appam, traditional Sadhya — a rich culinary heritage built on coconut, spices and rice</p>
-          </div>
-          <div class="culture-item reveal">
-            <figure class="culture-photo">
-              <img src="images/culture/classical-music-177430511-800.webp" srcset="images/culture/classical-music-177430511-480.webp 480w, images/culture/classical-music-177430511-800.webp 800w, images/culture/classical-music-177430511-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 5rem), (max-width: 1024px) 42vw, 260px" width="800" height="600" loading="lazy" alt="Adoor P Sudarsanan performing with accompanying musicians in 2025" />
-              <figcaption>Photograph: Adoor P Sudarsanan performing with accompanying musicians in 2025.<br />Fotokannan · CC BY-SA 4.0 · <a href="media-credits.html#classical-music-177430511">Credit &amp; source</a></figcaption>
-            </figure>
-            <h3>Classical Music</h3>
-            <p>Carnatic music and Sopana Sangeetham — Kerala's devotional musical traditions at temples</p>
-          </div>
-        </div>
-        <div class="culture-discovery reveal"><h3>Explore Kerala through video</h3><p>Source: Kerala Tourism. Watch on the official external pages below.</p></div>
-        <div class="culture-video-grid">
-<article class="culture-video-card">
-            <span class="culture-video-label">External video · Kerala Tourism</span>
-            <h4>Onam traditions</h4><p>Onam customs and celebrations across Kerala.</p>
-            <a href="https://www.keralatourism.org/video-gallery/celebration-of-keralas-tradition-and-culture/1682/" target="_blank" rel="noopener noreferrer">Watch on Kerala Tourism <span aria-hidden="true">↗</span> (opens in a new tab)</a>
-          </article>
-<article class="culture-video-card">
-            <span class="culture-video-label">External video · Kerala Tourism</span>
-            <h4>Pulikali tiger dance</h4><p>Painted performers bring the tiger dance to the streets of Thrissur.</p>
-            <a href="https://www.keralatourism.org/video-gallery/pulikali-tiger-dance/587/" target="_blank" rel="noopener noreferrer">Watch on Kerala Tourism <span aria-hidden="true">↗</span> (opens in a new tab)</a>
-          </article>
-<article class="culture-video-card">
-            <span class="culture-video-label">External video · Kerala Tourism</span>
-            <h4>Thiruvathirakali</h4><p>Explore the group dance and its Thiruvathira festival roots.</p>
-            <a href="https://www.keralatourism.org/video-gallery/thiruvathirakali/141/" target="_blank" rel="noopener noreferrer">Watch on Kerala Tourism <span aria-hidden="true">↗</span> (opens in a new tab)</a>
-          </article>
-<article class="culture-video-card">
-            <span class="culture-video-label">External video · Kerala Tourism</span>
-            <h4>Kudamattam at Thrissur Pooram</h4><p>The ceremonial umbrella display at the Thrissur festival.</p>
-            <a href="https://www.keralatourism.org/video-gallery/kudamattom/494/" target="_blank" rel="noopener noreferrer">Watch on Kerala Tourism <span aria-hidden="true">↗</span> (opens in a new tab)</a>
-          </article>
-<article class="culture-video-card">
-            <span class="culture-video-label">External video · Kerala Tourism</span>
-            <h4>Peruvanam Pooram</h4><p>Festival coverage with percussion at Peruvanam in Cherpu, Thrissur district; distinct from Thrissur Pooram.</p>
-            <a href="https://www.keralatourism.org/video-gallery/peruvanam-pooram/776/" target="_blank" rel="noopener noreferrer">Watch on Kerala Tourism <span aria-hidden="true">↗</span> (opens in a new tab)</a>
-          </article>
-<article class="culture-video-card">
-            <span class="culture-video-label">External video · Kerala Tourism</span>
-            <h4>Loka Pookkalam Competition 2022</h4><p>A historical promotion celebrating floral carpet designs; entries are not advertised as open.</p>
-            <a href="https://www.keralatourism.org/video-gallery/pookkalam-contest-2022/1635/" target="_blank" rel="noopener noreferrer">Watch on Kerala Tourism <span aria-hidden="true">↗</span> (opens in a new tab)</a>
-          </article>
-<article class="culture-video-card">
-            <span class="culture-video-label">External video · Kerala Tourism</span>
-            <h4>Cuisine of Kerala</h4><p>Discover Sadhya, breakfast dishes and the wider food traditions of Kerala.</p>
-            <a href="https://www.keralatourism.org/video-gallery/cuisine-of-kerala/591/" target="_blank" rel="noopener noreferrer">Watch on Kerala Tourism <span aria-hidden="true">↗</span> (opens in a new tab)</a>
-          </article>
-<article class="culture-video-card">
-            <span class="culture-video-label">External video · Kerala Tourism</span>
-            <h4>Navarathri and music</h4><p>Festival and classical music context in Thiruvananthapuram; not a complete concert recording.</p>
-            <a href="https://www.keralatourism.org/video-gallery/navarathri-kerala/1460/" target="_blank" rel="noopener noreferrer">Watch on Kerala Tourism <span aria-hidden="true">↗</span> (opens in a new tab)</a>
-          </article>
+        <div class="lamp-copy">
+          <p class="kicker">Kerala heritage</p>
+          <h2 id="lamp-title">Light the lamp</h2>
+          <p class="ml" lang="ml">കേരളത്തിന്റെ പൈതൃകം</p>
+          <p class="lamp-intro">In Kerala, a nilavilakku is lit to open a celebration.<span class="js-only"> Light ours, turn it around, and choose a numbered point to see what each part means.</span></p>
+          <ol class="lamp-notes">
+          <li class="lamp-note" id="note-flame" data-hotspot="flame">
+            <span class="lamp-note-num" aria-hidden="true">1</span>
+            <div>
+              <h3>The flame</h3>
+              <p>A nilavilakku is lit at the start of festivals, ceremonies and community gatherings in Kerala. Press "Light the lamp" to light this one.</p>
+              <p class="lamp-note-links"><a href="/kerala.html#heritage-temple-festivals">Temple festivals</a> <button type="button" class="lamp-show" data-hotspot="flame" hidden>Show on model<span class="visually-hidden">: The flame</span></button></p>
+            </div>
+          </li>
+          <li class="lamp-note" id="note-brass" data-hotspot="brass">
+            <span class="lamp-note-num" aria-hidden="true">2</span>
+            <div>
+              <h3>Bell metal and brass</h3>
+              <p>Nilavilakku means "floor lamp" in Malayalam. The lamps are traditionally cast in bell metal or brass, part of Kerala's long metal-craft tradition.</p>
+              <p class="lamp-note-links"><a href="/kerala.html#crafts">Kerala handicrafts</a> <button type="button" class="lamp-show" data-hotspot="brass" hidden>Show on model<span class="visually-hidden">: Bell metal and brass</span></button></p>
+            </div>
+          </li>
+          <li class="lamp-note" id="note-pookalam" data-hotspot="pookalam">
+            <span class="lamp-note-num" aria-hidden="true">3</span>
+            <div>
+              <h3>Pookalam</h3>
+              <p>A pookalam is a carpet of fresh flower petals, laid ring by ring at the entrance of homes during the ten days of Onam.</p>
+              <p class="lamp-note-links"><a href="/kerala.html#tradition-pookalam">Pookalam</a> <button type="button" class="lamp-show" data-hotspot="pookalam" hidden>Show on model<span class="visually-hidden">: Pookalam</span></button></p>
+            </div>
+          </li>
+          <li class="lamp-note" id="note-sadhya" data-hotspot="sadhya">
+            <span class="lamp-note-num" aria-hidden="true">4</span>
+            <div>
+              <h3>Onam Sadhya</h3>
+              <p>The Onam feast is vegetarian and served on a banana leaf: rice in the middle, with curries, pickles and sweets set around it.</p>
+              <p class="lamp-note-links"><a href="/kerala.html#heritage-onam-sadhya">Onam Sadhya</a> <button type="button" class="lamp-show" data-hotspot="sadhya" hidden>Show on model<span class="visually-hidden">: Onam Sadhya</span></button></p>
+            </div>
+          </li>
+          <li class="lamp-note" id="note-chenda" data-hotspot="chenda">
+            <span class="lamp-note-num" aria-hidden="true">5</span>
+            <div>
+              <h3>Chenda</h3>
+              <p>The chenda is a tall wooden drum played with sticks. A chenda melam, a full percussion ensemble, is the sound of Kerala's temple festivals.</p>
+              <p class="lamp-note-links"><a href="/kerala.html#tradition-chenda-melam">Chenda Melam</a> <button type="button" class="lamp-show" data-hotspot="chenda" hidden>Show on model<span class="visually-hidden">: Chenda</span></button></p>
+            </div>
+          </li>
+          </ol>
+        <p class="lamp-more"><a class="btn btn--gold-outline" href="/kerala.html">Explore Kerala heritage</a></p>
         </div>
       </div>
     </section>
 
-    <!-- ========== Community & Mayor Section ========== -->
-    <section class="community section-pad" id="community">
-      <div class="container">
-        <div class="community-banner reveal">
-          <img src="images/optimized/event-mayor-1024.webp"
-               srcset="images/optimized/event-mayor-800.webp 800w, images/optimized/event-mayor-1024.webp 1024w"
-               sizes="(max-width: 1140px) 100vw, 1140px"
-               alt="SHEMA Community Event with Mayor Shane Sali" width="1140" height="420" loading="lazy" />
-          <div class="community-banner-overlay">
-            <div class="community-banner-content">
-              <h2>Strengthening Multicultural Harmony</h2>
-              <p>
-                SHEMA contributes to the broader community of the Greater Shepparton City Council area,
-                helping strengthen multicultural harmony, community wellbeing and local development.
-                We are proud to have the support of Cr Shane Sali, Mayor of Greater Shepparton.
-              </p>
-            </div>
-          </div>
+    <section class="section section--green join" id="join" aria-labelledby="join-title">
+      <div class="container join-grid">
+        <div class="join-main reveal">
+          <p class="kicker">Membership</p>
+          <h2 id="join-title">Join the SHEMA community</h2>
+          <p class="ml" lang="ml">ഷെമ കമ്മ്യൂണിറ്റിയിൽ ചേരൂ</p>
+          <p class="join-price">$50 a year per family</p>
+          <p>Access to all events, community support, and a shared cultural home.</p>
+          <p><a class="btn btn--join btn--lg" href="https://smaregistry.vercel.app/" target="_blank" rel="noopener noreferrer nofollow">Become a member<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+          <p class="join-small">You'll complete your membership in our online registry. <a href="/privacy.html">How we handle your details</a></p>
         </div>
-        <div class="community-info">
-          <div class="community-card reveal">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <h3>Community Organisation</h3>
-            <p>SHEMA is an incorporated association dedicated to preserving the cultural identity of Malayalee families in Shepparton and supporting community connection through events and gatherings.</p>
-          </div>
-          <div class="community-card reveal">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <h3>Healthcare Contribution</h3>
-            <p>Malayalee families contribute significantly to the Shepparton region's healthcare sector, including nursing, aged care and allied health services — forming a vital part of the local workforce.</p>
-          </div>
-          <div class="community-card reveal">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <h3>Cultural Exchange</h3>
-            <p>Through cultural events, educational programs and social gatherings, SHEMA bridges the gap between Kerala's ancient traditions and Australia's multicultural society.</p>
-          </div>
+        <div class="contact-card reveal" id="contact">
+          <h3>Contact us</h3>
+          <p class="contact-email"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <span>Email: <a href="mailto:sheppartonmc@gmail.com">sheppartonmc@gmail.com</a></span></p>
+          <ul class="social-links">
+            <li><a href="https://www.facebook.com/sheppartonmc" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span><span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            <li><a href="https://www.instagram.com/shema_shepparton/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Instagram</span><span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            <li><a href="https://www.youtube.com/@sheppartonmalayaleeassocia7817" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg><span>YouTube</span><span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ========== Landmarks Section ========== -->
-    <section class="landmarks section-pad" id="landmarks">
-      <div class="container">
-        <div class="reveal">
-          <span class="section-label">Must-Visit Destinations</span>
-          <h2 class="section-title">Iconic Kerala Landmarks</h2>
-          <span class="section-title-ml">കേരളത്തിലെ പ്രധാന കാഴ്ചകൾ</span>
-          <p class="section-subtitle">
-            From ancient temples to misty hill stations, Kerala's landmarks tell the story
-            of a land steeped in history, spirituality and natural beauty.
-          </p>
+    <!-- TODO (committee): sponsor and partner strip. NOT PUBLISHED.
+         Only sponsors who have agreed in writing to be named, with logos they supplied.
+         Do not invent sponsors. -->
+    <template id="tpl-sponsors">
+      <section id="sponsors" class="section section--cream-alt">
+        <div class="container">
+          <h2>Our supporters</h2>
+          <ul class="sponsor-strip">
+            <li>TODO (committee): sponsor name and supplied logo – written consent required</li>
+          </ul>
+          <p>TODO (committee): confirm a contact for partnership enquiries before publishing this line.</p>
         </div>
-        <p class="culture-media-note">Kerala heritage images, separate from SHEMA events. No endorsement or product certification is implied. <a href="media-credits.html">Credits and licenses</a>.</p>
-<div class="landmarks-grid">
-<div class="landmark-item heritage-media-card reveal" data-media-id="padmanabhaswamy-temple-161693828">
-            <figure class="heritage-photo"><img src="images/destinations-crafts/padmanabhaswamy-temple-161693828-800.webp" srcset="images/destinations-crafts/padmanabhaswamy-temple-161693828-480.webp 480w, images/destinations-crafts/padmanabhaswamy-temple-161693828-800.webp 800w, images/destinations-crafts/padmanabhaswamy-temple-161693828-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 4rem), (max-width: 1024px) 42vw, 520px" width="800" height="1200" loading="lazy" alt="Sree Padmanabhaswamy Temple tower in Thiruvananthapuram" />
-            <figcaption>Photograph: Sree Padmanabhaswamy Temple tower in Thiruvananthapuram.<br />Shots by Karthik S.P · CC BY 4.0 · <a href="media-credits.html#padmanabhaswamy-temple-161693828">Credit &amp; source</a></figcaption></figure>
-            <div class="heritage-info"><h3>Padmanabhaswamy Temple</h3><p>A temple dedicated to Lord Vishnu in Thiruvananthapuram.</p><div class="heritage-links"><a href="https://www.keralatourism.org/destination/padmanabha-swamy-temple-thiruvananthapuram/13/" target="_blank" rel="noopener noreferrer">Learn more · Kerala Tourism ↗ (opens in a new tab)</a></div></div></div>
-<div class="landmark-item heritage-media-card reveal" data-media-id="varkala-cliff-121378838">
-            <figure class="heritage-photo"><img src="images/destinations-crafts/varkala-cliff-121378838-800.webp" srcset="images/destinations-crafts/varkala-cliff-121378838-480.webp 480w, images/destinations-crafts/varkala-cliff-121378838-800.webp 800w, images/destinations-crafts/varkala-cliff-121378838-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 4rem), (max-width: 1024px) 42vw, 520px" width="800" height="1200" loading="lazy" alt="View from Varkala cliff over the beach and Arabian Sea" />
-            <figcaption>Photograph: View from Varkala cliff over the beach and Arabian Sea.<br />Ganesh Mohan T · CC BY-SA 4.0 · <a href="media-credits.html#varkala-cliff-121378838">Credit &amp; source</a></figcaption></figure>
-            <div class="heritage-info"><h3>Varkala Cliff</h3><p>Coastal cliffs overlooking the beach and Arabian Sea at Varkala.</p><div class="heritage-links"><a href="https://www.keralatourism.org/video-gallery/varkala-beach-kerala/1551/" target="_blank" rel="noopener noreferrer">External video · Kerala Tourism ↗ (opens in a new tab)</a></div></div></div>
-<div class="landmark-item heritage-media-card reveal" data-media-id="munnar-tea-gardens-68764763">
-            <figure class="heritage-photo"><img src="images/destinations-crafts/munnar-tea-gardens-68764763-800.webp" srcset="images/destinations-crafts/munnar-tea-gardens-68764763-480.webp 480w, images/destinations-crafts/munnar-tea-gardens-68764763-800.webp 800w, images/destinations-crafts/munnar-tea-gardens-68764763-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 4rem), (max-width: 1024px) 42vw, 520px" width="800" height="259" loading="lazy" alt="Panorama of tea plantations in Munnar" />
-            <figcaption>Photograph: Panorama of tea plantations in Munnar.<br />IM3847 · CC BY-SA 4.0 · <a href="media-credits.html#munnar-tea-gardens-68764763">Credit &amp; source</a></figcaption></figure>
-            <div class="heritage-info"><h3>Munnar Tea Gardens</h3><p>Tea plantations spread across the hills of Munnar in Idukki district.</p><div class="heritage-links"><a href="https://www.keralatourism.org/destination/munnar/202/" target="_blank" rel="noopener noreferrer">Learn more · Kerala Tourism ↗ (opens in a new tab)</a></div></div></div>
-<div class="landmark-item heritage-media-card reveal" data-media-id="fort-kochi-162909249">
-            <figure class="heritage-photo"><img src="images/destinations-crafts/fort-kochi-162909249-800.webp" srcset="images/destinations-crafts/fort-kochi-162909249-480.webp 480w, images/destinations-crafts/fort-kochi-162909249-800.webp 800w, images/destinations-crafts/fort-kochi-162909249-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 4rem), (max-width: 1024px) 42vw, 520px" width="800" height="530" loading="lazy" alt="Chinese fishing nets at sunset in Fort Kochi" />
-            <figcaption>Photograph: Chinese fishing nets at sunset in Fort Kochi.<br />Rangan Datta Wiki · CC BY-SA 4.0 · <a href="media-credits.html#fort-kochi-162909249">Credit &amp; source</a></figcaption></figure>
-            <div class="heritage-info"><h3>Fort Kochi</h3><p>Explore the historic waterfront and Chinese fishing nets of Fort Kochi.</p><div class="heritage-links"><a href="https://www.keralatourism.org/destination/fort-kochi/422/" target="_blank" rel="noopener noreferrer">Learn more · Kerala Tourism ↗ (opens in a new tab)</a></div></div></div>
-</div>
-</div>
-    </section>
-
-    <!-- ========== Handicrafts & GI Products ========== -->
-    <section class="products section-pad" id="products">
-      <div class="container">
-        <div class="reveal">
-          <span class="section-label">Heritage Crafts</span>
-          <h2 class="section-title">Handicrafts &amp; GI Products</h2>
-          <p class="section-subtitle">
-            Kerala's artisans have perfected unique crafts over centuries — many now
-            protected with Geographical Indication status.
-          </p>
-        </div>
-        <p class="culture-media-note">Kerala heritage images, separate from SHEMA events. No endorsement or product certification is implied. <a href="media-credits.html">Credits and licenses</a>.</p>
-<div class="products-grid">
-<div class="product-item heritage-media-card reveal" data-media-id="aranmula-kannadi-101277121">
-            <figure class="heritage-photo"><img src="images/destinations-crafts/aranmula-kannadi-101277121-800.webp" srcset="images/destinations-crafts/aranmula-kannadi-101277121-480.webp 480w, images/destinations-crafts/aranmula-kannadi-101277121-800.webp 800w, images/destinations-crafts/aranmula-kannadi-101277121-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 4rem), (max-width: 1024px) 42vw, 520px" width="800" height="533" loading="lazy" alt="Aranmula metal-alloy mirrors on display" />
-            <figcaption>Photograph: Aranmula metal-alloy mirrors on display.<br />Prasanth Prakash · CC BY-SA 4.0 · <a href="media-credits.html#aranmula-kannadi-101277121">Credit &amp; source</a></figcaption></figure>
-            <div class="heritage-info"><h3>Aranmula Kannadi</h3><p>Handmade metal-alloy mirrors from Aranmula in Pathanamthitta.</p><div class="heritage-links"><a href="https://www.keralatourism.org/kerala-article/2009/mirror-aranmula/13" target="_blank" rel="noopener noreferrer">Learn more · Kerala Tourism ↗ (opens in a new tab)</a> <a href="https://www.keralatourism.org/video-gallery/aranmula-kannadi-pathanamthitta/1516/" target="_blank" rel="noopener noreferrer">External video · Kerala Tourism ↗ (opens in a new tab)</a></div></div></div>
-<div class="product-item heritage-media-card reveal" data-media-id="kasaragod-sarees-96010319">
-            <figure class="heritage-photo"><img src="images/destinations-crafts/kasaragod-sarees-96010319-800.webp" srcset="images/destinations-crafts/kasaragod-sarees-96010319-480.webp 480w, images/destinations-crafts/kasaragod-sarees-96010319-800.webp 800w, images/destinations-crafts/kasaragod-sarees-96010319-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 4rem), (max-width: 1024px) 42vw, 520px" width="800" height="533" loading="lazy" alt="Inside a saree weaving centre in Kasaragod; not a finished saree photograph" />
-            <figcaption>Photograph: Inside a saree weaving centre in Kasaragod; not a finished saree photograph.<br />Ajeeshkumar4u · CC BY-SA 4.0 · <a href="media-credits.html#kasaragod-sarees-96010319">Credit &amp; source</a></figcaption></figure>
-            <div class="heritage-info"><h3>Kasaragod Sarees</h3><p>Traditional handloom sarees associated with the weaving communities of Kasaragod.</p><div class="heritage-links"><a href="https://www.keralatourism.org/destination/udayagiri-kasaragod-saree-unexplored/788/" target="_blank" rel="noopener noreferrer">Learn more · Kerala Tourism ↗ (opens in a new tab)</a></div></div></div>
-<div class="product-item heritage-media-card reveal" data-media-id="malabar-pepper-151971300">
-            <figure class="heritage-photo"><img src="images/destinations-crafts/malabar-pepper-151971300-800.webp" srcset="images/destinations-crafts/malabar-pepper-151971300-480.webp 480w, images/destinations-crafts/malabar-pepper-151971300-800.webp 800w, images/destinations-crafts/malabar-pepper-151971300-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 4rem), (max-width: 1024px) 42vw, 520px" width="800" height="800" loading="lazy" alt="Tellicherry black peppercorns from Kerala, shown as an illustration; GI-certified Malabar provenance is not established" />
-            <figcaption>Photograph: Tellicherry black peppercorns from Kerala, shown as an illustration; GI-certified Malabar provenance is not established.<br />Misterneedlemouse · CC0 · <a href="media-credits.html#malabar-pepper-151971300">Credit &amp; source</a></figcaption></figure>
-            <div class="heritage-info"><h3>Malabar Pepper</h3><p>Discover Kerala’s pepper heritage and the Malabar Pepper geographical indication. The photograph does not certify a product’s provenance.</p><div class="heritage-links"><a href="https://www.indianspices.com/spice-catalog/pepper-1.html" target="_blank" rel="noopener noreferrer">Learn about pepper · Spices Board ↗ (opens in a new tab)</a> <a href="https://indianspices.com/sites/default/files/GI_Guidelines_for_release.pdf" target="_blank" rel="noopener noreferrer">GI guidelines · Spices Board ↗ (opens in a new tab)</a></div></div></div>
-<div class="product-item heritage-media-card reveal" data-media-id="alleppey-coir-137695846">
-            <figure class="heritage-photo"><img src="images/destinations-crafts/alleppey-coir-137695846-800.webp" srcset="images/destinations-crafts/alleppey-coir-137695846-480.webp 480w, images/destinations-crafts/alleppey-coir-137695846-800.webp 800w, images/destinations-crafts/alleppey-coir-137695846-1024.webp 1024w" sizes="(max-width: 480px) calc(100vw - 4rem), (max-width: 1024px) 42vw, 520px" width="800" height="600" loading="lazy" alt="Coir rope exhibit at the International Coir Museum in Alappuzha; not certified goods" />
-            <figcaption>Photograph: Coir rope exhibit at the International Coir Museum in Alappuzha; not certified goods.<br />Vis M · CC BY-SA 4.0 · <a href="media-credits.html#alleppey-coir-137695846">Credit &amp; source</a></figcaption></figure>
-            <div class="heritage-info"><h3>Alleppey Coir</h3><p>Coconut-fibre craft and industry in Alappuzha, also known as Alleppey. The museum exhibit does not establish GI certification.</p><div class="heritage-links"><a href="https://www.keralatourism.org/shopping-options/strength-and-skill-coir-manufacturing-alappuzha/37/" target="_blank" rel="noopener noreferrer">Learn more · Kerala Tourism ↗ (opens in a new tab)</a></div></div></div>
-</div>
-</div>
-    </section>
-
-    <!-- ========== CTA / Join Section ========== -->
-    <section class="cta-section section-pad" id="contact">
-      <div class="container">
-        <div class="cta-content reveal">
-          <h2>Join the SHEMA Community</h2>
-          <p class="cta-subtitle">ഷെമ കമ്മ്യൂണിറ്റിയിൽ ചേരൂ</p>
-          <p>
-            Whether you're a Malayalee family in Shepparton or someone who loves Kerala's culture,
-            we welcome you to be part of our vibrant community.
-          </p>
-          <div class="cta-membership">
-            Membership: <strong>$50 / year</strong> per family<br />
-            <small>Access to all events, community support, and a shared cultural home.</small>
-          </div>
-          <div class="cta-buttons">
-            <a href="https://smaregistry.vercel.app/" target="_blank" rel="noopener noreferrer nofollow" class="btn-white">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-              Become a Member
-            </a>
-            <a href="mailto:sheppartonmc@gmail.com" class="btn-ghost">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </template>
 
   </main>
-
-  <!-- ========== Footer ========== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#hero" class="nav-logo">
-            <img src="images/optimized/shema-logo-120.webp" alt="SHEMA Logo" class="logo-img" width="44" height="44" loading="lazy" />
-            SHEMA
-          </a>
-          <p>
-            Shepparton Malayalee Association (SHEMA) Inc. — Celebrating Kerala's heritage,
-            fostering community connection and enriching multicultural Shepparton since 2016.
-          </p>
-        </div>
-        <div>
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#about">About SHEMA</a></li>
-            <li><a href="#kerala">Kerala Heritage</a></li>
-            <li><a href="#highlights">Gallery</a></li>
-            <li><a href="#events">Events</a>
-          <a href="#contact">Membership &amp; Contact</a></li>
-            <li><a href="#culture">Culture</a></li>
-            <li><a href="#community">Community</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="#landmarks">Landmarks</a></li>
-            <li><a href="#products">Handicrafts</a></li>
-            <li><a href="#video">Intro Video</a></li>
-            <li><a href="https://smaregistry.vercel.app/" target="_blank" rel="noopener noreferrer nofollow">Become a Member</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul class="footer-contact">
-            <li>
-              <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-              <span>Shepparton, Victoria, Australia</span>
-            </li>
-            <li>
-              <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-              <span>sheppartonmc@gmail.com</span>
-            </li>
-            <li>
-              <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-              <span>Greater Shepparton City Council Area</span>
-            </li>
-          </ul>
-        </div>
+  <div class="kasavu-divider kasavu-divider--footer" aria-hidden="true"></div>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <p class="footer-name">Shepparton Malayalee Association (SHEMA) Inc.</p>
+        <p>Greater Shepparton, Victoria · Established 2016</p>
+        <ul class="footer-socials">
+          <li><a href="https://www.facebook.com/sheppartonmc" target="_blank" rel="noopener noreferrer" aria-label="SHEMA on Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/shema_shepparton/" target="_blank" rel="noopener noreferrer" aria-label="SHEMA on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></li>
+          <li><a href="https://www.youtube.com/@sheppartonmalayaleeassocia7817" target="_blank" rel="noopener noreferrer" aria-label="SHEMA on YouTube (opens in a new tab)"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a></li>
+        </ul>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Shepparton Malayalee Association (SHEMA) Inc. All rights reserved. <a href="privacy.html" style="color: var(--brass);">Privacy Policy</a></p>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/sheppartonmc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/shema_shepparton/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@sheppartonmalayaleeassocia7817" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-          </a>
-        </div>
-      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="#events">What's On</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="/gallery.html">Gallery</a></li>
+          <li><a href="/kerala.html">Kerala</a></li>
+          <li><a href="#join">Join</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/media-credits.html">Media credits</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Shepparton Malayalee Association (SHEMA) Inc.</p>
     </div>
   </footer>
-
-  <!-- Event photo gallery modal. Approved event images will be inserted into the grid. -->
-  <div class="event-gallery-modal" id="eventGalleryModal" role="dialog" aria-modal="true" aria-labelledby="eventGalleryTitle" hidden>
-    <div class="event-gallery-dialog">
-      <button class="event-gallery-close" id="eventGalleryClose" type="button" aria-label="Close photo gallery">&times;</button>
-      <p class="section-label">Event Gallery</p>
-      <h2 id="eventGalleryTitle">Voice of Vineeth Sreenivasan Live</h2>
-      <div class="event-gallery-grid" id="eventGalleryGrid"></div>
-      <p class="event-gallery-empty" id="eventGalleryEmpty">No photographs are available in this gallery yet. You can watch the event using the Facebook link on the event card.</p>
-    </div>
-  </div>
-
-  <!-- Back to top -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
-
-  <!-- ========== JavaScript ========== -->
-  <script src="script.js" defer></script>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 </body>
 </html>

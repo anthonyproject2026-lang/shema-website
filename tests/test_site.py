@@ -45,9 +45,11 @@ class ShemaSiteTests(unittest.TestCase):
         cls.links = LinkParser()
         cls.links.feed(cls.html)
 
-    def test_prime_events_section_replaces_upcoming_events(self):
-        self.assertIn("Prime Events of the Year", self.html)
-        self.assertIn("Moments to Remember", self.html)
+    def test_events_split_into_coming_up_and_past_events(self):
+        # Redesign (2026-11): "Prime Events of the Year" became "Coming up" + "Past events".
+        self.assertIn(">Coming up<", self.html)
+        self.assertIn(">Past events<", self.html)
+        self.assertIn("Next event to be announced", self.html)
         self.assertNotIn("Upcoming Events", self.html)
         self.assertNotIn("Previous Events", self.html)
 
@@ -83,21 +85,19 @@ class ShemaSiteTests(unittest.TestCase):
         self.assertNotRegex(self.html, r"<iframe[^>]+facebook\.com")
         self.assertNotRegex(self.html, r"<script[^>]+facebook\.com")
 
-    def test_voice_event_has_local_photo_gallery_hook(self):
-        self.assertRegex(
-            self.html,
-            r'data-event-gallery="voice-vineeth"',
-        )
-        self.assertIn('id="eventGalleryModal"', self.html)
-        self.assertIn('id="eventGalleryClose"', self.html)
-        self.assertIn("setupEventGallery", self.script)
+    def test_unfinished_placeholders_are_not_public(self):
+        # Redesign (2026-11): the empty "Photo availability" gallery and its modal were removed.
+        for page in ROOT.glob("*.html"):
+            text = page.read_text(encoding="utf-8")
+            with self.subTest(page=page.name):
+                self.assertNotIn("Photo availability", text)
+                self.assertNotIn("after approval", text)
+                self.assertNotIn("eventGalleryModal", text)
 
-    def test_historical_leadership_section_is_present(self):
-        self.assertIn("Leadership Through the Years", self.html)
-        self.assertIn(
-            "Celebrating a Decade of Service, Dedication &amp; Community Leadership",
-            self.html,
-        )
+    def test_historical_leadership_section_is_hidden_until_approved(self):
+        # Redesign (2026-11): hidden until the committee approves portraits and service years.
+        self.assertNotIn("Leadership Through the Years", self.html)
+        self.assertNotIn('id="leadership-history"', self.html)
 
     def test_unsecured_admin_panel_is_not_deployed(self):
         for filename in ("admin.html", "admin.css", "admin.js"):
