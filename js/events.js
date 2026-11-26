@@ -235,12 +235,10 @@
 
   function linkButton(link, title, extraClass) {
     var label = link.label;
-    var aria = link.kind === 'video' && /facebook\.com/.test(link.url)
-      ? (label === 'Watch on Facebook' ? 'Watch ' + title + ' on Facebook' : label + ' for ' + title + ' on Facebook')
-      : label + ' – ' + title;
+    /* the visible label comes first so the accessible name contains it (WCAG 2.5.3) */
     return el('a', {
       class: 'btn btn--sm ' + (extraClass || 'btn--outline'), href: link.url, target: '_blank',
-      rel: 'noopener noreferrer', 'aria-label': aria + ' (opens in a new tab)', text: label
+      rel: 'noopener noreferrer', 'aria-label': label + ': ' + title + ' (opens in a new tab)', text: label
     });
   }
 
@@ -256,7 +254,7 @@
       (ev.links || []).length ? actions : null
     ]);
     var card = el('article', { class: 'event-card event-memory-card reveal', id: 'event-' + ev.id, 'data-category': ev.category },
-      [tilePicture(ev, '(max-width: 700px) 100vw, 360px'), body]);
+      [tilePicture(ev, '(max-width: 700px) 112px, 200px'), body]);
     return card;
   }
 
@@ -285,12 +283,12 @@
     lines.push(el('p', { class: 'event-desc', text: ev.description }));
     var actions = el('div', { class: 'event-actions' });
     if (!status) {
-      var ics = el('button', { type: 'button', class: 'btn btn--sm btn--outline', text: 'Add to calendar', 'aria-label': 'Add ' + ev.title + ' to your calendar (.ics file)' });
+      var ics = el('button', { type: 'button', class: 'btn btn--sm btn--outline', text: 'Add to calendar', 'aria-label': 'Add to calendar: ' + ev.title + ' (.ics file)' });
       ics.addEventListener('click', function () { downloadIcs(ev); });
       actions.appendChild(ics);
       actions.appendChild(el('a', {
         class: 'btn btn--sm btn--outline', href: googleLink(ev), target: '_blank', rel: 'noopener noreferrer',
-        text: 'Google Calendar', 'aria-label': 'Add ' + ev.title + ' to Google Calendar (opens in a new tab)'
+        text: 'Google Calendar', 'aria-label': 'Google Calendar: ' + ev.title + ' (opens in a new tab)'
       }));
     }
     (ev.links || []).forEach(function (l) {

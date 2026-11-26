@@ -196,6 +196,7 @@ main:focus { outline: none; }
   .js .nav-links.is-open { display: flex; }
   .js .nav-links a { min-height: 48px; font-size: 1.0625rem; padding: 0 var(--s2); }
 }
+@media (max-width: 960px) { html:not(.js) .site-header { position: static; } }
 @media (max-width: 380px) {
   .brand-name { font-size: 1.125rem; }
   .header-join { padding-inline: 14px; }
@@ -258,7 +259,7 @@ main:focus { outline: none; }
 .date-badge-day { font-family: var(--ff-display); font-size: 1.75rem; line-height: 1; font-weight: 700; }
 .date-badge-month { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; }
 .event-chips { display: flex; gap: var(--s1); flex-wrap: wrap; }
-.event-venue { color: var(--ink-600); }
+.event-venue { color: var(--ink-600); font-size: 1rem; }
 @media (max-width: 700px) {
   .upcoming-card { grid-template-columns: 1fr; }
   .upcoming-media .event-media img { aspect-ratio: 16 / 9; }
@@ -329,7 +330,7 @@ main:focus { outline: none; }
 .chip--status { background: var(--cream-200); color: var(--ink-900); border: 1px solid var(--ink-600); }
 /* Compact horizontal cards: tile on the left (keeps the home page short) */
 .event-card { width: calc((100% - var(--gap)) / 2); display: grid; grid-template-columns: 200px 1fr; }
-.event-card .event-media { background: var(--green-900); }
+.event-card .event-media { background: var(--green-900); display: flex; align-items: center; }
 .event-card .event-media img { aspect-ratio: 4 / 3; }
 .event-card .event-body { padding: 20px; gap: 6px; }
 .event-head { display: flex; align-items: center; gap: 12px; }

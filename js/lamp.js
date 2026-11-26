@@ -216,7 +216,7 @@
     } catch (e) {
       this.flame = null;
     }
-    this.setLit(this.wantLit, true);
+    this.setLit(this.wantLit, !this.wantLit);
     this.buildFullToolbar();
     this.notes.forEach(function (note) {
       var b = note.querySelector('.lamp-show');
