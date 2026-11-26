@@ -1,7 +1,8 @@
 /* "Light the lamp": interactive 3D nilavilakku (model built in Blender, tools/blender/build_lamp.py).
    - Nothing 3D is downloaded until activation:
        data-activate="click"   (home page)  -> on "Light the lamp" / "Explore in 3D"
-       data-activate="visible" (kerala.html) -> when within 400px of the viewport (click if Save-Data)
+       data-activate="visible" (kerala.html) -> when within 400px of the viewport on desktop;
+                                                 click mode on phones (<= 900px) and with Save-Data
    - Viewer: Google <model-viewer> 4.4.0 (Apache-2.0), vendored, loaded with Subresource Integrity.
    - No JS / no WebGL: the Blender still and the numbered notes remain (they are plain HTML).
    - prefers-reduced-motion: flames never flicker, camera moves are instant. */
@@ -98,7 +99,9 @@
     this.wantLit = false;
     this.state = 'idle';
     this.mode = section.getAttribute('data-activate') || 'click';
-    if (this.mode === 'visible' && navigator.connection && navigator.connection.saveData) this.mode = 'click';
+    /* Phones and Save-Data users choose when to download the ~280 KB (compressed) viewer. */
+    var smallScreen = window.matchMedia('(max-width: 900px)').matches;
+    if (this.mode === 'visible' && ((navigator.connection && navigator.connection.saveData) || smallScreen)) this.mode = 'click';
     this.buildIdleToolbar();
     if (this.mode === 'visible') this.watch();
   }
